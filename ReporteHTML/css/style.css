@@ -1,0 +1,103 @@
+body { 
+	background: #e8e6de; 
+	font-family: sans-serif; }
+h1 { 
+	font-size: 26px; 
+	color: #353a3e; 
+	border-bottom: 1px solid #f31f1f; 
+	padding: 12px; }
+.cont_prin { 
+	width: 80%; 
+	height: auto; 
+	float: left; 
+	margin: 0 10%; 
+	padding: 3%; 
+	background: #fff; 
+	border-radius: 7px; }
+.banner img {
+	width: 250px; }
+.cont_sec { 
+	width: 100%; 
+	height: auto; 
+	padding: 3%; 
+	float: left; }
+.reporte { 
+	width: 95%; 
+	padding: 2%; 
+	box-sizing: border-box; 
+	height: auto; 
+	font-size: 14px; 
+	text-align: left;
+	float: left; 
+	color: #555; 
+	border: 1px solid #efecec; 
+	background: #fdf5f3; }
+.r_2 { 
+	background: #fff; }
+.reporte span, .r_2 span { 
+	height: 30px; }
+.descripcion { 
+	width: 75%; 
+	height: auto; 
+	float: left;
+	font-weight: bold; }
+.tiempo { 
+	width: 15%; 
+	height: auto; 
+	float: left; 
+	font-weight: bold;}
+.estado { 
+	width: 10%; 
+	float: left; 
+	text-align: left; 
+	font-size: 16px; 
+	color: #088dad; 
+	font-weight: bold;}
+.descripcionDetalle { 
+	width: 75%; 
+	height: auto; 
+	float: left; }
+.tiempoDetalle { 
+	width: 15%; 
+	height: auto; 
+	float: left; }
+.estadoDetalle { 
+	width: 10%; 
+	float: left; 
+	text-align: left; 
+	font-size: 16px; 
+	color: #088dad; }
+.aproved { 
+	color: #41a206; }
+.fail { 
+	color: #ff0000; }
+.caption { 
+	width: 100%; 
+	height: auto; }
+table { 
+	width: 100%;  
+	border: solid 1px #ccc; 
+	margin: 0 auto; 
+	box-sizing: border-box; 
+	text-align: center; 
+	color: #444; }
+td{ 
+	border-right: 1px solid #ccc; 
+	padding: 5px 0px 5px 0px; }
+.n{ 
+	border-right: none; }
+.titulo{ 
+	color: #a51f24; }
+.elementoVisible {
+	display:block; 
+	text-align: left;
+	padding: 10px 10px 10px 10px;
+	color: #ff0000; }
+.elementoOculto {
+	display:none; }
+.linkContraido {
+    cursor: pointer;
+    width: anchopx; }
+.linkExpandido {
+    cursor: pointer;
+    width: anchopx; }
