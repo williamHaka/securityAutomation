@@ -48,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jun 4, 2019 01:31:17 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Jun 5, 2019 04:49:50 PM</span>
 				</a>
 			</li>
 			<li>
@@ -88,8 +88,8 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@tag</a></li>
-					<li><a href='#'>@tag2</a></li>
+					<li><a href='#'>@FormularioDPS</a></li>
+					<li><a href='#'>@completarDPS</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -167,10 +167,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='47.368%'><span class='strong'>9</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='88.889%'><span class='strong'>16</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='5.263%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='47.368%'>9</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='5.556%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='5.556%'>1</span> others
 				</div>
 			</div>
 		</div>
@@ -187,12 +187,12 @@
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Title of your feature</span>
-						<span class='test-time'>Jun 4, 2019 01:31:18 PM</span>
+						<span class='test-time'>Jun 5, 2019 04:49:50 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='fail'>
-	<span class='duration right label'>0h 0m 19s+59ms</span>
+	<span class='duration right label'>0h 6m 50s+922ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
 		<span class="desc-text">Validacion del formulario dps con parametros de entrada</span>
@@ -200,8 +200,8 @@
 	<ul class='steps'>
 		<li test-id='3' class='node scenario fail' status='fail'>
 			<div class='category-list'>
-				<span class='category label white-text'>@tag</span>
-				<span class='category label white-text'>@tag2</span>
+				<span class='category label white-text'>@FormularioDPS</span>
+				<span class='category label white-text'>@completarDPS</span>
 			</div>
 			
 			<b>Scenario</b>
@@ -210,11 +210,11 @@
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given Ingreso a la url</span>
+						<span class="bdd-step-name">Given Ingreso a la url"http://10.62.4.76:8170"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When Ingreso usuario y clave</span>
+						<span class="bdd-step-name">When Ingreso usuario y clave"admin""admin"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='6' class='node and pass' status='pass'><b>And</b>
@@ -245,17 +245,46 @@
 						<span class="bdd-step-name">And Selecciono estado civil"soltero"</span>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='13' class='node and fail' status='fail'><b>And</b>
+					<li test-id='13' class='node and pass' status='pass'><b>And</b>
 						<span class="bdd-step-name">And Selecciono cobertura"vida"</span>
-							<div class='pre'><textarea>org.openqa.selenium.WebDriverException: unknown error: Element <li>...</li> is not clickable at point (105, 668). Other element would receive the click: <span class="hidden-xs">...</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Ingreso renta"2500"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Ingreso prima"2"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Ingreso duracion"15"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Doy click en siguiente</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Acepto termino de conformidad"si"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Ingreso la actividad pUno"Guarda de seguridad - con arma"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And Ingreso riesgos pDos"0""Security""0""45""01-01-2000""""""""""""""""""""""""""""""""100"</span>
+							<div class='pre'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=74.0.3729.169)
   (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 10.0.17763 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 37 milliseconds
+Command duration or timeout: 110 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'LAPTOP-L0GLILBJ', ip: '10.240.45.110', os.name: 'Windows 10', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_211'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\MATIAS~1\AppData\Local\Temp\scoped_dir20656_17782}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=74.0.3729.169, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
-Session ID: 59e535f414952304fcfaeec5a28572ba
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\MATIAS~1\AppData\Local\Temp\scoped_dir16520_5930}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=74.0.3729.169, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 5174ae816948d896fc093ffa657e3599
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -265,43 +294,14 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at cl.security.qaAutomation.definition.FormularioDefinition.selecciono_cobertura(FormularioDefinition.java:101)
-	at ✽.And Selecciono cobertura"vida"(steps/Formulario.feature:16)
-</textarea></div>
-					</li>
-					<li test-id='14' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Ingreso renta"2500"</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='15' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Ingreso prima"2"</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='16' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Ingreso duracion"15"</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='17' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Doy click en siguiente</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='18' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Acepto termino de conformidad""</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='19' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Ingreso la actividad"Guarda de seguridad - con arma"</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='20' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Ingreso riesgos"0"</span>
-							<div class='pre'>skipped</div>
+	at cl.security.qaAutomation.services.FormularioServices.seleccionarFechaCalendar(FormularioServices.java:118)
+	at cl.security.qaAutomation.services.FormularioServices.ingresarRadiacionIonizante(FormularioServices.java:104)
+	at cl.security.qaAutomation.services.FormularioServices.ingresarRiesgosDps(FormularioServices.java:71)
+	at cl.security.qaAutomation.definition.FormularioDefinition.ingreso_riesgos_pDos(FormularioDefinition.java:124)
+	at ✽.And Ingreso riesgos pDos"0""Security""0""45""01-01-2000""""""""""""""""""""""""""""""""100"(steps/Formulario.feature:23)
+</pre></div>
 					</li>
 					<li test-id='21' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And Ingreso respuesta de rescatista o voluntario"no"</span>
-							<div class='pre'>skipped</div>
-					</li>
-					<li test-id='22' class='node and skip' status='skip'><b>And</b>
 						<span class="bdd-step-name">And Doy click en siguiente</span>
 							<div class='pre'>skipped</div>
 					</li>
@@ -363,7 +363,7 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@tag</span>
+						<span class='category-name'>@FormularioDPS</span>
 						<span class='category-status right'>
 							<span class='label fail'>2</span>
 						</span>
@@ -386,12 +386,12 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jun 4, 2019 01:31:18 PM</td>
+										<td>Jun 5, 2019 04:49:50 PM</td>
 										<td class='linked' test-id='1'>Title of your feature</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Jun 4, 2019 01:31:18 PM</td>
+										<td>Jun 5, 2019 04:49:50 PM</td>
 										<td class='linked' test-id='3'>Title of your feature.Validacion del formulario dps con parametros de entrada.Validacion del formulario dps con parametros de entrada</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
@@ -402,7 +402,7 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@tag2</span>
+						<span class='category-name'>@completarDPS</span>
 						<span class='category-status right'>
 							<span class='label fail'>1</span>
 						</span>
@@ -425,7 +425,7 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jun 4, 2019 01:31:18 PM</td>
+										<td>Jun 5, 2019 04:49:50 PM</td>
 										<td class='linked' test-id='3'>Title of your feature.Validacion del formulario dps con parametros de entrada.Validacion del formulario dps con parametros de entrada</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
@@ -473,7 +473,7 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
+                                <span class='exception-name'>org.openqa.selenium.StaleElementReferenceException</span>
                                 <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
                             </div>
                             <div class='exception-content hide'>
@@ -488,17 +488,18 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Jun 4, 2019 01:31:36 PM</td>
-                                                        <td class='linked' test-id='13'>Title of your feature.Validacion del formulario dps con parametros de entrada.Validacion del formulario dps con parametros de entrada.And Selecciono cobertura"vida"</td>
-                                                        <td><pre><textarea>org.openqa.selenium.WebDriverException: unknown error: Element <li>...</li> is not clickable at point (105, 668). Other element would receive the click: <span class="hidden-xs">...</span>
+                                                        <td>Jun 5, 2019 04:50:04 PM</td>
+                                                        <td class='linked' test-id='20'>Title of your feature.Validacion del formulario dps con parametros de entrada.Validacion del formulario dps con parametros de entrada.And Ingreso riesgos pDos"0""Security""0""45""01-01-2000""""""""""""""""""""""""""""""""100"</td>
+                                                        <td><pre><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=74.0.3729.169)
   (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 10.0.17763 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 37 milliseconds
+Command duration or timeout: 110 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'LAPTOP-L0GLILBJ', ip: '10.240.45.110', os.name: 'Windows 10', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_211'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\MATIAS~1\AppData\Local\Temp\scoped_dir20656_17782}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=74.0.3729.169, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
-Session ID: 59e535f414952304fcfaeec5a28572ba
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\MATIAS~1\AppData\Local\Temp\scoped_dir16520_5930}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=74.0.3729.169, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 5174ae816948d896fc093ffa657e3599
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -508,9 +509,12 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at cl.security.qaAutomation.definition.FormularioDefinition.selecciono_cobertura(FormularioDefinition.java:101)
-	at ✽.And Selecciono cobertura"vida"(steps/Formulario.feature:16)
-</textarea></pre></td>
+	at cl.security.qaAutomation.services.FormularioServices.seleccionarFechaCalendar(FormularioServices.java:118)
+	at cl.security.qaAutomation.services.FormularioServices.ingresarRadiacionIonizante(FormularioServices.java:104)
+	at cl.security.qaAutomation.services.FormularioServices.ingresarRiesgosDps(FormularioServices.java:71)
+	at cl.security.qaAutomation.definition.FormularioDefinition.ingreso_riesgos_pDos(FormularioDefinition.java:124)
+	at ✽.And Ingreso riesgos pDos"0""Security""0""45""01-01-2000""""""""""""""""""""""""""""""""100"(steps/Formulario.feature:23)
+</pre></pre></td>
                                                     </tr>
                                         </tbody>
                                     </table>
@@ -548,25 +552,25 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>19</div>
+					<div class='panel-lead'>18</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jun 4, 2019 01:31:17 PM</div>
+					<div class='panel-lead'>Jun 5, 2019 04:49:50 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jun 4, 2019 01:31:37 PM</div>
+			 		<div class='panel-lead'>Jun 5, 2019 04:56:41 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>19,169ms</div>
+					<div class='panel-lead'>411,017ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -582,7 +586,7 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@tag</td>
+							<td>@FormularioDPS</td>
 							<td>0</td>
 							<td>2</td>
 							<td>0</td>
@@ -591,7 +595,7 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 							</td>
 						</tr>
 						<tr>
-							<td>@tag2</td>
+							<td>@completarDPS</td>
 							<td>0</td>
 							<td>1</td>
 							<td>0</td>
@@ -629,14 +633,14 @@ Session ID: 59e535f414952304fcfaeec5a28572ba
 				infoChild: 0,
 				exceptionsChild: 1,
 				
-				passGrandChild: 9,
+				passGrandChild: 16,
 				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 9,
+				skipGrandChild: 1,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 10,
+				exceptionsGrandChild: 2,
 			};
 		</script>
 		

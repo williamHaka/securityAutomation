@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = {"@tag2"}
+		tags = {"@completarDPS"}
 		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoFormulario.html" }
 )
 public class FormularioStageSet extends StageSet{

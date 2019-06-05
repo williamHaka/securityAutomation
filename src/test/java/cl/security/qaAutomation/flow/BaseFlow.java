@@ -50,12 +50,9 @@ public class BaseFlow {
 	    
 	}
 	    
-	    
-	  //pageComponentCart = PageFactory.initElements(driver,PageComponentCart.class);
-
 	@AfterClass
 	public static void setUpFinal() throws Exception {
-	driver.quit();
+//		driver.quit();
 	}
 
 	public static void setDriverDesa() throws Exception {
