@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class FormularioModel {
+public class NuevaPropuestaModel {
 	
 	@FindBy(how = How.ID, using = "username") 
 	private WebElement username;

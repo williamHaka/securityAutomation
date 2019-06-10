@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.services.FormularioServices;
+import cl.security.qaAutomation.utils.GenericMethod;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
@@ -113,30 +114,14 @@ public class FormularioDefinition {
 	
 	@When("^Ingreso la actividad pUno\"([^\"]*)\"$")
 	public void ingreso_la_actividad_pUno(String actividad) throws Throwable {
-		//craer funcion para texto sugerido
-	    WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
-	    txtActividad.sendKeys(actividad);
-	    txtActividad.sendKeys(Keys.ENTER);
+		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
+		GenericMethod.ingresarTextoSugerido(txtActividad, actividad);
 	}
-
-	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
-	public void ingreso_riesgos_pDos(String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas, String conCualesTrabaja, String trabajaCon, String tipoRadiacion, String otraRadiacion, String medidasSeguridadDisponibles, String controlandoRadiacion, String sobrepasadoLimiteRadiacion, String frecuencia, String ultimaVez, String queValores, String tratamientoMedico, String cuando, String razon, String consecuenciasSufridas, String hhAnuales) throws Throwable {
-		FormularioServices.ingresarRiesgosDps(riesgo, nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas, conCualesTrabaja, trabajaCon, tipoRadiacion, otraRadiacion, medidasSeguridadDisponibles, controlandoRadiacion, sobrepasadoLimiteRadiacion, frecuencia, ultimaVez, queValores, tratamientoMedico, cuando, razon, consecuenciasSufridas, hhAnuales);
-	}
-
 	
-	@When("^Ingreso respuesta de rescatista o voluntario pTres\"([^\"]*)\"$")
-	public void ingreso_respuesta_de_rescatista_o_voluntario_pTres(String rescatistaVoluntario) throws Throwable {
-		List<WebElement> radioRescatista =  BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'yes-no-container')]"));
-		switch (rescatistaVoluntario.toLowerCase().trim()) {
-			case "s":
-				radioRescatista.get(0).click();
-				break;
-			case "n":
-				radioRescatista.get(1).click();
-				break;
-			default:
-				break;
-		}
+
+
+	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_riesgos_pDos(String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas,String conCualesTrabaja,	 String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo, String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias,String medidasSeguridadDisponibles, String controlImpactoRadiacion, String sobrepasadoLimiteRadiacion, String conQueFrecuencia, String ultimaVez, String queValores, String tratamientoMedicoRadiacion, String cuando , String cualFueRazon, String consecuenciasSufridas) throws Throwable {
+		FormularioServices.ingresarRiesgosDps(riesgo, nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas, conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando, cualFueRazon, consecuenciasSufridas);
 	}
 }

@@ -7,9 +7,11 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = {"@completarDPS"}
-		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoFormulario.html" }
+		tags = {
+				"@NuevaPropuestaTC1,@P1TC2,@P2TC2"
+		}
+		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
-public class FormularioStageSet extends StageSet{
+public class TC1StageSet extends StageSet{
 
 }

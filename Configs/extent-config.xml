@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+  <configuration>
+    <!-- report theme --> <!-- standard, dark -->
+    <theme>standard</theme>
+  
+    <!-- document encoding -->  <!-- defaults to UTF-8 -->
+    <encoding>UTF-8</encoding>
+    
+    <!-- protocol for script and stylesheets -->   <!-- defaults to https -->
+    <protocol>https</protocol>
+    
+    <!-- title of the document -->
+    <documentTitle>Reporte Cencosud</documentTitle>
+    
+    <!-- report name - displayed at top-nav -->
+    <reportName>
+	    <image id="image-zoom">
+			<!-- RUTA DE IMAGEN -->
+			<![CDATA[<img id ="icon-logo" class="icon-logo" src='bchIcon.png'>]]>
+		</image>
+		Reporte Qa Automation Cencosud Genesis
+    </reportName>
+    
+	
+    <!-- global date format override -->  <!-- defaults to yyyy-MM-dd -->
+    <dateFormat>yyyy-MM-dd</dateFormat>
+    
+    <!-- global time format override -->   <!-- defaults to HH:mm:ss -->
+    <timeFormat>HH:mm:ss</timeFormat>
+    
+     <!-- location of charts in the test view -->
+        <!-- top, bottom -->
+    <testViewChartLocation>bottom</testViewChartLocation>
+    
+    <!-- custom javascript -->
+    <scripts>
+      <![CDATA[
+        $(document).ready(function() {
+			$('.given > b:first-child').html('Dado');
+			$('.when > b:first-child').html('Cuando');
+			$('.then > b:first-child').html('Entonces');
+			$('.and > b:first-child').html('Y');
+            $('body > nav > div > a').hide();
+        });
+      ]]>
+     <!--  var escenario = $('.scenario node');
+            $.each(escenario[i].description, function (index, value)
+                    {
+                        if(index == lang)
+                        {
+                            option += value;
+                        }
+                    }); -->
+    </scripts>
+    <!-- report name - displayed at top-nav -->
+    
+    <!-- custom styles -->
+    <styles>
+      <![CDATA[
+        .report-name { padding-left: 10px; } .report-name > img { float: left;height: 100%;width: auto; }
+        .nav-wrapper { background: #0431B4; } 
+      ]]>
+    </styles>
+  </configuration>
+</extentreports>
