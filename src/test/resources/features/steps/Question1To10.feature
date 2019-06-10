@@ -123,3 +123,16 @@ Feature: Ingresar respuestas de formulario DPS
 ##   Examples: Ingreso riesgo ninguno de los anteriores
 ##     | riesgos                  | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja | trabajaCon | tipoRadiacion |
 ##     | "ningunodelosanteriores" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""         | ""            |
+
+
+ @executeAuth
+  Scenario: Title of your scenario
+    When execute endpoint Auth
+   
+ 	@executeApplication
+  Scenario: Title of your scenario
+    When execute endpoint application
+    
+  @executeResult
+  Scenario: Title of your scenario
+    When execute endpoint result

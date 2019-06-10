@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import cl.security.qaAutomation.flow.BaseFlow;
+import cl.security.qaAutomation.services.EndPointServices;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.GenericMethod;
 import cucumber.api.java.en.Given;
@@ -22,7 +23,9 @@ public class FormularioDefinition {
 
 	@When("^Ingreso usuario y clave\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_usuario_y_clave(String user, String pass) throws Throwable {
-	   FormularioServices.loginCompass(user, pass);
+		BaseFlow.endpointModel.setUser(user);
+		BaseFlow.endpointModel.setPassword(pass);
+		FormularioServices.loginCompass(user, pass);
 	}
 
 	@When("^Doy click en nueva propuesta$")
@@ -33,6 +36,7 @@ public class FormularioDefinition {
 
 	@When("^Ingreso nombre de la nueva propuesta\"([^\"]*)\"$")
 	public void ingreso_nombre_de_la_nueva_propuesta(String nombre) throws Throwable {
+		BaseFlow.endpointModel.setIdPropuesta(nombre);
 	   BaseFlow.pageModel.getTxtNuevaPropuesta().sendKeys(nombre);
 	   Thread.sleep(2000);
 	}
@@ -123,5 +127,24 @@ public class FormularioDefinition {
 	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_riesgos_pDos(String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas,String conCualesTrabaja,	 String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo, String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias,String medidasSeguridadDisponibles, String controlImpactoRadiacion, String sobrepasadoLimiteRadiacion, String conQueFrecuencia, String ultimaVez, String queValores, String tratamientoMedicoRadiacion, String cuando , String cualFueRazon, String consecuenciasSufridas) throws Throwable {
 		FormularioServices.ingresarRiesgosDps(riesgo, nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas, conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando, cualFueRazon, consecuenciasSufridas);
+	}
+	
+	
+	
+
+	@When("^execute endpoint Auth$")
+	public void execute_endpoint_Auth() throws Throwable {
+		BaseFlow.endpointModel = EndPointServices.authPost(BaseFlow.endpointModel);
+	}
+
+	@When("^execute endpoint application$")
+	public void execute_endpoint_application() throws Throwable {
+		BaseFlow.endpointModel = EndPointServices.applicationGet(BaseFlow.endpointModel);
+	}
+
+	@When("^execute endpoint result$")
+	public void execute_endpoint_result() throws Throwable {
+		EndPointServices.getResult(BaseFlow.endpointModel);
+		//TODO falta validar lo esperado con lo obtenido
 	}
 }

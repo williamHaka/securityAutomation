@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = {
-				"@NuevaPropuestaTC1,@P1TC2,@P2TC2"
+				"@NuevaPropuestaTC1,@P1TC2,@P2TC2,@executeAuth,@executeApplication,@executeResult"
 		}
 		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )

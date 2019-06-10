@@ -18,6 +18,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
 import org.openqa.selenium.support.PageFactory;
 
+import cl.security.qaAutomation.model.EndPointModel;
 import cl.security.qaAutomation.model.NuevaPropuestaModel;
 
 @RunWith(Suite.class)
@@ -27,6 +28,7 @@ public class BaseFlow {
 	public static WebDriver driver;
 	public static SessionId session;
 	public static NuevaPropuestaModel pageModel;
+	public static EndPointModel endpointModel;
 	static DesiredCapabilities caps = null;
 	public static final String USERNAME = "hugoHaka";
 	public static final String ACCESS_KEY = "cf258cd2-347e-4954-afea-0f3864b4ec4b";
@@ -47,6 +49,7 @@ public class BaseFlow {
 		
 //		ManagementMicrosoftService.createNewFileExcel();
 	    pageModel = PageFactory.initElements(driver, NuevaPropuestaModel.class);
+	    endpointModel = new EndPointModel();
 	    
 	}
 	    
