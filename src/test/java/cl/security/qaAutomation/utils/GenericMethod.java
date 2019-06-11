@@ -1,6 +1,8 @@
 package cl.security.qaAutomation.utils;
 
-import org.openqa.selenium.By;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -18,18 +20,25 @@ public class GenericMethod {
 		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].focus();", element);
 	}
 	
-	public static void clickElement(WebElement element) {
+	public static void clickElement(WebElement element) throws Exception {
+		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].scrollIntoView();", element);
+		Thread.sleep(500);
 		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].click();", element);
+		Thread.sleep(500);
 	}
 	
 	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
-	    element.sendKeys(texto);
-	    Thread.sleep(1000);
+		Thread.sleep(1000);
+		element.sendKeys(texto);
 	    element.sendKeys(Keys.ENTER);
 		
 	}
 	
-	
+	public static String getDate() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");
+		LocalDateTime localDate = LocalDateTime.now();
+		return dtf.format(localDate);
+	}
 	
 	
 	

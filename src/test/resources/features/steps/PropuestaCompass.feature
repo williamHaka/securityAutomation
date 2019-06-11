@@ -1,5 +1,5 @@
-Feature: Validación de formulario DPS
-
+@PropuestaCompass
+Feature: Flujo previo a DPS
 
   Scenario Outline: Validacion del flujo ingresar nueva propuesta
     Given Ingreso a la url"http://10.62.4.76:8170"
@@ -18,7 +18,7 @@ Feature: Validación de formulario DPS
     And Doy click en siguiente
     And Acepto termino de conformidad<aceptoTermino>
    
-  @NuevaPropuestaTC1
+  @1propuestaTC
   Examples: 
     | nombrePropuesta | nombre   | edad | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
     | "TC1"           | "nombre" | "33" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |

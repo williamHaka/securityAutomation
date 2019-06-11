@@ -8,6 +8,7 @@ public class EndPointModel {
 	private String token;
 	private String id;
 	private String applicationId;
+	private String jsonResult;
 	
 	
 	
@@ -51,6 +52,12 @@ public class EndPointModel {
 	}
 	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
+	}
+	public String getJsonResult() {
+		return jsonResult;
+	}
+	public void setJsonResult(String jsonResult) {
+		this.jsonResult = jsonResult;
 	}
 	
 }

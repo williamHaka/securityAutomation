@@ -34,16 +34,16 @@ public class EndPointServices {
         return endpointModel;
 	}
 	
-	public static EndPointModel applicationGet(EndPointModel endpointModel) throws Exception {
+	public static EndPointModel applicationGet(EndPointModel model) throws Exception {
 		CommJson json = new CommJson();
 		json.doTrustToCertificatesSSL();
 		LinkedHashMap<String,String> params = new LinkedHashMap<String, String>();
-		params.put("createdBy", endpointModel.getUser());
-		params.put("description", endpointModel.getIdPropuesta());
+		params.put("createdBy", model.getUser());
+		params.put("description", model.getIdPropuesta());
 		params.put("removed", "false");
 		json.setConnParams(Constants.APPLICATION, params);
 		json.setRequestMethod("GET");
-		json.setRequestProperty("Authorization", endpointModel.getToken());
+		json.setRequestProperty("Authorization", model.getToken());
 //		
 		
 		
@@ -58,28 +58,29 @@ public class EndPointServices {
             	JSONObject object = apl.getJSONObject(i);
             	applicationId = (String) object.get("id");
 			}
-            endpointModel.setApplicationId(applicationId.toString());
+            model.setApplicationId(applicationId.toString());
         }else {
         	System.out.println(json.getJsonDataError());
         }
 		
-		return endpointModel;
+		return model;
 	}
 	
 	
-	public static void getResult(EndPointModel endpointModel) throws Exception {
+	public static EndPointModel getResult(EndPointModel model) throws Exception {
 		CommJson json = new CommJson();
 		json.doTrustToCertificatesSSL();
-		json.setConn(Constants.RESULT+"/"+endpointModel.getApplicationId());
+		json.setConn(Constants.RESULT+"/"+model.getApplicationId());
 		json.setRequestMethod("GET");
-		json.setRequestProperty("Authorization", endpointModel.getToken());
+		json.setRequestProperty("Authorization", model.getToken());
 
 		Integer status = json.getResponseCode();
 		if (status == 200) {
         	String jso = json.getJsonData();
-            JSONObject body = new JSONObject(jso);
+            model.setJsonResult(jso);
         }else {
         	System.out.println(json.getJsonDataError());
         }
+		return model;
 	}
 }
