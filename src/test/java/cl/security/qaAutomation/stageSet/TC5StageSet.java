@@ -8,8 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = {
-				   "@P1TC2"
-				+ ",@P2TC2"
+				   "@P1TC5"
+				+ ",@P2TC5"
 				+ ",@P3NO"
 				+ ",@P4NO"
 				+ ",@P5NO"
@@ -45,6 +45,6 @@ import cucumber.api.junit.Cucumber;
 				+ ",@executeResult"}
 		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
-public class TC2StageSet extends StageSet{
+public class TC5StageSet extends StageSet{
 
 }

@@ -5,12 +5,14 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.security.qaAutomation.stageSet.CompassStageSet;
 import cl.security.qaAutomation.stageSet.PropuestaCompassStageSet;
+import cl.security.qaAutomation.stageSet.TC1StageSet;
+import cl.security.qaAutomation.stageSet.TC2StageSet;
 
 
 @SuiteClasses({
-	PropuestaCompassStageSet.class,CompassStageSet.class,
+	PropuestaCompassStageSet.class,TC1StageSet.class
+	,PropuestaCompassStageSet.class,TC2StageSet.class,
 })
 
 public class CompassTest extends BaseFlow{

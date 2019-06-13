@@ -9,7 +9,6 @@ import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.When;
 
 public class DPSCompassDefinition {

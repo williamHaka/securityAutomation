@@ -111,9 +111,24 @@ Feature: Ingresar respuestas de formulario DPS
     @P2TC2
     Examples: Ingreso riesgo radiacion ionizante
       | riesgo               | nombreEmpleador | areaTrabajo   | horasSemanales | desdeCuando  | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja     | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles        | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
-      | "radiacionionizante" | "security"      | "areacontrol" | "40"           | "01-03-2015" | "si"                   | "no"                     | "con cuales trabaja" | "si"          | "si"              | "no"        | "si"       | "no"          | "no"          | "no"                 | "no"              | "si"             | "no"           | "no"            | "no"                           | "no"  | "no"          | "no"                         | "medidas de seguridad disponibles" | "no"                    | "no"                       | ""               | ""        | ""         | "no"                       | ""     | ""           | ""                    | ""        |
+      | "radiacionionizante" | "security"      | "areacontrol" | "40"           | "01-03-2015" | "si"                   | "no"                     | "con cuales trabaja" | "si"          | "no"              | "no"        | "si"       | "no"          | "no"          | "no"                 | "no"              | "si"             | "no"           | "no"            | "no"                           | "no"  | "no"          | "no"                         | "medidas de seguridad disponibles" | "no"                    | "no"                       | ""               | ""        | ""         | "no"                       | ""     | ""           | ""                    | ""        |
 
     @P2TC3
+    Examples: Ingreso riesgo radiacion ionizante
+      | riesgo               | nombreEmpleador | areaTrabajo      | horasSemanales | desdeCuando  | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja     | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles        | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando       | cualFueRazon        | consecuenciasSufridas    | hhAnuales |
+      | "radiacionionizante" | "security"      | "areavigilancia" | "25"           | "03-01-2013" | "no"                   | "si"                     | "con cuales trabaja" | "no"          | "si"              | "no"        | "no"       | "no"          | "no"          | "si"                 | "no"              | "si"             | "no"           | "no"            | "no"                           | "no"  | "no"          | "no"                         | "medidas de seguridad disponibles" | "si"                    | "no"                       | ""               | ""        | ""         | "si"                       | "18-11-2016" | "cual fue la razon" | "consecuencias sufridas" | ""        |
+
+    @P2TC4
+    Examples: Ingreso riesgo radiacion ionizante
+      | riesgo               | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando  | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja     | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion  | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles        | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez    | queValores    | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
+      | "radiacionionizante" | "security"      | "otraarea"  | "10"           | "03-01-2019" | "si"                   | "si"                     | "con cuales trabaja" | "no"          | "no"              | "si"        | "no"       | "no"          | "no"          | "no"                 | "no"              | "si"             | "no"           | "no"            | "no"                           | "si"  | "ot radiacion" | "no"                         | "medidas de seguridad disponibles" | "si"                    | "si"                       | "100"            | "06-01-2019" | "que valores" | "no"                       | ""     | ""           | ""                    | ""        |
+
+    @P2TC5
+    Examples: Ingreso riesgo radiacion ionizante
+      | riesgo               | nombreEmpleador | areaTrabajo   | horasSemanales | desdeCuando  | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja     | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles        | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
+      | "radiacionionizante" | "security"      | "areacontrol" | "5"            | "01-01-2019" | "si"                   | "no"                     | "con cuales trabaja" | "si"          | "si"              | "no"        | "no"       | "no"          | "no"          | "no"                 | "no"              | "si"             | "no"           | "no"            | "no"                           | "no"  | "no"          | "si"                         | "medidas de seguridad disponibles" | "no"                    | "no"                       | ""               | ""        | ""         | "no"                       | ""     | ""           | ""                    | ""        |
+
+    @P2TC6
     Examples: Ingreso riesgo vuelos no regulares
       | riesgo              | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
       | "vuelosnoregulares" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | "100"     |
@@ -179,7 +194,7 @@ Feature: Ingresar respuestas de formulario DPS
     @P8NO
     Examples: Ingreso 170 centimetros
       | estatura |
-      | "170"    |
+      | "160"    |
 
   @P9
   Scenario Outline: Ingreso peso en kilogramos
@@ -188,7 +203,7 @@ Feature: Ingresar respuestas de formulario DPS
     @P9NO
     Examples: 
       | peso |
-      | "90" |
+      | "60" |
 
   @P10
   Scenario Outline: Ingreso consumo de bebidas alcoholicas

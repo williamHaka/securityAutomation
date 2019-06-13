@@ -137,7 +137,7 @@ public class FormularioServices {
 		case "areavigilancia":
 			optionAreaTrabajo.get(1).click();
 			break;
-		case "otrarea":
+		case "otraarea":
 			optionAreaTrabajo.get(2).click();
 			break;
 		default:
