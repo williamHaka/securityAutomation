@@ -40,8 +40,8 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P30NO"
 				+ ",@P31NO"
 				+ ",@P32NO"
-				+ ",@P33NO"}
-		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
+				+ ",@P33NO"
+		},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
 public class TC1StageSet extends StageSet{
 

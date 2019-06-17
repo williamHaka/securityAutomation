@@ -3,6 +3,7 @@ package cl.security.qaAutomation.utils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,8 +13,8 @@ import cl.security.qaAutomation.flow.BaseFlow;
 public class GenericMethod {
 
 	public static void scrollElement( WebElement element) throws InterruptedException {
-		Thread.sleep(500);
 		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].scrollIntoView();", element);
+		Thread.sleep(1000);
 	}
 	
 	public static void focusElement( WebElement element) {
@@ -28,9 +29,12 @@ public class GenericMethod {
 	}
 	
 	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
+		element.click();
 		Thread.sleep(1000);
-		element.sendKeys(texto);
-	    element.sendKeys(Keys.ENTER);
+		WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+		txtBuscar.sendKeys(texto);
+		Thread.sleep(1000);
+		txtBuscar.sendKeys(Keys.ENTER);
 		
 	}
 	

@@ -8,12 +8,12 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = {
-				   "@P1TC4"
-				+ ",@P2TC4"
+				   "@P1TC1"
+				+ ",@P2NO"
 				+ ",@P3NO"
 				+ ",@P4NO"
 				+ ",@P5NO"
-				+ ",@P6NO"
+				+ ",@P6TC10"
 				+ ",@P7NO"
 				+ ",@P8NO"
 				+ ",@P9NO"
@@ -41,10 +41,8 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P31NO"
 				+ ",@P32NO"
 				+ ",@P33NO"
-				+ ",@GuardarPropuesta"
-				+ ",@executeResult"
 		},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
-public class TC4StageSet extends StageSet{
+public class PruebaStageSet extends StageSet{
 
 }

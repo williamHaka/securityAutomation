@@ -34,6 +34,7 @@ public class DPSCompassDefinition {
 			break;
 		case Constants.SI:
 			radioRescatista.get(1).click();
+			FormularioServices.ingresarLaboresRescatista(labor);
 			break;
 		default:
 			break;
@@ -42,9 +43,10 @@ public class DPSCompassDefinition {
 
 	@When("^Doy click en boton siguiente$")
 	public void doy_click_en_boton_siguiente() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		WebElement btnNext = BaseFlow.driver.findElement(By.xpath("//*[contains(@class,'next')]"));
 		btnNext.click();
+		Thread.sleep(3000);
 	}
 
 	@When("^Ingreso motocicleta como medio de transporte pCuatro\"([^\"]*)\"\"([^\"]*)\"$")
@@ -56,17 +58,16 @@ public class DPSCompassDefinition {
 			radioMoto.get(0).click();
 			break;
 		case Constants.SI:
-//			TODO ingresar cilindrada
 			radioMoto.get(1).click();
+			FormularioServices.ingresoMotocicletaComoMedioTransporte(cilindrada);
 			break;
 		default:
 			break;
 		}
 	}
-
-
-	@When("^ingreso deportes aventura\"([^\"]*)\"\"([^\"]*)\"$")
-	public void ingreso_deportes_aventura(String deporteAventura, String actividades) throws Throwable {
+	
+	@When("^ingreso deportes aventura pCinco\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_deportes_aventura_pCinco(String deporteAventura, String actividades) throws Throwable {
 		Thread.sleep(500);
 		List<WebElement> radioDeportes = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (deporteAventura.toLowerCase().trim()) {
@@ -83,9 +84,9 @@ public class DPSCompassDefinition {
 			break;
 		}
 	}
-	
-	@When("^Ingreso vigencia seguro de vida\"([^\"]*)\"$")
-	public void ingreso_vigencia_seguro_de_vida(String seguroVidaVigente) throws Throwable {
+
+	@When("^Ingreso vigencia seguro de vida pSeis\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_vigencia_seguro_de_vida_pSeis(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radioSeguros = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (seguroVidaVigente.toLowerCase().trim()) {
@@ -94,7 +95,7 @@ public class DPSCompassDefinition {
 			break;
 		case Constants.SI:
 			radioSeguros.get(1).click();
-//			TODO ingresar seguros
+			FormularioServices.ingresoVigenciaSeguroVida(seguroVidaVigente, tipoSeguro, compania, sumaAsegurada, fechaCobertura, resultadoAceptacion);
 			break;
 		default:
 			break;

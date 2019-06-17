@@ -41,9 +41,7 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P31NO"
 				+ ",@P32NO"
 				+ ",@P33NO"
-				+ ",@GuardarPropuesta"
-				+ ",@executeResult"}
-		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
+			},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
 public class TC3StageSet extends StageSet{
 

@@ -1,7 +1,7 @@
 Feature: Ingresar respuestas de formulario DPS
 
   @P1
-  Scenario Outline: Ingresar respuestas de pregusta uno
+  Scenario Outline: Ingreso respuesta de pregusta uno
     When Ingreso la actividad pUno<actividad>
 
     @P1TC1
@@ -35,77 +35,77 @@ Feature: Ingresar respuestas de formulario DPS
       | "Bombero" |
 
     @P1TC7
-    Examples: ingreso actividad Bombero forestal
+    Examples: Ingreso actividad Bombero forestal
       | actividad          |
       | "Bombero forestal" |
 
     @P1TC8
-    Examples: ingreso actividad Bombero en aeropuerto
+    Examples: Ingreso actividad Bombero en aeropuerto
       | actividad               |
       | "Bombero en aeropuerto" |
 
     @P1TC9
-    Examples: ingreso actividad Minero amianto
+    Examples: Ingreso actividad Minero amianto
       | actividad        |
       | "Minero amianto" |
 
     @P1TC10
-    Examples: ingreso actividad Minero mina a cielo abierto
+    Examples: Ingreso actividad Minero mina a cielo abierto
       | actividad                     |
       | "Minero mina a cielo abierto" |
 
     @P1TC11
-    Examples: ingreso actividad  Minero trabajo subterráneo
+    Examples: Ingreso actividad  Minero trabajo subterráneo
       | actividad                     |
       | " Minero trabajo subterráneo" |
 
     @P1TC12
-    Examples: ingreso actividad Minero manejo de explosivos
+    Examples: Ingreso actividad Minero manejo de explosivos
       | actividad                     |
       | "Minero manejo de explosivos" |
 
     @P1TC13
-    Examples: ingreso actividad Minero trabajo en superficies
+    Examples: Ingreso actividad Minero trabajo en superficies
       | actividad                       |
       | "Minero trabajo en superficies" |
 
     @P1TC14
-    Examples: ingreso actividad Pescador de bajura/litoral
+    Examples: Ingreso actividad Pescador de bajura/litoral
       | actividad                    |
       | "Pescador de bajura/litoral" |
 
     @P1TC15
-    Examples: ingreso actividad Pesca de altura - capitán/patrón
+    Examples: Ingreso actividad Pesca de altura - capitán/patrón
       | actividad                          |
       | "Pesca de altura - capitán/patrón" |
 
     @P1TC16
-    Examples: ingreso actividad Pesca de altura - oficial
+    Examples: Ingreso actividad Pesca de altura - oficial
       | actividad                   |
       | "Pesca de altura - oficial" |
 
     @P1TC17
-    Examples: ingreso actividad Pesca de altura - ingeniero
+    Examples: Ingreso actividad Pesca de altura - ingeniero
       | actividad                     |
       | "Pesca de altura - ingeniero" |
 
     @P1TC18
-    Examples: ingreso actividad Pesca de altura - marinero
+    Examples: Ingreso actividad Pesca de altura - marinero
       | actividad                    |
       | "Pesca de altura - marinero" |
 
     @P1TC19
-    Examples: ingreso actividad Periodismo - Corresponsal de guerra
+    Examples: Ingreso actividad Periodismo - Corresponsal de guerra
       | actividad                             |
       | "Periodismo - Corresponsal de guerra" |
 
     @P1TC20
-    Examples: ingreso actividad Rodeo
+    Examples: Ingreso actividad Rodeo
       | actividad |
       | "Rodeo"   |
 
   @P2
-  Scenario Outline: Ingresar respuestas de pregusta dos
+  Scenario Outline: Ingreso respuesta de pregusta dos
     When Ingreso riesgos pDos<riesgo><nombreEmpleador><areaTrabajo><horasSemanales><desdeCuando><sustanciasEncapsuladas><sustanciasNoEncapsuladas><conCualesTrabaja><aparatoRayosX><RayosXDisruptivos><ningunoRayo><microondas><radiacionAlfa><radiacionBeta><radiacionDeNeutrones><radiacionDeRayosX><radiacionDeGamma><radiacionLaser><radiacionMaster><rayosUltravioletasArtificiales><otros><otraRadiacion><ningunoPresenteTareasDiarias><medidasSeguridadDisponibles><controlImpactoRadiacion><sobrepasadoLimiteRadiacion><conQueFrecuencia><ultimaVez><queValores><tratamientoMedicoRadiacion><cuando><cualFueRazon><consecuenciasSufridas><hhAnuales>
 
     @P2TC2
@@ -131,7 +131,22 @@ Feature: Ingresar respuestas de formulario DPS
     @P2TC6
     Examples: Ingreso riesgo vuelos no regulares
       | riesgo              | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
-      | "vuelosnoregulares" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | "100"     |
+      | "vuelosnoregulares" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | "90"      |
+
+    @P2TC7
+    Examples: Ingreso riesgo vuelos no regulares
+      | riesgo              | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
+      | "vuelosnoregulares" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | "110"     |
+
+    @P2TC8
+    Examples: Ingreso riesgo ninguno de los anteriores
+      | riesgo                   | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
+      | "ningunodelosanteriores" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | ""        |
+
+    @P2TC9
+    Examples: Ingreso riesgo vuelos no regulares
+      | riesgo              | nombreEmpleador | areaTrabajo | horasSemanales | desdeCuando | sustanciasEncapsuladas | sustanciasNoEncapsuladas | conCualesTrabaja | aparatoRayosX | RayosXDisruptivos | ningunoRayo | microondas | radiacionAlfa | radiacionBeta | radiacionDeNeutrones | radiacionDeRayosX | radiacionDeGamma | radiacionLaser | radiacionMaster | rayosUltravioletasArtificiales | otros | otraRadiacion | ningunoPresenteTareasDiarias | medidasSeguridadDisponibles | controlImpactoRadiacion | sobrepasadoLimiteRadiacion | conQueFrecuencia | ultimaVez | queValores | tratamientoMedicoRadiacion | cuando | cualFueRazon | consecuenciasSufridas | hhAnuales |
+      | "vuelosnoregulares" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | "110"     |
 
     @P2NO
     Examples: Ingreso riesgo ninguno de los anteriores
@@ -139,27 +154,77 @@ Feature: Ingresar respuestas de formulario DPS
       | "ningunodelosanteriores" | ""              | ""          | ""             | ""          | ""                     | ""                       | ""               | ""            | ""                | ""          | ""         | ""            | ""            | ""                   | ""                | ""               | ""             | ""              | ""                             | ""    | ""            | ""                           | ""                          | ""                      | ""                         | ""               | ""        | ""         | ""                         | ""     | ""           | ""                    | ""        |
 
   @P3
-  Scenario Outline: Ingresar respuestas de rescatista o voluntario
+  Scenario Outline: Ingreso respuesta de pregunta tres
     When Ingreso labores de bombero o rescatista voluntario pTres<realizaLabores><labor>
     And Doy click en boton siguiente
 
+    @P3TC10
+    Examples: Ingreso bombero en rescatista o voluntario
+      | realizaLabores | labor     |
+      | "si"           | "bombero" |
+
+    @P3TC11
+    Examples: Ingreso bombero en aeropuerto en rescatista o voluntario
+      | realizaLabores | labor               |
+      | "si"           | "bomberoaeropuerto" |
+
+    @P3TC12
+    Examples: Ingreso bombero forestal en rescatista o voluntario
+      | realizaLabores | labor             |
+      | "si"           | "bomberoforestal" |
+
+    @P3TC13
+    Examples: Ingreso rescate con operaciones especiales en rescatista o voluntario
+      | realizaLabores | labor                             |
+      | "si"           | "rescateconoperacionesespeciales" |
+
+    @P3TC14
+    Examples: Ingreso rescate con operaciones especiales en rescatista o voluntario
+      | realizaLabores | labor                             |
+      | "si"           | "rescatesinoperacionesespeciales" |
+
     @P3NO
-    Examples: Ingresar No a rescatista o voluntario
+    Examples: Ingreso No en rescatista o voluntario
       | realizaLabores | labor |
       | "no"           | ""    |
 
   @P4
-  Scenario Outline: Ingreso motocicleta como medio de transporte
+  Scenario Outline: Ingreso respuesta de pregunta cuatro
     When Ingreso motocicleta como medio de transporte pCuatro<utilizaMotocicleta><cilindrada>
 
+    @P4TC10
+    Examples: Ingreso entre 125cc y 500cc en medio de transporte
+      | utilizaMotocicleta | cilindrada     |
+      | "si"               | "entre125y500" |
+
+    @P4TC11
+    Examples: Ingreso NO en medio de transporte
+      | utilizaMotocicleta | cilindrada |
+      | "no"               | ""         |
+
+    @P4TC12
+    Examples: Ingreso mas de 500cc en medio de transporte
+      | utilizaMotocicleta | cilindrada |
+      | "si"               | "masde500" |
+
+    @P4TC13
+    Examples: Ingreso NO en medio de transporte
+      | utilizaMotocicleta | cilindrada |
+      | "no"               | ""         |
+
+    @P4TC14
+    Examples: Ingreso menos de 125cc en medio de transporte
+      | utilizaMotocicleta | cilindrada   |
+      | "si"               | "menosde125" |
+
     @P4NO
-    Examples: 
+    Examples: Ingreso No en medio de transporte
       | utilizaMotocicleta | cilindrada |
       | "no"               | ""         |
 
   @P5
-  Scenario Outline: Ingreso Deportes aventura
-    When ingreso deportes aventura<deporteAventura><actividades>
+  Scenario Outline: Ingreso respuesta pregunta cinco
+    When ingreso deportes aventura pCinco<deporteAventura><actividades>
     And Doy click en boton siguiente
 
     @P5NO
@@ -168,14 +233,19 @@ Feature: Ingresar respuestas de formulario DPS
       | "no"            | ""          |
 
   @P6
-  Scenario Outline: Ingreso seguros de vida
-    When Ingreso vigencia seguro de vida<seguroVidaVigente>
+  Scenario Outline: Ingreso seguros de vida pregunta seis
+    When Ingreso vigencia seguro de vida pSeis<seguroVidaVigente><tipoSeguro><compania><sumaAsegurada><fechaCobertura><resultadoAceptacion>
     And Doy click en boton siguiente
+
+		@P6TC10
+    Examples: Ingreso tipo de seguro accidentes en seguros de vida
+      | seguroVidaVigente | tipoSeguro   | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "si"              | "accidentes" | "security" | "2500"        | "01-10-2017"   | "a"                 |
 
     @P6NO
     Examples: Ingreso No a seguros de vida
-      | seguroVidaVigente |
-      | "no"              |
+      | seguroVidaVigente | tipoSeguro | compania | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "no"              | ""         | ""       | "2500"        | "01-10-2017"   | "a"                 |
 
   @P7
   Scenario Outline: Ingreso viajes con regularidad al extranjero

@@ -6,13 +6,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.stageSet.PropuestaCompassStageSet;
+import cl.security.qaAutomation.stageSet.PruebaStageSet;
 import cl.security.qaAutomation.stageSet.TC1StageSet;
 import cl.security.qaAutomation.stageSet.TC2StageSet;
+import cl.security.qaAutomation.stageSet.TC3StageSet;
+import cl.security.qaAutomation.stageSet.TC4StageSet;
+import cl.security.qaAutomation.stageSet.TC5StageSet;
 
 
 @SuiteClasses({
-	PropuestaCompassStageSet.class,TC1StageSet.class
-	,PropuestaCompassStageSet.class,TC2StageSet.class,
+	PropuestaCompassStageSet.class,PruebaStageSet.class
+//	PropuestaCompassStageSet.class,TC1StageSet.class
+//	,PropuestaCompassStageSet.class,TC2StageSet.class
+//	,PropuestaCompassStageSet.class,TC3StageSet.class
+//	PropuestaCompassStageSet.class,TC4StageSet.class
+//	,PropuestaCompassStageSet.class,TC5StageSet.class
 })
 
 public class CompassTest extends BaseFlow{
