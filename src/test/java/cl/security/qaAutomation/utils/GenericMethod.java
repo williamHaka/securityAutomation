@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cl.security.qaAutomation.flow.BaseFlow;
 
@@ -44,7 +46,16 @@ public class GenericMethod {
 		return dtf.format(localDate);
 	}
 	
-	
+	public static WebElement implicityWait(Integer timeoutInSeconds,By element)throws Exception{
+    	WebElement elemento = null;
+    	try {
+    		WebDriverWait wait = new WebDriverWait(BaseFlow.driver, timeoutInSeconds); 
+        	elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+    	return elemento;
+    }
 	
 	
 }

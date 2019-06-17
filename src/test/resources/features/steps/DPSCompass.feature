@@ -194,28 +194,18 @@ Feature: Ingresar respuestas de formulario DPS
 
     @P4TC10
     Examples: Ingreso entre 125cc y 500cc en medio de transporte
-      | utilizaMotocicleta | cilindrada     |
-      | "si"               | "entre125y500" |
-
-    @P4TC11
-    Examples: Ingreso NO en medio de transporte
-      | utilizaMotocicleta | cilindrada |
-      | "no"               | ""         |
+      | utilizaMotocicleta | cilindrada   |
+      | "si"               | "menosde125" |
 
     @P4TC12
     Examples: Ingreso mas de 500cc en medio de transporte
-      | utilizaMotocicleta | cilindrada |
-      | "si"               | "masde500" |
-
-    @P4TC13
-    Examples: Ingreso NO en medio de transporte
-      | utilizaMotocicleta | cilindrada |
-      | "no"               | ""         |
+      | utilizaMotocicleta | cilindrada     |
+      | "si"               | "entre125y500" |
 
     @P4TC14
     Examples: Ingreso menos de 125cc en medio de transporte
-      | utilizaMotocicleta | cilindrada   |
-      | "si"               | "menosde125" |
+      | utilizaMotocicleta | cilindrada |
+      | "si"               | "masde500" |
 
     @P4NO
     Examples: Ingreso No en medio de transporte
@@ -241,6 +231,28 @@ Feature: Ingresar respuestas de formulario DPS
     Examples: Ingreso tipo de seguro accidentes en seguros de vida
       | seguroVidaVigente | tipoSeguro   | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
       | "si"              | "accidentes" | "security" | "2500"        | "01-10-2017"   | "a"                 |
+
+		@P6TC11
+    Examples: Ingreso tipo de seguro EG en seguros de vida
+      | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "si"              | "eg"       | "security" | "2500"        | "01-10-2017"   | "ar"                |
+      
+    @P6TC12
+    Examples: Ingreso tipo de seguro IAP en seguros de vida
+      | seguroVidaVigente | tipoSeguro  | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "si"              | "iap"       | "security" | "2500"        | "01-10-2017"   | "as"                |
+      
+    @P6TC13
+    Examples: Ingreso tipo de seguro IP en seguros de vida
+      | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "si"              | "ip"       | "security" | "2500"        | "01-10-2017"   | "n"                |
+
+		@P6TC14
+    Examples: Ingreso tipo de seguro EG y Vida en seguros de vida
+      | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "si"              | "eg"       | "security" | "2500"        | "01-10-2017"   | "as"                |
+      | "si"              | "vida"     | "security" | "2500"        | "01-10-2017"   | "a"                |
+
 
     @P6NO
     Examples: Ingreso No a seguros de vida

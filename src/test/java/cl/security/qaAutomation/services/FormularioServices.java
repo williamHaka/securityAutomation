@@ -150,25 +150,26 @@ public class FormularioServices {
 //		selleciono formato de calendar
 		switch (indexCalendar) {
 		case 0:
-			Thread.sleep(1000);
-			List<WebElement> formatoCalendar = BaseFlow.driver.findElements(By.xpath("//label[contains(@for,'days')]"));
-			formatoCalendar.get(0).click();
-			Thread.sleep(1000);
+			WebElement formatoCalendar = GenericMethod.implicityWait(2, By.xpath("//label[contains(@for,'days')]"));
+			GenericMethod.scrollElement(formatoCalendar);
+			formatoCalendar.click();
+			WebElement formatoCalendar2 = GenericMethod.implicityWait(2, By.xpath("//label[contains(@for,'days')]"));
+			formatoCalendar2.click();
 			seleccionarAnioCalendar(0,anio);
 			seleccionarMesCalendar(mes);
 			seleccionarDiaCalendar(dia);
 			break;
 		case 1:
-			Thread.sleep(1000);
-			WebElement divCalendar2= BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'calendarElement')]")).get(indexCalendar);
-			List<WebElement> formatoCalendar2 = divCalendar2.findElements(By.xpath("//div[contains(@class,'yes-no-container col-4')]"));
-			Thread.sleep(1000);
-			GenericMethod.focusElement(formatoCalendar2.get(5));
-			Thread.sleep(1000);
-			formatoCalendar2.get(5).click();
-			seleccionarAnioCalendar(4,anio);
-			seleccionarMesCalendar(mes);
-			seleccionarDiaCalendar(dia);
+//			Thread.sleep(1000);
+//			WebElement divCalendar2= BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'calendarElement')]")).get(indexCalendar);
+//			List<WebElement> formatoCalendar2 = divCalendar2.findElements(By.xpath("//div[contains(@class,'yes-no-container col-4')]"));
+//			Thread.sleep(1000);
+//			GenericMethod.focusElement(formatoCalendar2.get(5));
+//			Thread.sleep(1000);
+//			formatoCalendar2.get(5).click();
+//			seleccionarAnioCalendar(4,anio);
+//			seleccionarMesCalendar(mes);
+//			seleccionarDiaCalendar(dia);
 			break;
 		default:
 			break;

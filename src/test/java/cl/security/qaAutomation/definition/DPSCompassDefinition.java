@@ -43,10 +43,10 @@ public class DPSCompassDefinition {
 
 	@When("^Doy click en boton siguiente$")
 	public void doy_click_en_boton_siguiente() throws Throwable {
-		Thread.sleep(2000);
-		WebElement btnNext = BaseFlow.driver.findElement(By.xpath("//*[contains(@class,'next')]"));
+		Thread.sleep(1000);
+		WebElement btnNext = BaseFlow.driver.findElement(By.xpath("//button[contains(@class,'next')]"));
 		btnNext.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 
 	@When("^Ingreso motocicleta como medio de transporte pCuatro\"([^\"]*)\"\"([^\"]*)\"$")
