@@ -36,8 +36,8 @@ import cl.security.qaAutomation.stageSet.TC9StageSetNOVA;
 	PropuestaCompassStageSet.class,TC14StageSet.class
 })
 
-public class Compass extends BaseFlow{
-	private static final Logger LOGGER = LoggerFactory.getLogger(Compass.class);
+public class CompassTest extends BaseFlow{
+	private static final Logger LOGGER = LoggerFactory.getLogger(CompassTest.class);
     @BeforeClass
     public static void flag() throws Exception {
         LOGGER.info("Ejecutando flujo de formulario DPS");
