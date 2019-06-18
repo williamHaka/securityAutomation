@@ -266,7 +266,7 @@ Feature: Ingresar respuestas de formulario DPS
 
     @P7NO
     Examples: Ingreso no a viajes con regularidad
-      | viajesExtranjero |
+      | viajesExtranjero | 
       | "no"             |
 
   @P8
