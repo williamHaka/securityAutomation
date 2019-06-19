@@ -225,34 +225,32 @@ Feature: Ingresar respuestas de formulario DPS
   @P6
   Scenario Outline: Ingreso seguros de vida pregunta seis
     When Ingreso vigencia seguro de vida pSeis<seguroVidaVigente><tipoSeguro><compania><sumaAsegurada><fechaCobertura><resultadoAceptacion>
-    And Doy click en boton siguiente
 
-		@P6TC10
+    @P6TC10
     Examples: Ingreso tipo de seguro accidentes en seguros de vida
       | seguroVidaVigente | tipoSeguro   | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
       | "si"              | "accidentes" | "security" | "2500"        | "01-10-2017"   | "a"                 |
 
-		@P6TC11
+    @P6TC11
     Examples: Ingreso tipo de seguro EG en seguros de vida
       | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
       | "si"              | "eg"       | "security" | "2500"        | "01-10-2017"   | "ar"                |
-      
+
     @P6TC12
     Examples: Ingreso tipo de seguro IAP en seguros de vida
-      | seguroVidaVigente | tipoSeguro  | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
-      | "si"              | "iap"       | "security" | "2500"        | "01-10-2017"   | "as"                |
-      
+      | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
+      | "si"              | "iap"      | "security" | "2500"        | "01-10-2017"   | "as"                |
+
     @P6TC13
     Examples: Ingreso tipo de seguro IP en seguros de vida
       | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
-      | "si"              | "ip"       | "security" | "2500"        | "01-10-2017"   | "n"                |
+      | "si"              | "ip"       | "security" | "2500"        | "01-10-2017"   | "n"                 |
 
-		@P6TC14
+    @P6TC14
     Examples: Ingreso tipo de seguro EG y Vida en seguros de vida
       | seguroVidaVigente | tipoSeguro | compania   | sumaAsegurada | fechaCobertura | resultadoAceptacion |
       | "si"              | "eg"       | "security" | "2500"        | "01-10-2017"   | "as"                |
-      | "si"              | "vida"     | "security" | "2500"        | "01-10-2017"   | "a"                |
-
+      | "si"              | "vida"     | "security" | "2500"        | "01-10-2017"   | "a"                 |
 
     @P6NO
     Examples: Ingreso No a seguros de vida
@@ -260,14 +258,90 @@ Feature: Ingresar respuestas de formulario DPS
       | "no"              | ""         | ""       | "2500"        | "01-10-2017"   | "a"                 |
 
   @P7
-  Scenario Outline: Ingreso viajes con regularidad al extranjero
-    When Ingreso viajes al extranjero con regularidad<viajesExtranjero>
+  Scenario Outline: Ingreso viajes con regularidad al extranjero pregunta siete
+    When Doy click en boton siguiente
+    And Ingreso viajes al extranjero con regularidad psiete<viajesExtranjero><pais><motivo><tiempoEstancia><dondeReside><dondeAloja><viajesActividad>
     And Doy click en boton siguiente
+
+    @P7TC15
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais     | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "egipto" | "desconocido" | "10diasanio"   | ""          | ""         | ""              |
+
+    @P7TC16
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais     | motivo        | tiempoEstancia | dondeReside | dondeAloja          | viajesActividad |
+      | "si"             | "egipto" | "desconocido" | "10a30dias"    | "ciudad"    | "alojamientobasico" | "desconocido"   |
+
+    @P7TC17
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais     | motivo        | tiempoEstancia | dondeReside     | dondeAloja            | viajesActividad |
+      | "si"             | "egipto" | "desconocido" | "31a12meses"   | "ciudadcapital" | "alojamientoestandar" | "sinviajes"     |
+
+    @P7TC18
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais     | motivo        | tiempoEstancia       | dondeReside | dondeAloja    | viajesActividad          |
+      | "si"             | "egipto" | "desconocido" | "estanciapermanente" | "pueblo"    | "desconocido" | "viajesdistintoslugares" |
+
+    @P7TC19
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais       | motivo        | tiempoEstancia | dondeReside   | dondeAloja         | viajesActividad    |
+      | "si"             | "pakistan" | "desconocido" | "desconocido"  | "desconocido" | "residenciadelujo" | "viajesmaslugares" |
+
+    @P7TC20
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais       | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "pakistan" | "profesional" | "10diasanio"   | ""          | ""         | ""              |
+
+    @P7TC21
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais       | motivo        | tiempoEstancia | dondeReside | dondeAloja          | viajesActividad |
+      | "si"             | "pakistan" | "profesional" | "10a30dias"    | "ciudad"    | "alojamientobasico" | "desconocido"   |
+
+    @P7TC22
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais        | motivo        | tiempoEstancia | dondeReside     | dondeAloja            | viajesActividad |
+      | "si"             | "venezuela" | "profesional" | "31a12meses"   | "ciudadcapital" | "alojamientoestandar" | "sinviajes"     |
+
+    @P7TC23
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais        | motivo        | tiempoEstancia       | dondeReside | dondeAloja    | viajesActividad          |
+      | "si"             | "venezuela" | "profesional" | "estanciapermanente" | "pueblo"    | "desconocido" | "viajesdistintoslugares" |
+
+    @P7TC24
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais        | motivo        | tiempoEstancia | dondeReside   | dondeAloja         | viajesActividad    |
+      | "si"             | "venezuela" | "profesional" | "desconocido"  | "desconocido" | "residenciadelujo" | "viajesmaslugares" |
+
+    @P7TC25
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais        | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "venezuela" | "soloprivado" | "10diasanio"   | ""          | ""         | ""              |
+
+		@P7TC26
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais   | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "peru" | "soloprivado" | "10a30dias"    | ""          | ""         | ""              |
+
+		@P7TC27
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais   | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "peru" | "soloprivado" | "31a12meses"   | ""          | ""         | ""              |
+
+		@P7TC28
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais   | motivo        | tiempoEstancia       | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "peru" | "soloprivado" | "estanciapermanente" | ""          | ""         | ""              |
+
+		@P7TC29
+    Examples: Ingreso no a viajes con regularidad
+      | viajesExtranjero | pais   | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "si"             | "peru" | "soloprivado" | "desconocido"  | ""          | ""         | ""              |
 
     @P7NO
     Examples: Ingreso no a viajes con regularidad
-      | viajesExtranjero | 
-      | "no"             |
+      | viajesExtranjero | pais | motivo | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
+      | "no"             | ""   | ""     | ""             | ""          | ""         | ""              |
 
   @P8
   Scenario Outline: ingreso estatura en centimetros

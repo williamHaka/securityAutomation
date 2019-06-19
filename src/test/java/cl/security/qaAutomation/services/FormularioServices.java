@@ -1,5 +1,7 @@
 package cl.security.qaAutomation.services;
 
+import static org.junit.Assert.assertFalse;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -67,16 +69,16 @@ public class FormularioServices {
 		txtRiesgo.click();
 		List<WebElement> listRiesgos = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
 		switch (riesgo.trim().toLowerCase()) {
-		case "radiacionionizante":
+		case Constants.RADIACION_IONIZANTE:
 			listRiesgos.get(0).click();
 			ingresarRadiacionIonizante(nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas,conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando , cualFueRazon, consecuenciasSufridas);
 			break;
-		case "vuelosnoregulares":
+		case Constants.VUELOS_NO_REGULARES:
 			listRiesgos.get(1).click();
 			WebElement txtHoras = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
 			txtHoras.sendKeys(hhAnuales);
 			break;
-		case "ningunodelosanteriores":
+		case Constants.NINGUNO_ANTERIORES:
 			listRiesgos.get(2).click();
 			break;
 		default:
@@ -127,13 +129,13 @@ public class FormularioServices {
 		ListAreaTrabajo.click();
 		List<WebElement> optionAreaTrabajo = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
 		switch (areaTrabajo.trim().toLowerCase()) {
-		case "areacontrol":
+		case Constants.AT_AREA_CONTROL:
 			optionAreaTrabajo.get(0).click();
 			break;
-		case "areavigilancia":
+		case Constants.AT_AREA_VIGILANCIA:
 			optionAreaTrabajo.get(1).click();
 			break;
-		case "otraarea":
+		case Constants.AT_OTRA_AREA:
 			optionAreaTrabajo.get(2).click();
 			break;
 		default:
@@ -148,84 +150,110 @@ public class FormularioServices {
 		String mes = fecha[1];
 		String anio = fecha[2];
 //		selleciono formato de calendar
-		switch (indexCalendar) {
-		case 0:
-			WebElement formatoCalendar = GenericMethod.implicityWait(2, By.xpath("//label[contains(@for,'days')]"));
-			GenericMethod.scrollElement(formatoCalendar);
-			formatoCalendar.click();
-			WebElement formatoCalendar2 = GenericMethod.implicityWait(2, By.xpath("//label[contains(@for,'days')]"));
-			formatoCalendar2.click();
-			seleccionarAnioCalendar(0,anio);
-			seleccionarMesCalendar(mes);
-			seleccionarDiaCalendar(dia);
-			break;
-		case 1:
-//			Thread.sleep(1000);
-//			WebElement divCalendar2= BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'calendarElement')]")).get(indexCalendar);
-//			List<WebElement> formatoCalendar2 = divCalendar2.findElements(By.xpath("//div[contains(@class,'yes-no-container col-4')]"));
-//			Thread.sleep(1000);
-//			GenericMethod.focusElement(formatoCalendar2.get(5));
-//			Thread.sleep(1000);
-//			formatoCalendar2.get(5).click();
-//			seleccionarAnioCalendar(4,anio);
-//			seleccionarMesCalendar(mes);
-//			seleccionarDiaCalendar(dia);
-			break;
-		default:
-			break;
-		}
-		
+		WebElement formatoCalendar = BaseFlow.driver.findElements(By.xpath("//label[contains(@for,'days')]")).get(indexCalendar);
+		GenericMethod.scrollElement(formatoCalendar);
+		formatoCalendar.click();
+		Thread.sleep(1000);
+		formatoCalendar.click();
+		Thread.sleep(1000);
+		seleccionarAnioCalendar(indexCalendar,anio);
+		seleccionarMesCalendar(indexCalendar,Integer.parseInt(mes));
+		seleccionarDiaCalendar(indexCalendar,Integer.parseInt(dia));
 	}
 	
-	private static void seleccionarAnioCalendar(Integer divCalendar, String anio) throws InterruptedException {
+	private static void seleccionarAnioCalendar(Integer divCalendar, String anio) throws Exception {
 		Thread.sleep(1000);
-		BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'datepicker-switch')]")).get(divCalendar).click();
+		List<WebElement> divAnio = BaseFlow.driver.findElements(By.xpath("//th[(@class='datepicker-switch')]"));
 		Thread.sleep(1000);
-		BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'datepicker-switch')]")).get(divCalendar+1).click();
+		if(divCalendar==0) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(0));
+			GenericMethod.clickElement(calendar);
+		}else {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(5));
+			GenericMethod.clickElement(calendar);
+		}
+		Thread.sleep(1000);
+		List<WebElement> divAnio2 = BaseFlow.driver.findElements(By.xpath("//th[(@class='datepicker-switch')]"));
+		if(divCalendar==0) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(1));
+			GenericMethod.clickElement(calendar);
+		}else {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(6));
+			GenericMethod.clickElement(calendar);
+		}
+		Thread.sleep(1000);
 		Boolean encontroAnio = false;
 		while (encontroAnio==false) {
-			for (Integer i=0;i<=11;i++) {
-				List<WebElement> listAnios = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'year')]"));
-				if(listAnios.get(i).getText().toString().equals(anio)) {
-					Thread.sleep(1000);
-					listAnios.get(i).click();
-					encontroAnio = true;
-					break;
-				}else if(i==11){
-					WebElement anioPrevio = BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'prev')]")).get(2);
-					anioPrevio.click();
-					Thread.sleep(1000);
-				} 
+			if(divCalendar==0) {
+				for (Integer i=0;i<=11;i++) {
+					List<WebElement> listAnios = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'year')]"));
+					if(listAnios.get(i).getText().toString().equals(anio)) {
+						Thread.sleep(1000);
+						listAnios.get(i).click();
+						encontroAnio = true;
+						break;
+					}	else if(i==11){
+						WebElement anioPrevio = BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'prev')]")).get(2);
+						anioPrevio.click();
+						Thread.sleep(1000);
+					} 
+				}
+			}else if(divCalendar==1){
+				for (Integer i=13;i<=23;i++) {
+					List<WebElement> listAnios = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'year')]"));
+					if(listAnios.get(i).getText().toString().equals(anio)) {
+						Thread.sleep(1000);
+						listAnios.get(i).click();
+						encontroAnio = true;
+						break;
+					}	else if(i==23){
+						WebElement anioPrevio = BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'prev')]")).get(2);
+						anioPrevio.click();
+						Thread.sleep(1000);
+					} 
+				}
 			}
 		}
 	}
 	
 	
-	private static void seleccionarMesCalendar(String mes) throws Exception {
+	private static void seleccionarMesCalendar(Integer divMes,Integer mes) throws Exception {
 		Thread.sleep(1000);
 		List<WebElement> listMes = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]"));
-		Integer iMes = Integer.parseInt(mes);
-		Thread.sleep(1000);
-		listMes.get(iMes-1).click();
+		if(divMes==0) {
+			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes-1));
+			element.click();
+		}else {
+			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes+11));
+			element.click();
+		}
 	}
 	
-	private static void seleccionarDiaCalendar(String dia) throws Exception {
-		Thread.sleep(1000);
-		List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
-		Integer iDia = Integer.parseInt(dia);
-		Thread.sleep(1000);
-		dias.get(iDia-1).click();
+	private static void seleccionarDiaCalendar(Integer divDIa, Integer dia) throws Exception {
+		if(!GenericMethod.existElement(By.xpath("//button[contains(@class,'custom-label')]"))) {
+			if(divDIa==0) {
+				Thread.sleep(1000);
+				List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
+				Thread.sleep(1000);
+				dias.get(dia-1).click();
+			}else {
+				Thread.sleep(1000);
+				List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
+				Thread.sleep(1000);
+				dias.get(dia-1).click();
+			}
+		}
 	}
 	
 	private  static void seleccionarSustanciasEncapsuladas(String sustanciasEncapsuladas, String sustanciasNoEncapsuladas) throws InterruptedException {
 		Thread.sleep(1000);
 		List<WebElement> listCheckbox = BaseFlow.driver.findElements(By.className("checkbox-custom"));
 		GenericMethod.scrollElement(listCheckbox.get(0));
-		if(sustanciasEncapsuladas.trim().toLowerCase().equals("si")) {
+		if(sustanciasEncapsuladas.trim().toLowerCase().equals(Constants.SI)) {
 			WebElement checkSustanciasEncapsuladas = listCheckbox.get(0);
 			checkSustanciasEncapsuladas.click();
 		}
-		if(sustanciasNoEncapsuladas.trim().toLowerCase().equals("si")) {
+		if(sustanciasNoEncapsuladas.trim().toLowerCase().equals(Constants.SI)) {
 			WebElement checkSustanciasNoEncapsuladas = listCheckbox.get(1);
 			checkSustanciasNoEncapsuladas.click();
 		}
@@ -362,20 +390,20 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		List<WebElement> listLabortes = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
 		switch (labor.toLowerCase().trim()) {
-		case "bombero":
+		case Constants.BOMBERO:
 			listLabortes.get(0).click();
 			break;
-		case "bomberoaeropuerto":
+		case Constants.BOMBERO_AEROPUERTO:
 			listLabortes.get(1).click();
 			break;
-		case "bomberoforestal":
+		case Constants.BOMBERO_FORESTAL:
 			listLabortes.get(2).click();
 			break;
-		case "rescateconoperacionesespeciales":
+		case Constants.RESCATE_CON_OPERACIONES_EPECIALES:
 			listLabortes.get(3).click();
 			break;
-		case "rescatesinoperacionesespeciales":
-			listLabortes.get(5).click();
+		case Constants.RESCATE_SIN_OPERACIONES_EPECIALES:
+			listLabortes.get(4).click();
 			break;
 		default:
 			break;
@@ -389,30 +417,35 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		List<WebElement> listCilindrada = BaseFlow.driver.findElements(By.xpath("//li[(@class= 'ember-power-select-option')]"));
 		switch (cilindrada.toLowerCase().trim()) {
-		case "entre125y500":
+		case Constants.ENTRE_125_Y_500:
 			listCilindrada.get(0).click();
 			break;
-		case "masde500":
+		case Constants.MAS_DE_500:
 			listCilindrada.get(1).click();
 			break;
-		case "menosde125":
+		case Constants.MENOS_DE_125:
 			listCilindrada.get(2).click();
 			break;
 		default:
 			break;
 		}
 	}
-	public static void ingresoVigenciaSeguroVida(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion)throws Exception {
+	public static void ingresoVigenciaSeguroVida(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion,Integer countSeguro)throws Exception {
 		ingresoTipoSeguro(tipoSeguro);
-		ingresoCompania(compania);
+		ingresoCompania(compania,countSeguro);
 		Thread.sleep(1000);
-		WebElement txtSuma = BaseFlow.driver.findElement(By.xpath("//input[contains(@class,'input-default')]"));
+		WebElement txtSuma;
+		if(countSeguro==0) {
+			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(0);
+		}else {
+			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(1);
+		}
 		txtSuma.sendKeys(sumaAsegurada);
 		Thread.sleep(1000);
-		seleccionarFechaCalendar(fechaCobertura, 0);
+		seleccionarFechaCalendar(fechaCobertura, countSeguro);
 		Thread.sleep(1000);
 //		cual fue el resultado de aceptacion
-		ingresoResultadoAceptacion(resultadoAceptacion);
+		ingresoResultadoAceptacion(resultadoAceptacion,countSeguro);
 	}
 	
 	private static void ingresoTipoSeguro(String tipoSeguro) throws Exception {
@@ -422,19 +455,19 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		List<WebElement> listSeguros = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
 		switch (tipoSeguro.toLowerCase().trim()) {
-		case "accidentes":
+		case Constants.SEGURO_ACCIDENTES:
 			listSeguros.get(0).click();
 			break;
-		case "eg":
+		case Constants.SEGURO_EG:
 			listSeguros.get(1).click();
 			break;
-		case "iap":
+		case Constants.SEGURO_IAP:
 			listSeguros.get(2).click();
 			break;
-		case "ip":
+		case Constants.SEGURO_IP:
 			listSeguros.get(3).click();
 			break;
-		case "vida":
+		case Constants.SEGURO_VIDA:
 			listSeguros.get(4).click();
 			break;
 		default:
@@ -442,31 +475,37 @@ public class FormularioServices {
 		}
 	}	
 	
-	private static void ingresoCompania(String compania) throws Exception {
+	private static void ingresoCompania(String compania,Integer countSeguro) throws Exception {
 		Thread.sleep(1000);
-		WebElement txtCompania = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
+		WebElement txtCompania;
+		if(countSeguro==0) {
+			txtCompania = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
+		}else {
+			txtCompania = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(2);
+		}
+		Thread.sleep(1000);
 		txtCompania.click();
 		Thread.sleep(1000);
-		WebElement searchCompania = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-power-select-dropdown')]"));
+		WebElement searchCompania = BaseFlow.driver.findElement(By.xpath("//input[(@class='ember-power-select-search-input')]"));
 		GenericMethod.ingresarTextoSugerido(searchCompania, compania);
 	}
 
-	private static void ingresoResultadoAceptacion(String resultadoAceptacion) throws Exception {
+	private static void ingresoResultadoAceptacion(String resultadoAceptacion, Integer countSeguro) throws Exception {
 		List<WebElement> txtResultado = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
-		txtResultado.get(1).click();
+		txtResultado.get(countSeguro+1).click();
 		Thread.sleep(1000);
 		List<WebElement> listResultado = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
 		switch (resultadoAceptacion.toLowerCase().trim()) {
-		case "a":
+		case Constants.ACEPTADO:
 			listResultado.get(0).click();
 			break;
-		case "ar":
+		case Constants.ACEPTADO_CON_RECARGO:
 			listResultado.get(1).click();
 			break;
-		case "as":
+		case Constants.APLICACION_SIMULTANEA:
 			listResultado.get(2).click();
 			break;
-		case "n":
+		case Constants.NO_ACEPTADO:
 			listResultado.get(3).click();
 			break;
 		default:
@@ -474,4 +513,200 @@ public class FormularioServices {
 		}
 	}
 
+	public static void ingresoViajesAlExtranjero (String pais, String motivo, String tiempoEstancia, String dondeReside, String dondeAloja, String viajesActividad, Integer countViaje) throws Exception{
+		Thread.sleep(1000);
+		WebElement txtViaje = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtViaje.click();
+		Thread.sleep(1000);
+		WebElement searchViaje = GenericMethod.implicityWait(2, By.xpath("//input[contains(@class,'ember-power-select-search-input')]"));
+		GenericMethod.ingresarTextoSugerido(searchViaje, pais);
+		ingresarMotivoViaje(countViaje, motivo);
+		ingresarTiempoEstadia(countViaje, tiempoEstancia, dondeReside,dondeAloja, viajesActividad);;
+	}
+	
+	public static void ingresarMotivoViaje(Integer countViaje, String motivo) throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> listMotivo = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		WebElement txtMotivo= null;
+		switch (countViaje) {
+		case 0:
+			txtMotivo = listMotivo.get(1);
+			txtMotivo.click();
+			
+			break;
+		case 1:
+			txtMotivo = listMotivo.get(4);
+			txtMotivo.click();
+			break;
+		default:
+			break;
+		}
+		seleccionarMotivoViaje(motivo);
+	}
+	
+	private static void seleccionarMotivoViaje(String motivo) throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> listMotivo = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
+		switch (motivo.toLowerCase().trim()) {
+		case Constants.VIAJE_DESCONOCIDO:
+			Thread.sleep(1000);
+			listMotivo.get(0).click();
+			break;
+		case Constants.VIAJE_PROFESIONAL:
+			Thread.sleep(1000);
+			listMotivo.get(1).click();
+			break;
+		case Constants.VIAJE_SOLO_PRIVADO:
+			Thread.sleep(1000);
+			listMotivo.get(2).click();
+			break;
+		default:
+			break;
+		}
+	}
+	
+	public static void ingresarTiempoEstadia(Integer countViaje, String tiempoEstancia, String dondeReside,String dondeAloja, String viajesActividad)throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> listTiempo= BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		switch (countViaje) {
+		case 0:
+			listTiempo.get(2).click();
+			Thread.sleep(1000);
+			break;
+		case 1:
+			listTiempo.get(4).click();
+			Thread.sleep(1000);
+			break;
+
+		default:
+			break;
+		}
+		seleccionarTiempoEstadia(tiempoEstancia, dondeReside, dondeAloja, viajesActividad);
+	}
+	
+	private static void seleccionarTiempoEstadia(String tiempoEstancia, String dondeReside,String dondeAloja, String viajesActividad) throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> listMotivo = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
+		switch (tiempoEstancia.toLowerCase().trim()) {
+		case Constants.ESTADIA_10_DIAS_AL_ANIO:
+			Thread.sleep(1000);
+			listMotivo.get(0).click();
+			break;
+		case Constants.ESTADIA_10_A_30_DIAS:
+			Thread.sleep(1000);
+			listMotivo.get(1).click();
+			dondeReside(dondeReside);
+			dondeAloja(dondeAloja);
+			realizaViajes(viajesActividad);
+			break;
+		case Constants.ESTADIA_31_A_12_MESES:
+			Thread.sleep(1000);
+			listMotivo.get(2).click();	
+			dondeReside(dondeReside);
+			dondeAloja(dondeAloja);
+			realizaViajes(viajesActividad);
+			break;
+		case Constants.ESTADIA_PERMANENTE:
+			Thread.sleep(1000);
+			listMotivo.get(3).click();
+			dondeReside(dondeReside);
+			dondeAloja(dondeAloja);
+			realizaViajes(viajesActividad);
+			break;
+		case Constants.ESTADIA_DESCONOCIDA:
+			Thread.sleep(1000);
+			listMotivo.get(4).click();	
+			dondeReside(dondeReside);
+			dondeAloja(dondeAloja);
+			realizaViajes(viajesActividad);
+			break;
+		default:
+			assertFalse("Error el dato de entrada para tiempoEstancia no esta mapeado :"+tiempoEstancia,true);
+		}
+	}
+	
+	private static void dondeReside(String dondeReside)throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> txtReside = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtReside.get(3).click();
+		Thread.sleep(1000);
+		List<WebElement> listReside = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
+		switch (dondeReside.toLowerCase().trim()) {
+		case Constants.RESIDENCIA_CIUDAD:
+			listReside.get(0).click();
+			break;
+		case Constants.RESIDENCIA_CAPITAL:
+			listReside.get(1).click();		
+			break;
+		case Constants.RESIDENCIA_PUEBLO:
+			listReside.get(2).click();
+			break;
+		case Constants.RESIDENCIA_DESCONOCIDA:
+			listReside.get(3).click();
+			break;
+		default:
+			assertFalse("Error el dato de entrada dondeReside no esta mapeado ."+dondeReside,true);
+		}
+	}
+	
+	private static void dondeAloja(String dondeAloja)throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> txtAloja = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtAloja.get(4).click();
+		Thread.sleep(1000);
+		List<WebElement> listReside = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
+		switch (dondeAloja.toLowerCase().trim()) {
+		case Constants.ALOJAMIENTO_BASICO:
+			listReside.get(0).click();
+			break;
+		case Constants.ALOJAMIENTO_ESTANDAR:
+			listReside.get(1).click();		
+			break;
+		case Constants.ALOJAMIENTO_DESCONOCIDO:
+			listReside.get(2).click();
+			break;
+		case Constants.ALOJAMIENTO_LUJO:
+			listReside.get(3).click();
+			break;
+		default:
+			assertFalse("Error el dato de entrada dondeAloja no esta mapeado : "+dondeAloja,true);
+		}
+	}
+	
+	private static void realizaViajes(String viajesActividad)throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> txtviajes = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtviajes.get(5).click();
+		Thread.sleep(1000);
+		List<WebElement> listViaje = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
+		switch (viajesActividad.toLowerCase().trim()) {
+		case Constants.VIAJES_DESCONOCIDO:
+			listViaje.get(0).click();
+			break;
+		case Constants.VIAJES_NO:
+			listViaje.get(1).click();		
+			break;
+		case Constants.VIAJES_DISTINTOS_LUGARES:
+			listViaje.get(2).click();
+			break;
+		case Constants.VIAJES_A_MAS_LUGARES:
+			listViaje.get(3).click();
+			break;
+		default:
+			assertFalse("Error el dato de entrada viajesActividad no esta mapeado : "+viajesActividad,true);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

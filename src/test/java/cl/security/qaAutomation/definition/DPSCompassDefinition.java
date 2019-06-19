@@ -84,7 +84,7 @@ public class DPSCompassDefinition {
 			break;
 		}
 	}
-
+	public static Integer countSeguro= 0;
 	@When("^Ingreso vigencia seguro de vida pSeis\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_vigencia_seguro_de_vida_pSeis(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion) throws Throwable {
 		Thread.sleep(1000);
@@ -95,15 +95,16 @@ public class DPSCompassDefinition {
 			break;
 		case Constants.SI:
 			radioSeguros.get(1).click();
-			FormularioServices.ingresoVigenciaSeguroVida(seguroVidaVigente, tipoSeguro, compania, sumaAsegurada, fechaCobertura, resultadoAceptacion);
+			FormularioServices.ingresoVigenciaSeguroVida(seguroVidaVigente, tipoSeguro, compania, sumaAsegurada, fechaCobertura, resultadoAceptacion,countSeguro);
 			break;
 		default:
 			break;
 		}
+		countSeguro+=1;
 	}
-	
-	@When("^Ingreso viajes al extranjero con regularidad\"([^\"]*)\"$")
-	public void ingreso_viajes_al_extranjero_con_regularidad(String viajesExtranjero) throws Throwable {
+	public static Integer countViaje= 0;
+	@When("^Ingreso viajes al extranjero con regularidad psiete\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_viajes_al_extranjero_con_regularidad_psiete(String viajesExtranjero, String pais, String motivo, String tiempoEstancia, String dondeReside, String dondeAloja, String viajesActividad) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radioViaje = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (viajesExtranjero.toLowerCase().trim()) {
@@ -112,13 +113,14 @@ public class DPSCompassDefinition {
 			break;
 		case Constants.SI:
 			radioViaje.get(1).click();
-//			TODO ingresar seguros
+			FormularioServices.ingresoViajesAlExtranjero(pais, motivo, tiempoEstancia, dondeReside, dondeAloja, viajesActividad, countViaje);
 			break;
 		default:
 			break;
 		}
+		countViaje+=1;
 	}
-
+	
 	@When("^Ingreso estatura en centimetros\"([^\"]*)\"$")
 	public void ingreso_estatura_en_centimetros(String estatura) throws Throwable {
 		Thread.sleep(1000);	

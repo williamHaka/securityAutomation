@@ -37,7 +37,7 @@ public class GenericMethod {
 		txtBuscar.sendKeys(texto);
 		Thread.sleep(1000);
 		txtBuscar.sendKeys(Keys.ENTER);
-		
+		Thread.sleep(1000);
 	}
 	
 	public static String getDate() {
@@ -58,4 +58,41 @@ public class GenericMethod {
     }
 	
 	
+	 public static WebElement waitForClickeable(Integer timeoutInSeconds,WebElement element)throws Exception{
+    	WebElement elemento = null;
+    	try {
+    		WebDriverWait wait = new WebDriverWait(BaseFlow.driver, timeoutInSeconds); 
+        	elemento = wait.until(ExpectedConditions.elementToBeClickable(element));
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+    	return elemento;
+    }
+	 
+	 public static WebElement waitForClickeable(Integer timeoutInSeconds,By element)throws Exception{
+    	WebElement elemento = null;
+    	try {
+    		WebDriverWait wait = new WebDriverWait(BaseFlow.driver, timeoutInSeconds); 
+        	elemento = wait.until(ExpectedConditions.elementToBeClickable(element));
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+    	return elemento;
+	 }
+	 
+	 public static Boolean existElement(By element) throws InterruptedException { 
+    	boolean isPresent = false; 
+    	for (int i = 0; i < 1; i++) {
+    	 try { 
+    		 	if (BaseFlow.driver.findElement(element) != null) 
+    		 	{ 
+    		 		isPresent = true; 
+    		 		break; 
+    	 		} 
+     		} catch (Exception e) { // 
+     			Thread.sleep(500); 
+    		} 
+    	} 
+    	return isPresent;
+ 	}
 }

@@ -8,18 +8,18 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = {
-				   "@P1TC15"
+				   "@P1TC4"
 				+ ",@P2NO"
 				+ ",@P3NO"
 				+ ",@P4NO"
 				+ ",@P5NO"
 				+ ",@P6NO"
-				+ ",@P7TC15"
+				+ ",@P7TC24"
 				+ ",@P8NO"
 				+ ",@P9NO"
-				+ ",@P10NO"//TODO agregar tc P10TC15
-				+ ",@P11NO"//TODO agregar tc P11TC15
-				+ ",@P12NO"//TODO agregar tc P12TC15
+				+ ",@P10NO"//TODO agregar tc P10TC24
+				+ ",@P11NO"//TODO agregar tc P11TC24
+				+ ",@P12NO"//TODO agregar tc P12TC24 
 				+ ",@P13NO"
 				+ ",@P14NO"
 				+ ",@P15NO"
@@ -43,6 +43,6 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P33NO"
 		},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
-public class TC15StageSet extends StageSet{
+public class TC24StageSet extends StageSet{
 
 }
