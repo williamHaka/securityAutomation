@@ -17,9 +17,9 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P7TC20"
 				+ ",@P8NO"
 				+ ",@P9NO"
-				+ ",@P10NO"//TODO agregar tc P10TC20
-				+ ",@P11NO"//TODO agregar tc P11TC20
-				+ ",@P12NO"//TODO agregar tc P12TC20 
+				+ ",@P10TC20"
+				+ ",@P11TC20"
+				+ ",@P12TC20" 
 				+ ",@P13NO"
 				+ ",@P14NO"
 				+ ",@P15NO"

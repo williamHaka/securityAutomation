@@ -72,10 +72,23 @@ public class Constants {
 	public static final String VIAJES_A_MAS_LUGARES = "viajesmaslugares";
 	public static final String VIAJES_DESCONOCIDO = "desconocido";
 	
-	
-	
-	
-	
+//	PREGUNTA 10
+	//TIPOS DE BEBIDAS
+	public static final String CERVEZA = "cerveza";
+	public static final String CHAMPAN = "champan";
+	public static final String LICORES = "licores";
+	public static final String OTROS = "otros";
+	public static final String VINO = "vino";
+//	PREGUNTA 11
+	//QUE FUMA
+	public static final String FUMA_CIGARRILLOS = "cigarrillos";
+	public static final String FUMA_CIGARROS_O_PUROS = "cigarros";
+	public static final String FUMA_PIPAS = "pipas";
+	//FRECUENCIA AL FUMAR
+	public static final String ENTRE_0_A_9 = "0a9";
+	public static final String ENTRE_10_A_19 = "10a19";
+	public static final String ENTRE_20_A_39 = "20a39";
+	public static final String MAYOR_A_40 = "mas40";
 	
 	
 	

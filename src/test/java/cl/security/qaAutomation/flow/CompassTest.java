@@ -21,10 +21,15 @@ import cl.security.qaAutomation.stageSet.TC26StageSet;
 import cl.security.qaAutomation.stageSet.TC27StageSet;
 import cl.security.qaAutomation.stageSet.TC28StageSet;
 import cl.security.qaAutomation.stageSet.TC29StageSet;
+import cl.security.qaAutomation.stageSet.TC30StageSet;
+import cl.security.qaAutomation.stageSet.TC31StageSet;
+import cl.security.qaAutomation.stageSet.TC32StageSet;
+import cl.security.qaAutomation.stageSet.TC33StageSet;
+import cl.security.qaAutomation.stageSet.TC34StageSet;
+import cl.security.qaAutomation.stageSet.TC35StageSet;
 
 
 @SuiteClasses({
-//	PropuestaCompassStageSet.class,PruebaStageSet.class,
 //	PropuestaCompassStageSet.class,TC1StageSet.class,
 //	PropuestaCompassStageSet.class,TC2StageSet.class,
 //	PropuestaCompassStageSet.class,TC3StageSet.class,
@@ -33,27 +38,32 @@ import cl.security.qaAutomation.stageSet.TC29StageSet;
 //	PropuestaCompassStageSet.class,TC6StageSet.class,
 //	PropuestaCompassStageSet.class,TC7StageSet.class,
 //	PropuestaCompassStageSet.class,TC8StageSet.class,
-//	PropuestaCompassStageSet.class,TC9StageSet.class,
-//	PropuestaCompassStageSet.class,TC10StageSet.class,
-//	PropuestaCompassStageSet.class,TC11StageSet.class,
-//	PropuestaCompassStageSet.class,TC12StageSet.class,
-//	PropuestaCompassStageSet.class,TC13StageSet.class,
-//	PropuestaCompassStageSet.class,TC14StageSet.class,
-	PropuestaCompassStageSet.class,TC15StageSet.class,
-	PropuestaCompassStageSet.class,TC16StageSet.class,
-	PropuestaCompassStageSet.class,TC17StageSet.class,
-	PropuestaCompassStageSet.class,TC18StageSet.class,
-	PropuestaCompassStageSet.class,TC19StageSet.class,
-	PropuestaCompassStageSet.class,TC20StageSet.class,
-	PropuestaCompassStageSet.class,TC21StageSet.class,
-	PropuestaCompassStageSet.class,TC22StageSet.class,
-	PropuestaCompassStageSet.class,TC23StageSet.class,
-	PropuestaCompassStageSet.class,TC24StageSet.class,
-	PropuestaCompassStageSet.class,TC25StageSet.class,
-	PropuestaCompassStageSet.class,TC26StageSet.class,
-	PropuestaCompassStageSet.class,TC27StageSet.class,
-	PropuestaCompassStageSet.class,TC28StageSet.class,
-	PropuestaCompassStageSet.class,TC29StageSet.class,
+//	PropuestaCompassStageSet.class,TC10StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC11StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC12StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC13StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC14StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC15StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC16StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC17StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC18StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC19StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC20StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC21StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC22StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC23StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC24StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC25StageSet.class,//OK
+//	PropuestaCompassStageSet.class,TC26StageSet.class,
+//	PropuestaCompassStageSet.class,TC27StageSet.class,
+//	PropuestaCompassStageSet.class,TC28StageSet.class,
+//	PropuestaCompassStageSet.class,TC29StageSet.class,
+//	PropuestaCompassStageSet.class,TC30StageSet.class,
+//	PropuestaCompassStageSet.class,TC31StageSet.class,
+//	PropuestaCompassStageSet.class,TC32StageSet.class,
+//	PropuestaCompassStageSet.class,TC33StageSet.class,
+//	PropuestaCompassStageSet.class,TC34StageSet.class,
+//	PropuestaCompassStageSet.class,TC35StageSet.class,
 })
 
 public class CompassTest extends BaseFlow{

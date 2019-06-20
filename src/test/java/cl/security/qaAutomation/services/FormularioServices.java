@@ -151,7 +151,7 @@ public class FormularioServices {
 		String anio = fecha[2];
 //		selleciono formato de calendar
 		WebElement formatoCalendar = BaseFlow.driver.findElements(By.xpath("//label[contains(@for,'days')]")).get(indexCalendar);
-		GenericMethod.scrollElement(formatoCalendar);
+//		GenericMethod.scrollElement(formatoCalendar);
 		formatoCalendar.click();
 		Thread.sleep(1000);
 		formatoCalendar.click();
@@ -175,10 +175,10 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		List<WebElement> divAnio2 = BaseFlow.driver.findElements(By.xpath("//th[(@class='datepicker-switch')]"));
 		if(divCalendar==0) {
-			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(1));
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio2.get(1));
 			GenericMethod.clickElement(calendar);
 		}else {
-			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(6));
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio2.get(6));
 			GenericMethod.clickElement(calendar);
 		}
 		Thread.sleep(1000);
@@ -437,11 +437,13 @@ public class FormularioServices {
 		WebElement txtSuma;
 		if(countSeguro==0) {
 			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(0);
+			txtSuma.sendKeys(sumaAsegurada);
+			Thread.sleep(1000);
 		}else {
 			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(1);
+			txtSuma.sendKeys(sumaAsegurada);
+			Thread.sleep(1000);
 		}
-		txtSuma.sendKeys(sumaAsegurada);
-		Thread.sleep(1000);
 		seleccionarFechaCalendar(fechaCobertura, countSeguro);
 		Thread.sleep(1000);
 //		cual fue el resultado de aceptacion
@@ -479,12 +481,14 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		WebElement txtCompania;
 		if(countSeguro==0) {
+			Thread.sleep(1000);
 			txtCompania = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
+			txtCompania.click();
 		}else {
+			Thread.sleep(1000);
 			txtCompania = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(2);
+			txtCompania.click();
 		}
-		Thread.sleep(1000);
-		txtCompania.click();
 		Thread.sleep(1000);
 		WebElement searchCompania = BaseFlow.driver.findElement(By.xpath("//input[(@class='ember-power-select-search-input')]"));
 		GenericMethod.ingresarTextoSugerido(searchCompania, compania);
@@ -698,15 +702,115 @@ public class FormularioServices {
 	}
 	
 	
+	public static void ingresoConsumoBebidasAlcoholicas(Integer countBebidas, String tipo, String frecuencia)throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> txtBebida = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtBebida.get(0).click();
+		ingresoBebida(tipo);
+		Thread.sleep(1000);
+		switch (countBebidas) {
+		case 0:
+			WebElement txtUnidades = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(2);
+			txtUnidades.sendKeys(frecuencia);
+			break;
+		case 1:
+			WebElement txtUnidades2 = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(3);
+			txtUnidades2.sendKeys(frecuencia);
+			break;
+		case 2:
+			WebElement txtUnidades3 = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(4);
+			txtUnidades3.sendKeys(frecuencia);
+			break;
+		default:
+			break;
+		}
+		
+	}
+	
+	private static void ingresoBebida(String tipo)throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> listBebida = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
+		switch (tipo) {
+		case Constants.CERVEZA:
+			Thread.sleep(1000);
+			listBebida.get(0).click();
+			break;
+		case Constants.CHAMPAN:
+			Thread.sleep(1000);
+			listBebida.get(1).click();
+			break;
+		case Constants.LICORES:
+			Thread.sleep(1000);
+			listBebida.get(2).click();
+			break;
+		case Constants.OTROS:
+			Thread.sleep(1000);
+			listBebida.get(3).click();
+			break;
+		case Constants.VINO:
+			Thread.sleep(1000);
+			listBebida.get(4).click();
+			break;
+		default:
+			assertFalse("Error el valor del dato tipo no esta mapeado :"+tipo,true);
+		}
+	}
 	
 	
+	public static void ingresoFumador(String queFuma, String frecuenciaFuma)throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> txtFumador = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtFumador.get(1).click();
+		Thread.sleep(1000);
+		List<WebElement> listFumador = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
+		switch (queFuma) {
+		case Constants.FUMA_CIGARRILLOS:
+			listFumador.get(0).click();
+			break;
+		case Constants.FUMA_CIGARROS_O_PUROS:
+			listFumador.get(1).click();
+			break;
+		case Constants.FUMA_PIPAS:
+			listFumador.get(2).click();
+			break;			
+		default:
+			assertFalse("Error el valor del dato queFuma no esta mapeado :"+queFuma,true);
+		}
+		ingresoFrecuenciaFumador(frecuenciaFuma);
+	}
 	
+	private static void ingresoFrecuenciaFumador(String frecuenciaFuma) throws Exception{
+		Thread.sleep(1000);
+		WebElement txtCantidad = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(3);
+		txtCantidad.sendKeys(frecuenciaFuma);
+	}
 	
-	
-	
-	
-	
-	
-	
+	public static void ingresoConsumoDrogas(String alucinogenos, String anfetaminas, String cocaina, String heroina, String marihuanaFrecuente, String marihuanaOcacional)throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> listDrogas = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'checkbox-custom')]"));
+		if(alucinogenos.equals(Constants.SI)) {
+			Thread.sleep(1000);
+			listDrogas.get(0).click();
+		}if(anfetaminas.equals(Constants.SI)) {
+			Thread.sleep(1000);
+			listDrogas.get(1).click();
+		}if(cocaina.equals(Constants.SI)) {
+			Thread.sleep(1000);
+			listDrogas.get(2).click();
+		}if(heroina.equals(Constants.SI)) {
+			Thread.sleep(1000);
+			listDrogas.get(3).click();
+		}if(marihuanaFrecuente.equals(Constants.SI)) {
+			Thread.sleep(1000);
+			listDrogas.get(4).click();
+		}if(marihuanaOcacional.equals(Constants.SI)) {
+			Thread.sleep(1000);
+			listDrogas.get(5).click();
+		}
+		Thread.sleep(1000);
+		WebElement iconGrabar = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(4);
+		iconGrabar.click();
+		Thread.sleep(1000);
+	}
 	
 }

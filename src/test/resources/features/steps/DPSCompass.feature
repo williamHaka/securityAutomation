@@ -318,22 +318,22 @@ Feature: Ingresar respuestas de formulario DPS
       | viajesExtranjero | pais        | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
       | "si"             | "venezuela" | "soloprivado" | "10diasanio"   | ""          | ""         | ""              |
 
-		@P7TC26
+    @P7TC26
     Examples: Ingreso no a viajes con regularidad
       | viajesExtranjero | pais   | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
       | "si"             | "peru" | "soloprivado" | "10a30dias"    | ""          | ""         | ""              |
 
-		@P7TC27
+    @P7TC27
     Examples: Ingreso no a viajes con regularidad
       | viajesExtranjero | pais   | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
       | "si"             | "peru" | "soloprivado" | "31a12meses"   | ""          | ""         | ""              |
 
-		@P7TC28
+    @P7TC28
     Examples: Ingreso no a viajes con regularidad
       | viajesExtranjero | pais   | motivo        | tiempoEstancia       | dondeReside | dondeAloja | viajesActividad |
       | "si"             | "peru" | "soloprivado" | "estanciapermanente" | ""          | ""         | ""              |
 
-		@P7TC29
+    @P7TC29
     Examples: Ingreso no a viajes con regularidad
       | viajesExtranjero | pais   | motivo        | tiempoEstancia | dondeReside | dondeAloja | viajesActividad |
       | "si"             | "peru" | "soloprivado" | "desconocido"  | ""          | ""         | ""              |
@@ -344,8 +344,8 @@ Feature: Ingresar respuestas de formulario DPS
       | "no"             | ""   | ""     | ""             | ""          | ""         | ""              |
 
   @P8
-  Scenario Outline: ingreso estatura en centimetros
-    When Ingreso estatura en centimetros<estatura>
+  Scenario Outline: ingreso estatura en centimetros pregunta ocho
+    When Ingreso estatura en centimetros pOcho<estatura>
 
     @P8NO
     Examples: Ingreso 170 centimetros
@@ -353,8 +353,8 @@ Feature: Ingresar respuestas de formulario DPS
       | "160"    |
 
   @P9
-  Scenario Outline: Ingreso peso en kilogramos
-    When Ingreso peso en kilogramos<peso>
+  Scenario Outline: Ingreso peso en kilogramos pregunta nueve
+    When Ingreso peso en kilogramos pNueve<peso>
 
     @P9NO
     Examples: 
@@ -362,31 +362,239 @@ Feature: Ingresar respuestas de formulario DPS
       | "60" |
 
   @P10
-  Scenario Outline: Ingreso consumo de bebidas alcoholicas
-    When Ingreso consumo de bebidas alcoholicas<bebidasAlcoholicas>
+  Scenario Outline: Ingreso consumo de bebidas alcoholicas pregunta diez
+    When Ingreso consumo de bebidas alcoholicas pDiez<bebidasAlcoholicas><tipo><frecuencia>
+
+    @P10TC15
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "cerveza" | "10"       |
+
+    @P10TC16
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "cerveza" | "25"       |
+
+    @P10TC17
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "cerveza" | "45"       |
+
+    @P10TC18
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "cerveza" | "55"       |
+
+    @P10TC19
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "champan" | "10"       |
+
+    @P10TC20
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "champan" | "25"       |
+
+    @P10TC21
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "champan" | "45"       |
+
+    @P10TC22
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "champan" | "55"       |
+
+    @P10TC23
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "licores" | "10"       |
+
+    @P10TC24
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "licores" | "25"       |
+
+    @P10TC25
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "licores" | "45"       |
+
+    @P10TC26
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "licores" | "55"       |
+
+    @P10TC27
+    Examples: 
+      | bebidasAlcoholicas | tipo    | frecuencia |
+      | "si"               | "otros" | "10"       |
+
+    @P10TC28
+    Examples: 
+      | bebidasAlcoholicas | tipo    | frecuencia |
+      | "si"               | "otros" | "25"       |
+
+    @P10TC29
+    Examples: 
+      | bebidasAlcoholicas | tipo    | frecuencia |
+      | "si"               | "otros" | "45"       |
+
+    @P10TC30
+    Examples: 
+      | bebidasAlcoholicas | tipo    | frecuencia |
+      | "si"               | "otros" | "55"       |
+
+    @P10TC31
+    Examples: 
+      | bebidasAlcoholicas | tipo   | frecuencia |
+      | "si"               | "vino" | "10"       |
+
+    @P10TC32
+    Examples: 
+      | bebidasAlcoholicas | tipo   | frecuencia |
+      | "si"               | "vino" | "25"       |
+
+    @P10TC33
+    Examples: 
+      | bebidasAlcoholicas | tipo   | frecuencia |
+      | "si"               | "vino" | "45"       |
+
+    @P10TC34
+    Examples: 
+      | bebidasAlcoholicas | tipo   | frecuencia |
+      | "si"               | "vino" | "55"       |
+
+    @P10TC35
+    Examples: 
+      | bebidasAlcoholicas | tipo      | frecuencia |
+      | "si"               | "cerveza" | "10"       |
+      | "si"               | "licores" | "25"       |
+      | "si"               | "vino"    | "10"       |
 
     @P10NO
     Examples: 
-      | bebidasAlcoholicas |
-      | "no"               |
+      | bebidasAlcoholicas | tipo | frecuencia |
+      | "no"               | ""   | ""         |
 
   @P11
-  Scenario Outline: Ingreso si es fumador en los ultimos doce meses
-    When Ingreso fumador en los ultimos doce meses<fumador>
+  Scenario Outline: Ingreso si es fumador en los ultimos doce meses pregunta once
+    When Ingreso fumador en los ultimos doce meses pOnce<fumador><queFuma><fecuenciaFuma>
+
+    @P11TC15
+    Examples: Ingreso no fumador
+      | fumador | queFuma       | fecuenciaFuma |
+      | "si"    | "cigarrillos" | "5"           |
+
+    @P11TC16
+    Examples: Ingreso no fumador
+      | fumador | queFuma       | fecuenciaFuma |
+      | "si"    | "cigarrillos" | "15"          |
+
+    @P11TC17
+    Examples: Ingreso no fumador
+      | fumador | queFuma       | fecuenciaFuma |
+      | "si"    | "cigarrillos" | "25"          |
+
+    @P11TC18
+    Examples: Ingreso no fumador
+      | fumador | queFuma       | fecuenciaFuma |
+      | "si"    | "cigarrillos" | "45"          |
+
+    @P11TC19
+    Examples: Ingreso no fumador
+      | fumador | queFuma    | fecuenciaFuma |
+      | "si"    | "cigarros" | "5"           |
+
+    @P11TC20
+    Examples: Ingreso no fumador
+      | fumador | queFuma    | fecuenciaFuma |
+      | "si"    | "cigarros" | "15"          |
+
+    @P11TC21
+    Examples: Ingreso no fumador
+      | fumador | queFuma    | fecuenciaFuma |
+      | "si"    | "cigarros" | "25"          |
+
+    @P11TC22
+    Examples: Ingreso no fumador
+      | fumador | queFuma    | fecuenciaFuma |
+      | "si"    | "cigarros" | "45"          |
+
+    @P11TC23
+    Examples: Ingreso no fumador
+      | fumador | queFuma | fecuenciaFuma |
+      | "si"    | "pipas" | "5"           |
+
+    @P11TC24
+    Examples: Ingreso no fumador
+      | fumador | queFuma | fecuenciaFuma |
+      | "si"    | "pipas" | "15"          |
+
+    @P11TC25
+    Examples: Ingreso no fumador
+      | fumador | queFuma | fecuenciaFuma |
+      | "si"    | "pipas" | "25"          |
+
+    @P11TC26
+    Examples: Ingreso no fumador
+      | fumador | queFuma | fecuenciaFuma |
+      | "si"    | "pipas" | "45"          |
+
+    @P11TC27
+    Examples: Ingreso no fumador
+      | fumador | queFuma       | fecuenciaFuma |
+      | "si"    | "cigarrillos" | "25"          |
+      | "si"    | "cigarros"    | "5"           |
 
     @P11NO
     Examples: Ingreso no fumador
-      | fumador |
-      | "no"    |
+      | fumador | queFuma | fecuenciaFuma |
+      | "no"    | ""      | ""            |
 
   @P12
-  Scenario Outline: Ingresar consumo de drogas
-    When Ingreso consumo de drogas<drogas>
+  Scenario Outline: Ingresar consumo de drogas pregunta doce
+    When Ingreso consumo de drogas pDoce<drogas><alucinogenos><anfetaminas><cocaina><heroina><marihuanaFrecuente><marihuanaOcacional>
+
+    @P12TC15
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | "si"         | ""          | ""      | ""      | ""                 | ""                 |
+
+    @P12TC16
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | ""           | "si"        | ""      | ""      | ""                 | ""                 |
+
+    @P12TC17
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | ""           | ""          | "si"    | ""      | ""                 | ""                 |
+
+    @P12TC18
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | ""           | ""          | ""      | "si"    | ""                 | ""                 |
+
+    @P12TC19
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | ""           | ""          | ""      | ""      | "si"               | ""                 |
+
+    @P12TC20
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | ""           | ""          | ""      | ""      | ""                 | "si"               |
+
+    @P12TC21
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "si"   | "si"         | ""          | "si"    | ""      | "si"               | ""                 |
 
     @P12NO
-    Examples: INgreso no a consumo de drogas
-      | drogas |
-      | "no"   |
+    Examples: Ingreso no a consumo de drogas
+      | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
+      | "no"   | ""           | ""          | ""      | ""      | ""                 | ""                 |
 
   @P13
   Scenario Outline: Ingresar embarazo

@@ -105,6 +105,7 @@ public class DPSCompassDefinition {
 	public static Integer countViaje= 0;
 	@When("^Ingreso viajes al extranjero con regularidad psiete\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_viajes_al_extranjero_con_regularidad_psiete(String viajesExtranjero, String pais, String motivo, String tiempoEstancia, String dondeReside, String dondeAloja, String viajesActividad) throws Throwable {
+		countSeguro=0;
 		Thread.sleep(1000);
 		List<WebElement> radioViaje = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (viajesExtranjero.toLowerCase().trim()) {
@@ -121,42 +122,47 @@ public class DPSCompassDefinition {
 		countViaje+=1;
 	}
 	
-	@When("^Ingreso estatura en centimetros\"([^\"]*)\"$")
-	public void ingreso_estatura_en_centimetros(String estatura) throws Throwable {
+	@When("^Ingreso estatura en centimetros pOcho\"([^\"]*)\"$")
+	public void ingreso_estatura_en_centimetros_pOcho(String estatura) throws Throwable {
+		countViaje=0;
 		Thread.sleep(1000);	
 		List<WebElement> txtEstatura = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
 		GenericMethod.scrollElement(txtEstatura.get(0));
 		txtEstatura.get(0).sendKeys(estatura);
 	}
 	
-	@When("^Ingreso peso en kilogramos\"([^\"]*)\"$")
-	public void ingreso_peso_en_kilogramos(String peso) throws Throwable {
+	@When("^Ingreso peso en kilogramos pNueve\"([^\"]*)\"$")
+	public void ingreso_peso_en_kilogramos_pNueve(String peso) throws Throwable {
 		Thread.sleep(1000);	
 		List<WebElement> txtPeso = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
 		GenericMethod.scrollElement(txtPeso.get(1));
 		txtPeso.get(1).sendKeys(peso);
 	}
-
-	@When("^Ingreso consumo de bebidas alcoholicas\"([^\"]*)\"$")
-	public void ingreso_consumo_de_bebidas_alcoholicas(String bebidasAlcoholicas) throws Throwable {
+	public static Integer countBebidas = 0;
+	@When("^Ingreso consumo de bebidas alcoholicas pDiez\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_consumo_de_bebidas_alcoholicas_pDiez(String bebidasAlcoholicas, String tipo, String frecuencia) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radiobebidas = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radiobebidas.get(0));
 		switch (bebidasAlcoholicas.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radiobebidas.get(0).click();
 			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radiobebidas.get(1).click();
-//			TODO ingresar bebidas alcoholicas
+			FormularioServices.ingresoConsumoBebidasAlcoholicas(countBebidas,tipo, frecuencia);
 			break;
 		default:
 			break;
 		}
+		countBebidas+=1;
 	}
 	
-	@When("^Ingreso fumador en los ultimos doce meses\"([^\"]*)\"$")
-	public void ingreso_fumador_en_los_ultimos_doce_meses(String fumador) throws Throwable {
+	@When("^Ingreso fumador en los ultimos doce meses pOnce\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_fumador_en_los_ultimos_doce_meses_pOnce(String fumador, String queFuma, String frecuenciaFuma) throws Throwable {
+		countBebidas = 0;
 		Thread.sleep(1000);
 		List<WebElement> radioFumador = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radioFumador.get(2));
@@ -166,15 +172,15 @@ public class DPSCompassDefinition {
 			break;
 		case Constants.SI:
 			radioFumador.get(3).click();
-//			TODO ingresar fumador
+			FormularioServices.ingresoFumador(queFuma, frecuenciaFuma);
 			break;
 		default:
 			break;
 		}
 	}
-
-	@When("^Ingreso consumo de drogas\"([^\"]*)\"$")
-	public void ingreso_consumo_de_drogas(String drogas) throws Throwable {
+	
+	@When("^Ingreso consumo de drogas pDoce\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_consumo_de_drogas_pDoce(String drogas, String alucinogenos, String anfetaminas, String cocaina, String heroina, String marihuanaFrecuente, String marihuanaOcacional) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radioDrogas = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radioDrogas.get(4));
@@ -184,7 +190,7 @@ public class DPSCompassDefinition {
 			break;
 		case Constants.SI:
 			radioDrogas.get(5).click();
-//			TODO ingresar fumador
+			FormularioServices.ingresoConsumoDrogas(alucinogenos, anfetaminas, cocaina, heroina, marihuanaFrecuente, marihuanaOcacional);
 			break;
 		default:
 			break;
