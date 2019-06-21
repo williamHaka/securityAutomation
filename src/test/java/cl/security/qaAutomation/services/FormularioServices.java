@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.List;
 
+import org.apache.tomcat.util.bcel.classfile.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -525,7 +526,7 @@ public class FormularioServices {
 		WebElement searchViaje = GenericMethod.implicityWait(2, By.xpath("//input[contains(@class,'ember-power-select-search-input')]"));
 		GenericMethod.ingresarTextoSugerido(searchViaje, pais);
 		ingresarMotivoViaje(countViaje, motivo);
-		ingresarTiempoEstadia(countViaje, tiempoEstancia, dondeReside,dondeAloja, viajesActividad);;
+		ingresarTiempoEstadia(countViaje, motivo, tiempoEstancia, dondeReside,dondeAloja, viajesActividad);;
 	}
 	
 	public static void ingresarMotivoViaje(Integer countViaje, String motivo) throws Exception {
@@ -569,26 +570,26 @@ public class FormularioServices {
 		}
 	}
 	
-	public static void ingresarTiempoEstadia(Integer countViaje, String tiempoEstancia, String dondeReside,String dondeAloja, String viajesActividad)throws Exception{
+	public static void ingresarTiempoEstadia(Integer countViaje,String motivo, String tiempoEstancia, String dondeReside,String dondeAloja, String viajesActividad)throws Exception{
 		Thread.sleep(1000);
 		List<WebElement> listTiempo= BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 		switch (countViaje) {
 		case 0:
-			listTiempo.get(2).click();
 			Thread.sleep(1000);
+			listTiempo.get(2).click();
 			break;
 		case 1:
-			listTiempo.get(4).click();
 			Thread.sleep(1000);
+			listTiempo.get(4).click();
 			break;
 
 		default:
 			break;
 		}
-		seleccionarTiempoEstadia(tiempoEstancia, dondeReside, dondeAloja, viajesActividad);
+		seleccionarTiempoEstadia(motivo, tiempoEstancia, dondeReside, dondeAloja, viajesActividad);
 	}
 	
-	private static void seleccionarTiempoEstadia(String tiempoEstancia, String dondeReside,String dondeAloja, String viajesActividad) throws Exception{
+	private static void seleccionarTiempoEstadia(String motivo, String tiempoEstancia, String dondeReside,String dondeAloja, String viajesActividad) throws Exception{
 		Thread.sleep(1000);
 		List<WebElement> listMotivo = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
 		switch (tiempoEstancia.toLowerCase().trim()) {
@@ -599,30 +600,38 @@ public class FormularioServices {
 		case Constants.ESTADIA_10_A_30_DIAS:
 			Thread.sleep(1000);
 			listMotivo.get(1).click();
-			dondeReside(dondeReside);
-			dondeAloja(dondeAloja);
-			realizaViajes(viajesActividad);
+			if(!motivo.equals(Constants.VIAJE_SOLO_PRIVADO)) {
+				dondeReside(dondeReside);
+				dondeAloja(dondeAloja);
+				realizaViajes(viajesActividad);
+			}
 			break;
 		case Constants.ESTADIA_31_A_12_MESES:
 			Thread.sleep(1000);
 			listMotivo.get(2).click();	
-			dondeReside(dondeReside);
-			dondeAloja(dondeAloja);
-			realizaViajes(viajesActividad);
+			if(!motivo.equals(Constants.VIAJE_SOLO_PRIVADO)) {
+				dondeReside(dondeReside);
+				dondeAloja(dondeAloja);
+				realizaViajes(viajesActividad);
+			}
 			break;
 		case Constants.ESTADIA_PERMANENTE:
 			Thread.sleep(1000);
 			listMotivo.get(3).click();
-			dondeReside(dondeReside);
-			dondeAloja(dondeAloja);
-			realizaViajes(viajesActividad);
+			if(!motivo.equals(Constants.VIAJE_SOLO_PRIVADO)) {
+				dondeReside(dondeReside);
+				dondeAloja(dondeAloja);
+				realizaViajes(viajesActividad);
+			}
 			break;
 		case Constants.ESTADIA_DESCONOCIDA:
 			Thread.sleep(1000);
 			listMotivo.get(4).click();	
-			dondeReside(dondeReside);
-			dondeAloja(dondeAloja);
-			realizaViajes(viajesActividad);
+			if(!motivo.equals(Constants.VIAJE_SOLO_PRIVADO)) {
+				dondeReside(dondeReside);
+				dondeAloja(dondeAloja);
+				realizaViajes(viajesActividad);
+			}
 			break;
 		default:
 			assertFalse("Error el dato de entrada para tiempoEstancia no esta mapeado :"+tiempoEstancia,true);
@@ -757,7 +766,7 @@ public class FormularioServices {
 	}
 	
 	
-	public static void ingresoFumador(String queFuma, String frecuenciaFuma)throws Exception{
+	public static void ingresoFumador(Integer countFumador, String queFuma, String frecuenciaFuma)throws Exception{
 		Thread.sleep(1000);
 		List<WebElement> txtFumador = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 		txtFumador.get(1).click();
@@ -776,13 +785,24 @@ public class FormularioServices {
 		default:
 			assertFalse("Error el valor del dato queFuma no esta mapeado :"+queFuma,true);
 		}
-		ingresoFrecuenciaFumador(frecuenciaFuma);
+		ingresoFrecuenciaFumador(countFumador, frecuenciaFuma);
 	}
 	
-	private static void ingresoFrecuenciaFumador(String frecuenciaFuma) throws Exception{
+	private static void ingresoFrecuenciaFumador(Integer countFumador,String frecuenciaFuma) throws Exception{
 		Thread.sleep(1000);
-		WebElement txtCantidad = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(3);
-		txtCantidad.sendKeys(frecuenciaFuma);
+		List<WebElement> txtCantidad = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
+		if(countFumador==0) {
+			txtCantidad.get(3).click();
+			Thread.sleep(1000);
+			txtCantidad.get(3).sendKeys(frecuenciaFuma);
+			Thread.sleep(1000);
+		}else if(countFumador==1) {
+			txtCantidad.get(4).click();
+			Thread.sleep(1000);
+			txtCantidad.get(4).sendKeys(frecuenciaFuma);
+			Thread.sleep(1000);
+		}
+		
 	}
 	
 	public static void ingresoConsumoDrogas(String alucinogenos, String anfetaminas, String cocaina, String heroina, String marihuanaFrecuente, String marihuanaOcacional)throws Exception{

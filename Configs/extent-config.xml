@@ -11,7 +11,7 @@
     <protocol>https</protocol>
     
     <!-- title of the document -->
-    <documentTitle>Reporte Cencosud</documentTitle>
+    <documentTitle>Reporte Vida Security</documentTitle>
     
     <!-- report name - displayed at top-nav -->
     <reportName>
@@ -19,7 +19,7 @@
 			<!-- RUTA DE IMAGEN -->
 			<![CDATA[<img id ="icon-logo" class="icon-logo" src='bchIcon.png'>]]>
 		</image>
-		Reporte Qa Automation Cencosud Genesis
+		Reporte Qa Automation Compass DPS
     </reportName>
     
 	

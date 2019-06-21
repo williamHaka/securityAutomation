@@ -1,5 +1,8 @@
 package cl.security.qaAutomation.definition;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -103,19 +106,26 @@ public class PropuestaCompassDefinition {
 	@When("^Acepto termino de conformidad\"([^\"]*)\"$")
 	public void acepto_termino_de_conformidad(String aceptoTerminos) throws Throwable {
 		Thread.sleep(1000);
-		BaseFlow.driver.switchTo().parentFrame();
-		List<WebElement> listAccept = BaseFlow.pageModel.getListErrorButton();
-		switch (aceptoTerminos.toLowerCase().trim()) {
-		case "si":
-			WebElement btnAccept = listAccept.get(0).findElement(By.xpath("//button[contains(@class,'error-accept')]"));
-			btnAccept.click();
-			break;
-		case "no":
-			WebElement btnNoAccept = listAccept.get(1).findElement(By.xpath("//button[contains(@class,'error-accept')]"));
-			btnNoAccept.click();
-			break;
-		default:
-			break;
+		WebElement btnConforme = GenericMethod.implicityWait(10,By.xpath("//button[(@data-text='conforme')]"));
+		if(btnConforme!=null) {
+			switch (aceptoTerminos.toLowerCase().trim()) {
+			case "si":
+				GenericMethod.focusElement(btnConforme);
+				Thread.sleep(1000);
+				btnConforme.click();
+				break;
+			case "no":
+				WebElement btnNoConforme =  GenericMethod.implicityWait(10,By.xpath("//label[(@data-text='no conforme')]"));
+				GenericMethod.focusElement(btnNoConforme);
+				Thread.sleep(1000);
+				btnNoConforme.click();
+				break;
+			default:
+				break;
+			}
+			
+		}else {
+			assertFalse("",true);
 		}
 	}
 }
