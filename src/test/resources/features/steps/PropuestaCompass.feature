@@ -2,7 +2,7 @@ Feature: Flujo previo a DPS
 
 @NuevoAsegurado
   Scenario Outline: Validacion del flujo ingresar nueva propuesta
-    Given Ingreso a la url"https://vs-as-compass-qa.azurewebsites.net/"
+    Given Ingreso a la url"https://vs-as-compass-des.azurewebsites.net/"
     When Ingreso usuario y clave"admin""admin"
     And Doy click en nueva propuesta
     And Ingreso nombre de la nueva propuesta<nombrePropuesta>
