@@ -4,10 +4,10 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.List;
 
-import org.apache.tomcat.util.bcel.classfile.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import cl.security.qaAutomation.definition.PropuestaCompassDefinition;
 import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
@@ -832,5 +832,154 @@ public class FormularioServices {
 		iconGrabar.click();
 		Thread.sleep(1000);
 	}
+	
+	public static void ingresoEmbarazo(String complicaciones, String nombreComplicacion, String fechaDesde, String fechaHasta, String secuelas, String especifiqueSecuelas) throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> radioEmbarazada = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (complicaciones) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			radioEmbarazada.get(8).click();
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			radioEmbarazada.get(9).click();
+			ingresarComplicacionEmbarazo(nombreComplicacion, fechaDesde, fechaHasta, secuelas, especifiqueSecuelas);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private static void ingresarComplicacionEmbarazo( String nombreComplicacion, String fechaDesde, String fechaHasta, String secuelas, String especifiqueSecuelas) throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> listComplicaciones = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		listComplicaciones.get(0).click();
+		Thread.sleep(1000);
+		WebElement txtSearch = GenericMethod.implicityWait(2, By.xpath("//input[(@class='ember-power-select-search-input')]"));
+		GenericMethod.ingresarTextoSugerido(txtSearch, nombreComplicacion);
+		Thread.sleep(1000);
+		ingresarFechaDesdeHasta(fechaDesde, fechaHasta);
+		Thread.sleep(1000);
+		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (secuelas) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			radio.get(16).click();
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			radio.get(17).click();
+			Thread.sleep(1000);
+			WebElement txtSecuelas = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(4);
+			txtSecuelas.sendKeys(especifiqueSecuelas);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private static void ingresarFechaDesdeHasta(String fechaDesde, String fechaHasta)throws Exception{
+		Thread.sleep(1000);
+		String[] fecha = fechaDesde.trim().split("-");
+		String mes = fecha[1];
+		String anio = fecha[2];
+		seleccionarAnioDesde(anio);
+		seleccionarMesDesde(mes);
+		
+		Thread.sleep(1000);
+		String[] fechaH= fechaHasta.trim().split("-");
+		String mes2 = fechaH[1];
+		String anio2= fechaH[2];
+		seleccionarAnioHasta(anio2);
+		seleccionarMesHasta(mes2+12);
+		
+		Thread.sleep(1000);
+		WebElement btnGuardar = GenericMethod.implicityWait(2, By.xpath("//button[(@id='calendar')]"));
+		btnGuardar.click();
+	}
+	
+	private static void seleccionarAnioDesde(String anio) throws Exception {
+		Thread.sleep(1000);
+		Boolean seleccionAnio = false;
+		do {
+			WebElement years = BaseFlow.driver.findElements(By.xpath("//th[(@class='datepicker-switch')]")).get(1);
+			if(anio.equals(years.getText().toString())) {
+				seleccionAnio=true; 
+				break;
+			}else {
+				WebElement prev = BaseFlow.driver.findElements(By.xpath("//th[(@class='prev')]")).get(1);
+				prev.click();
+			}
+		} while (seleccionAnio==false);
+	}
+	
+	private static void seleccionarMesDesde(String mes) throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> months = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]')]"));
+		months.get(Integer.parseInt(mes)-1).click();
+	}
+	
+	private static void seleccionarAnioHasta(String anio) throws Exception {
+		Thread.sleep(1000);
+		Boolean seleccionAnio = false;
+		do {
+			WebElement years = BaseFlow.driver.findElements(By.xpath("//th[(@class='datepicker-switch')]")).get(6);
+			if(anio.equals(years.getText().toString())) {
+				seleccionAnio=true; 
+				break;
+			}else {
+				WebElement prev = BaseFlow.driver.findElements(By.xpath("//th[(@class='prev')]")).get(1);
+				prev.click();
+			}
+		} while (seleccionAnio==false);
+	}
+	
+	private static void seleccionarMesHasta(String mes) throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> months = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]')]"));
+		months.get(Integer.parseInt(mes)-1).click();
+	}
+	
+	public static Integer getIndexVIH(Boolean isEmbarazada, Boolean isComplicaciones)throws Exception{
+		Integer index=0;
+		if(PropuestaCompassDefinition.genero.trim().toLowerCase().equalsIgnoreCase("f")) {
+			if(isEmbarazada) {
+				if(isComplicaciones) {
+					index=18;
+				}else {
+					index=10;
+				}
+			}else {
+				index=8;
+			}
+		}else {
+			index=6;
+		}
+		
+		return index;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

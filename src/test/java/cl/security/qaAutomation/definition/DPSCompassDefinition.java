@@ -84,7 +84,7 @@ public class DPSCompassDefinition {
 			break;
 		}
 	}
-	public static Integer countSeguro= 0;
+	private static Integer countSeguro= 0;
 	@When("^Ingreso vigencia seguro de vida pSeis\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_vigencia_seguro_de_vida_pSeis(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion) throws Throwable {
 		Thread.sleep(1000);
@@ -102,7 +102,7 @@ public class DPSCompassDefinition {
 		}
 		countSeguro+=1;
 	}
-	public static Integer countViaje= 0;
+	private static Integer countViaje= 0;
 	@When("^Ingreso viajes al extranjero con regularidad psiete\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_viajes_al_extranjero_con_regularidad_psiete(String viajesExtranjero, String pais, String motivo, String tiempoEstancia, String dondeReside, String dondeAloja, String viajesActividad) throws Throwable {
 		countSeguro=0;
@@ -138,7 +138,7 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(txtPeso.get(1));
 		txtPeso.get(1).sendKeys(peso);
 	}
-	public static Integer countBebidas = 0;
+	private static Integer countBebidas = 0;
 	@When("^Ingreso consumo de bebidas alcoholicas pDiez\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_consumo_de_bebidas_alcoholicas_pDiez(String bebidasAlcoholicas, String tipo, String frecuencia) throws Throwable {
 		Thread.sleep(1000);
@@ -160,7 +160,7 @@ public class DPSCompassDefinition {
 		countBebidas+=1;
 	}
 	
-	public static Integer countFumador = 0;
+	private static Integer countFumador = 0;
 	@When("^Ingreso fumador en los ultimos doce meses pOnce\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_fumador_en_los_ultimos_doce_meses_pOnce(String fumador, String queFuma, String frecuenciaFuma) throws Throwable {
 		countBebidas = 0;
@@ -199,57 +199,86 @@ public class DPSCompassDefinition {
 			break;
 		}
 	}
-
-	@When("^Ingreso embarazo\"([^\"]*)\"$")
-	public void ingreso_embarazo(String embarazada) throws Throwable {
+	
+	private static Boolean isEmbarazada, isComplicaciones = false;
+	@When("^Ingreso embarazo pTrece\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_embarazo_pTrece(String embarazada, String complicaciones, String nombreComplicacion, String fechaDesde, String fechaHasta, String secuelas, String especifiqueSecuelas) throws Throwable {
+		Thread.sleep(1000);
 		if(PropuestaCompassDefinition.genero.trim().toLowerCase().equalsIgnoreCase("f")) {
+			isEmbarazada = embarazada.equals(Constants.SI)?true:false;
+			isComplicaciones = complicaciones.equals(Constants.SI)?true:false;
 			List<WebElement> radioEmbarazada = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			GenericMethod.scrollElement(radioEmbarazada.get(6));
 			switch (embarazada.toLowerCase().trim()) {
 			case Constants.NO:
+				Thread.sleep(1000);
 				radioEmbarazada.get(6).click();
 				break;
 			case Constants.SI:
 				radioEmbarazada.get(7).click();
-//				TODO ingresar fumador
+				Thread.sleep(1000);
+				FormularioServices.ingresoEmbarazo(complicaciones, nombreComplicacion, fechaDesde, fechaHasta, secuelas, especifiqueSecuelas);
 				break;
 			default:
 				break;
 			}
 		}
 	}
-
-	@When("^Ingreso prueba de VIH en los ultimos doce meses\"([^\"]*)\"$")
-	public void ingreso_prueba_de_VIH_en_los_ultimos_doce_meses(String pruebaVIH) throws Throwable {
+	static Integer indexRadio = 0;
+	static Boolean VIH,resultVIH = false;
+	@When("^Ingreso prueba de VIH en los ultimos doce meses pCatorce\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_prueba_de_VIH_en_los_ultimos_doce_meses_pCatorce(String pruebaVIH, String resultadoVIH) throws Throwable {
+		VIH = pruebaVIH.equals(Constants.SI)?true:false;
+		resultVIH = resultadoVIH.equals(Constants.SI)?true:false;
+		indexRadio = FormularioServices.getIndexVIH(isEmbarazada, isComplicaciones);
 		Thread.sleep(1000);
 		List<WebElement> radioVIH = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radioVIH.get(6));
+		GenericMethod.scrollElement(radioVIH.get(indexRadio));
 		switch (pruebaVIH.toLowerCase().trim()) {
 		case Constants.NO:
-			radioVIH.get(6).click();
+			Thread.sleep(1000);
+			radioVIH.get(indexRadio).click();
 			break;
 		case Constants.SI:
-			radioVIH.get(7).click();
-//				TODO ingresar fumador
+			Thread.sleep(1000);
+			indexRadio+=1;
+			radioVIH.get(indexRadio).click();
+			Thread.sleep(1000);
+			List<WebElement> radioResultadoVIH = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+			if(resultadoVIH.equals(Constants.NO)){
+				Thread.sleep(1000);
+				indexRadio+=1;
+				radioResultadoVIH.get(indexRadio).click();
+			}else {
+				Thread.sleep(1000);
+				indexRadio+=2;
+				radioResultadoVIH.get(indexRadio).click();
+			}
 			break;
 		default:
 			break;
 		}
 	}
-
-	@When("^Ingreso pension de invalidez\"([^\"]*)\"$")
-	public void ingreso_pension_de_invalidez(String pensionInvalidez) throws Throwable {
+	
+	@When("^Ingreso pension de invalidez pQuince\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_pension_de_invalidez_pQuince(String pensionInvalidez, String motivoPension) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radioPension = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radioPension.get(8));
+		GenericMethod.scrollElement(radioPension.get(indexRadio+1));
 		switch (pensionInvalidez.toLowerCase().trim()) {
 		case Constants.NO:
-			radioPension.get(8).click();
+			Thread.sleep(1000);
+			indexRadio+=1;
+			radioPension.get(indexRadio).click();
                   			break;
 		case Constants.SI:
-			radioPension.get(9).click();
-//				TODO ingresar fumador
+			Thread.sleep(1000);
+			indexRadio+=2;
+			radioPension.get(indexRadio).click();
+			Thread.sleep(1000);
+			WebElement textArea = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@class,'ember-text-area')]"));
+			textArea.sendKeys(motivoPension);
 			break;
 		default:
 			break;
@@ -330,6 +359,7 @@ public class DPSCompassDefinition {
 
 	@When("^Ingreso le han recetado tratamiento medico\"([^\"]*)\"$")
 	public void ingreso_le_han_recetado_tratamiento_medico(String tratamientoMedico) throws Throwable {
+//TODO filtrar por genero
 		Thread.sleep(1000);
 		List<WebElement> radiotratamiento = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radiotratamiento.get(18));
