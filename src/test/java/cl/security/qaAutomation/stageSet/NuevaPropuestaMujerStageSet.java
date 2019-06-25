@@ -7,9 +7,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = {"@NuevoAsegurado"}
+		tags = {"@NuevoAseguradoMujer"}
 		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
-public class PropuestaCompassStageSet extends StageSet{
+public class NuevaPropuestaMujerStageSet extends StageSet{
 
 }
