@@ -43,7 +43,6 @@ import cl.security.qaAutomation.stageSet.TC1StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC33StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC34StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC35StageSet.class, //OK
-//	NuevaPropuestaMujerStageSet.class,TC36StageSet.class
 })
 
 public class CompassTest extends BaseFlow{

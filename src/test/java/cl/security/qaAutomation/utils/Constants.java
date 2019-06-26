@@ -2,38 +2,38 @@ package cl.security.qaAutomation.utils;
 
 public class Constants {
 	
-//	constant end point 
+//constant end point 
 	public static final String URL_BASE = "http://10.62.4.76:8170/compass-api/";
 	public static final String OAUTH =URL_BASE+"auth"; 
 	public static final String APPLICATION =URL_BASE+"api/v1/compass/application";
 	public static final String RESULT =URL_BASE+"api/v1/compass/result";
 	
-//	PARAMETROS FEATURE
+//PARAMETROS FEATURE
 	public static final String SI = "si";
 	public static final String NO = "no";
-//	PREGUNTA 2
-	public static final String RADIACION_IONIZANTE = "radiacionionizante";
+//PREGUNTA 2
+	public static final String RADIACION_IONIZANTE = "radiacion";
 		// AREA DE TRABAJO 
 		public static final String AT_AREA_CONTROL = "areacontrol";
 		public static final String AT_AREA_VIGILANCIA = "areavigilancia";
 		public static final String AT_OTRA_AREA = "otraarea";
-	public static final String VUELOS_NO_REGULARES = "vuelosnoregulares";
-	public static final String NINGUNO_ANTERIORES = "ningunodelosanteriores";
+	public static final String VUELOS_NO_REGULARES = "vuelos";
+	public static final String NINGUNO_ANTERIORES = "ninguno";
 	
-//	PREGUNTA 3
+//PREGUNTA 3
 	public static final String BOMBERO = "bombero";
 	public static final String BOMBERO_AEROPUERTO = "bomberoaeropuerto";
 	public static final String BOMBERO_FORESTAL = "bomberoforestal";
 	public static final String RESCATE_CON_OPERACIONES_EPECIALES = "rescateconoperacionesespeciales";
 	public static final String RESCATE_SIN_OPERACIONES_EPECIALES = "rescatesinoperacionesespeciales";
-//	PREGUNTA 4
+//PREGUNTA 4
 	public static final String ENTRE_125_Y_500 = "entre125y500";
 	public static final String MAS_DE_500 = "masde500";
 	public static final String MENOS_DE_125 = "menosde125";
-//	PREGUNTA 5
+//PREGUNTA 5
 	//TODO POR MAPEAR
 	
-//	PREGUNTA 6
+//PREGUNTA 6
 	// TIPO DE SEGURO
 	public static final String SEGURO_ACCIDENTES = "accidentes";
 	public static final String SEGURO_EG = "eg";
@@ -46,7 +46,7 @@ public class Constants {
 	public static final String APLICACION_SIMULTANEA = "as";
 	public static final String NO_ACEPTADO = "n";
 	
-//	PREGUNTA 7
+//PREGUNTA 7
 	// MOTIVO DE VIAJE
 	public static final String VIAJE_DESCONOCIDO = "desconocido";
 	public static final String VIAJE_PROFESIONAL = "profesional";
@@ -73,14 +73,14 @@ public class Constants {
 	public static final String VIAJES_A_MAS_LUGARES = "viajesmaslugares";
 	public static final String VIAJES_DESCONOCIDO = "desconocido";
 	
-//	PREGUNTA 10
+//PREGUNTA 10
 	//TIPOS DE BEBIDAS
 	public static final String CERVEZA = "cerveza";
 	public static final String CHAMPAN = "champan";
 	public static final String LICORES = "licores";
 	public static final String OTROS = "otros";
 	public static final String VINO = "vino";
-//	PREGUNTA 11
+//PREGUNTA 11
 	//QUE FUMA
 	public static final String FUMA_CIGARRILLOS = "cigarrillos";
 	public static final String FUMA_CIGARROS_O_PUROS = "cigarros";
@@ -91,7 +91,14 @@ public class Constants {
 	public static final String ENTRE_20_A_39 = "20a39";
 	public static final String MAYOR_A_40 = "mas40";
 	
+//PREGUNTA 17  
+	public static final String BILATERALMENTE = "bilateralmente";
+	public static final String NINGUNA = "ninguna";
+	public static final String UNILATERAL = "unilateral";
 	
+	public static final String CONSTANTEMENTE = "constantemente";
+	public static final String REPETIDAS_VECES = "repetidasveces";
+	public static final String UNA_VEZ = "unavez";
 	
 	
 	

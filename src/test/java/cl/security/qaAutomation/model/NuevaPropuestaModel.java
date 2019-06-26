@@ -23,7 +23,7 @@ public class NuevaPropuestaModel {
 	@FindBy(how = How.CLASS_NAME, using = "input-default")
 	private WebElement txtNuevaPropuesta;
 	
-	@FindBy(how = How.CLASS_NAME, using = "next") 
+	@FindBy(how = How.XPATH, using = "//button[contains(@class,'next')]") 
 	private WebElement btnSiguiente;
 		
 	@FindBy(how = How.ID, using = "nombre") 
@@ -31,6 +31,9 @@ public class NuevaPropuestaModel {
 	
 	@FindBy(how = How.ID, using = "edad") 
 	private WebElement txtEdadCliente;
+	
+	@FindBy(how = How.ID, using = "rut") 
+	private WebElement txtRutCliente;
 	
 	@FindBy(how = How.ID, using = "dropdownCoberturas") 
 	private WebElement selectCobertura;
@@ -45,10 +48,13 @@ public class NuevaPropuestaModel {
 	@FindBy(how = How.CLASS_NAME, using = "error-buttons") 
 	private List<WebElement> listErrorButton;
 	
+	@FindBy(how = How.ID, using = "dropdownSourceTypes")
+	private WebElement btnTipoCustionario;
 	
-	
-	
-	
+	public WebElement getTxtRutCliente() {
+		return txtRutCliente;
+	}
+
 	public WebElement getUsername() {
 		return username;
 	}
@@ -95,6 +101,10 @@ public class NuevaPropuestaModel {
 
 	public List<WebElement> getListErrorButton() {
 		return listErrorButton;
+	}
+
+	public WebElement getBtnTipoCustionario() {
+		return btnTipoCustionario;
 	}
 
 	

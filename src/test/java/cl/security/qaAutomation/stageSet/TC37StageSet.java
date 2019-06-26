@@ -20,10 +20,10 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P10NO"
 				+ ",@P11NO"
 				+ ",@P12NO"
-				+ ",@P13TC36"
-				+ ",@P14TC36"
-				+ ",@P15TC36"
-				+ ",@P16TC36"
+				+ ",@P13TC37"
+				+ ",@P14NO"
+				+ ",@P15NO"
+				+ ",@P16TC37"
 				+ ",@P17NO"
 				+ ",@P18NO"
 				+ ",@P19NO"
@@ -43,6 +43,6 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P33NO"
 		},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
 )
-public class TC36StageSet extends StageSet{
+public class TC37StageSet extends StageSet{
 
 }

@@ -46,6 +46,24 @@ public class PropuestaCompassDefinition {
 		Thread.sleep(2000);
 	}
 	
+	@When("^selecciono tipo de cuestionario\"([^\"]*)\"$")
+	public void selecciono_tipo_de_cuestionario(String tipoCuestionario) throws Throwable {
+		Boolean valid = false;
+		BaseFlow.pageModel.getBtnTipoCustionario().click();
+  		List<WebElement> listA = BaseFlow.driver.findElements(By.xpath("//a[(@href='#')]"));
+		for(WebElement a : listA) {
+			if(a.getText().toString().trim().contains(tipoCuestionario)) {
+				Thread.sleep(1000);
+				a.click();
+				valid = true;	
+				break;
+			}
+		}
+		assertTrue("No se encontro el tipo de cuestanario especificado : "+tipoCuestionario,valid);
+	}
+
+
+	
 	@When("^Doy click en siguiente$")
 	public void doy_click_en_siguiente() throws Throwable {
 	   BaseFlow.pageModel.getBtnSiguiente().click();
@@ -63,6 +81,12 @@ public class PropuestaCompassDefinition {
 	    BaseFlow.pageModel.getTxtEdadCliente().sendKeys(edadCliente);
 	}
 
+	@When("^Ingreso rut\"([^\"]*)\"$")
+	public void ingreso_rut(String rut) throws Throwable {
+		Thread.sleep(1000);
+	    BaseFlow.pageModel.getTxtRutCliente().sendKeys(rut);
+	}
+	
 	@When("^Selecciono genero\"([^\"]*)\"$")
 	public void selecciono_genero(String sexo) throws Throwable {
 		genero = sexo;
