@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import cl.security.qaAutomation.definition.DPSCompassDefinition;
 import cl.security.qaAutomation.definition.PropuestaCompassDefinition;
 import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.utils.Constants;
@@ -66,24 +67,22 @@ public class FormularioServices {
 	
 	public static void ingresarRiesgosDps(String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas,String conCualesTrabaja, String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo, String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias, String medidasSeguridadDisponibles, String controlImpactoRadiacion, String sobrepasadoLimiteRadiacion, String conQueFrecuencia, String ultimaVez, String queValores, String tratamientoMedicoRadiacion, String cuando , String cualFueRazon, String consecuenciasSufridas, String hhAnuales) throws Exception {
 		Thread.sleep(1000);
-		WebElement txtRiesgo = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-power-select-trigger')]"));
+		WebElement txtRiesgo = GenericMethod.implicityWait(2, By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 		txtRiesgo.click();
-		List<WebElement> listRiesgos = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
+		WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+		GenericMethod.ingresarTextoSugerido(txtSearch, riesgo);
 		switch (riesgo.trim().toLowerCase()) {
-		case Constants.RADIACION_IONIZANTE:
-			listRiesgos.get(0).click();
-			ingresarRadiacionIonizante(nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas,conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando , cualFueRazon, consecuenciasSufridas);
-			break;
-		case Constants.VUELOS_NO_REGULARES:
-			listRiesgos.get(1).click();
-			WebElement txtHoras = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
-			txtHoras.sendKeys(hhAnuales);
-			break;
-		case Constants.NINGUNO_ANTERIORES:
-			listRiesgos.get(2).click();
-			break;
-		default:
-			break;
+			case Constants.RADIACION_IONIZANTE:
+				Thread.sleep(1000);
+				ingresarRadiacionIonizante(nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas,conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando , cualFueRazon, consecuenciasSufridas);
+				break;
+			case Constants.VUELOS_NO_REGULARES:
+				Thread.sleep(1000);
+				WebElement txtHoras = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
+				txtHoras.sendKeys(hhAnuales);
+				break;
+			default:
+				break;
 		}
 	}
 	
@@ -144,7 +143,7 @@ public class FormularioServices {
 		}
 	}
 	
-	private static void seleccionarFechaCalendar(String desdeCuando,Integer indexCalendar) throws Exception {
+	public static void seleccionarFechaCalendar(String desdeCuando,Integer indexCalendar) throws Exception {
 		//formato DD-MM-YYY
 		String[] fecha = desdeCuando.trim().split("-");
 		String dia = fecha[0];
@@ -392,18 +391,23 @@ public class FormularioServices {
 		List<WebElement> listLabortes = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
 		switch (labor.toLowerCase().trim()) {
 		case Constants.BOMBERO:
+			Thread.sleep(1000);
 			listLabortes.get(0).click();
 			break;
 		case Constants.BOMBERO_AEROPUERTO:
+			Thread.sleep(1000);
 			listLabortes.get(1).click();
 			break;
 		case Constants.BOMBERO_FORESTAL:
+			Thread.sleep(1000);
 			listLabortes.get(2).click();
 			break;
 		case Constants.RESCATE_CON_OPERACIONES_EPECIALES:
+			Thread.sleep(1000);
 			listLabortes.get(3).click();
 			break;
 		case Constants.RESCATE_SIN_OPERACIONES_EPECIALES:
+			Thread.sleep(1000);
 			listLabortes.get(4).click();
 			break;
 		default:
@@ -419,12 +423,15 @@ public class FormularioServices {
 		List<WebElement> listCilindrada = BaseFlow.driver.findElements(By.xpath("//li[(@class= 'ember-power-select-option')]"));
 		switch (cilindrada.toLowerCase().trim()) {
 		case Constants.ENTRE_125_Y_500:
+			Thread.sleep(1000);
 			listCilindrada.get(0).click();
 			break;
 		case Constants.MAS_DE_500:
+			Thread.sleep(1000);
 			listCilindrada.get(1).click();
 			break;
 		case Constants.MENOS_DE_125:
+			Thread.sleep(1000);
 			listCilindrada.get(2).click();
 			break;
 		default:
@@ -434,17 +441,19 @@ public class FormularioServices {
 	public static void ingresoVigenciaSeguroVida(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion,Integer countSeguro)throws Exception {
 		ingresoTipoSeguro(tipoSeguro);
 		ingresoCompania(compania,countSeguro);
-		Thread.sleep(1000);
 		WebElement txtSuma;
 		if(countSeguro==0) {
+			Thread.sleep(1000);
 			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(0);
 			txtSuma.sendKeys(sumaAsegurada);
 			Thread.sleep(1000);
 		}else {
+			Thread.sleep(1000);
 			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(1);
 			txtSuma.sendKeys(sumaAsegurada);
 			Thread.sleep(1000);
 		}
+		Thread.sleep(1000);
 		seleccionarFechaCalendar(fechaCobertura, countSeguro);
 		Thread.sleep(1000);
 //		cual fue el resultado de aceptacion
@@ -885,14 +894,14 @@ public class FormularioServices {
 		String mes = fecha[1];
 		String anio = fecha[2];
 		seleccionarAnioDesde(anio);
-		seleccionarMesDesde(mes);
+		seleccionarMesDesde(Integer.parseInt(mes));
 		
 		Thread.sleep(1000);
 		String[] fechaH= fechaHasta.trim().split("-");
 		String mes2 = fechaH[1];
 		String anio2= fechaH[2];
 		seleccionarAnioHasta(anio2);
-		seleccionarMesHasta(mes2+12);
+		seleccionarMesHasta(Integer.parseInt(mes2)+11);
 		
 		Thread.sleep(1000);
 		WebElement btnGuardar = GenericMethod.implicityWait(2, By.xpath("//button[(@id='calendar')]"));
@@ -914,10 +923,12 @@ public class FormularioServices {
 		} while (seleccionAnio==false);
 	}
 	
-	private static void seleccionarMesDesde(String mes) throws Exception {
+	private static void seleccionarMesDesde(Integer mes) throws Exception {
 		Thread.sleep(1000);
-		List<WebElement> months = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]')]"));
-		months.get(Integer.parseInt(mes)-1).click();
+		List<WebElement> months = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]"));
+		GenericMethod.scrollElement(months.get(mes-1));
+		Thread.sleep(1000);
+		months.get(mes-1).click();
 	}
 	
 	private static void seleccionarAnioHasta(String anio) throws Exception {
@@ -935,35 +946,93 @@ public class FormularioServices {
 		} while (seleccionAnio==false);
 	}
 	
-	private static void seleccionarMesHasta(String mes) throws Exception {
+	private static void seleccionarMesHasta(Integer mes) throws Exception {
 		Thread.sleep(1000);
-		List<WebElement> months = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]')]"));
-		months.get(Integer.parseInt(mes)-1).click();
+		List<WebElement> months = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'month')]"));
+		months.get(mes).click();
 	}
 	
-	public static Integer getIndexVIH(Boolean isEmbarazada, Boolean isComplicaciones)throws Exception{
-		Integer index=0;
-		if(PropuestaCompassDefinition.genero.trim().toLowerCase().equalsIgnoreCase("f")) {
-			if(isEmbarazada) {
-				if(isComplicaciones) {
-					index=18;
-				}else {
-					index=10;
-				}
-			}else {
-				index=8;
-			}
-		}else {
-			index=6;
+	public static Integer indexRadio = 0;
+	public static Integer ingresarAccidente(String complicacionesAcc, String especifiqueComplicacionesAcc, String fechaDesdeAcc, String fechaHastaAcc, String trastornoVariasVeces, String secuelasAcc, String especifiqueSecuelasAcc, Integer index) throws Exception{
+		indexRadio = index;
+		Thread.sleep(1000);
+		List<WebElement> radioAccidentes = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (complicacionesAcc.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			indexRadio+=1;
+			radioAccidentes.get(indexRadio).click();
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			indexRadio+=2;
+			radioAccidentes.get(indexRadio).click();
+			ingresarComplicaciones(especifiqueComplicacionesAcc, fechaDesdeAcc, fechaHastaAcc, trastornoVariasVeces, secuelasAcc, especifiqueSecuelasAcc);
+			Thread.sleep(1000);
+			break;
+		default:
+			break;
 		}
-		
-		return index;
+		return indexRadio;
 	}
 	
 	
+	private static void ingresarComplicaciones(String especifiqueComplicacionesAcc, String fechaDesdeAcc, String fechaHastaAcc, String trastornoVariasVeces, String secuelasAcc, String especifiqueSecuelasAcc) throws Exception{
+		Thread.sleep(1000);
+		WebElement txtComplicacion = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtComplicacion.click();
+		Thread.sleep(1000);
+		WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+		GenericMethod.ingresarTextoSugerido(txtSearch, especifiqueComplicacionesAcc);
+		Thread.sleep(1000);
+		ingresarFechaDesdeHasta(fechaDesdeAcc, fechaHastaAcc);
+		Thread.sleep(1000);
+		ingresarTrastornoPorAccidente(trastornoVariasVeces);
+		Thread.sleep(1000);
+		ingresarSecuelasAccidentes(secuelasAcc,especifiqueSecuelasAcc);
+		Thread.sleep(1000);
+		
+	}
+	private static void ingresarTrastornoPorAccidente(String trastornoVariasVeces)throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> radioTrastorno = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (trastornoVariasVeces.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			indexRadio+=5;
+			radioTrastorno.get(indexRadio).click();
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			indexRadio+=6;
+			radioTrastorno.get(indexRadio).click();
+			break;
+		default:
+			break;
+		}
+	}
 	
-	
-	
+	private static void ingresarSecuelasAccidentes(String secuelasAcc,String especifiqueSecuelasAcc) throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> radioSecuelas = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (secuelasAcc.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			indexRadio+=1;
+			radioSecuelas.get(indexRadio).click();
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			indexRadio+=2;
+			radioSecuelas.get(indexRadio).click();
+			Thread.sleep(1000);
+			WebElement txtSecuelas = BaseFlow.driver.findElement(By.xpath("//input[contains(@placeholder,'Describa las complicaciones o secuelas')]"));
+			txtSecuelas.sendKeys(especifiqueSecuelasAcc);
+			break;
+		default:
+			break;
+		}
+	}
 	
 	
 	

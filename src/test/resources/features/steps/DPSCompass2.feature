@@ -1,22 +1,47 @@
 Feature: Ingresar respuestas de  preguntas 16 a 33 en formulario DPS
 
   @P16
-  Scenario Outline: Ha sido víctima de algún accidente (de automóvil, intoxicación u otro)
-    When Ingreso si ha sido victima de algun accidente<accidente>
+  Scenario Outline: Ingresar accidentes
+    When Ingreso si ha sido victima de algun accidente pDiesiseis<accidente><complicacionesAcc><especifiqueComplicacionesAcc><fechaDesdeAcc><fechaHastaAcc><trastornoVariasVeces><secuelasAcc><especifiqueSecuelasAcc>
+
+    @P16TC36
+    Examples: Ingreso NO ha sido victima de algun accidente
+      | accidente | complicacionesAcc | especifiqueComplicacionesAcc | fechaDesdeAcc | fechaHastaAcc | trastornoVariasVeces | secuelasAcc | especifiqueSecuelasAcc |
+      | "si"      | "si"              | "intoxicacion alimenticia"   | "01-01-2017"  | "01-01-2019"  | "si"                 | "no"        | ""                     |
+
+    @P16TC37
+    Examples: Ingreso NO ha sido victima de algun accidente
+      | accidente | complicacionesAcc | especifiqueComplicacionesAcc | fechaDesdeAcc | fechaHastaAcc | trastornoVariasVeces | secuelasAcc | especifiqueSecuelasAcc |
+      | "si"      | "si"              | "intoxicacion alimenticia"   | "01-01-2017"  | "01-01-2019"  | "no"                 | "si"        | "secuelas varias"      |
 
     @P16NO
-    Examples: INgreso NO ha sido victima de algun accidente
-      | accidente |
-      | "no"      |
+    Examples: Ingreso NO ha sido victima de algun accidente
+      | accidente | complicacionesAcc | especifiqueComplicacionesAcc | fechaDesdeAcc | fechaHastaAcc | trastornoVariasVeces | secuelasAcc | especifiqueSecuelasAcc |
+      | "no"      | ""                | ""                           | ""            | ""            | ""                   | ""          | ""                     |
 
   @P17
-  Scenario Outline: Está actualmente con licencia médica o ha interrumpido su trabajo durante más de 3 semanas por causa médica o accidente? (desconsiderar licencias por maternidad)
-    When Ingreso licencia medica vigente<licenciaMedicaVigente>
+  Scenario Outline: Ingresar licencia médica
+    When Ingreso licencia medica vigente pDiesisiete<licenciaMedicaVigente>
+    And Ingreso trastorno sufrido pDiesisiete<trastornoLicencia>
+    And Ingreso si ha afectado los riñones pDiesisiete<afectadoRiñones>
+    And Ingreso frecuencia en que padece sintomas pDiesisiete<frecuenciaSintomas><sintomasPrimeraVez><sintomasUltimaVez><frecuenciaSintomasAnio><tiempoPromedioSintomas>
+    And Ingreso si esta bajo seguimiento medico regular pDiesisiete<seguimientoMedicoRegular>
+    And Ingreso metodo de tratamiento pDiesisiete<cirugia><cirugiaPrevista><litotricia><medicacion><otro><ninguno>
+    And Ingreso respuestas a distintos metodos de tratamiento<cuandoSometioCirugia><especifiqueCirugia><cuandoSometeraCirugia><tipoCirugia><cuandoLitotricia><queMedicamento><queOtro><cuandoComenzo>
+    And Ingreso si se ha realizado examenes de orina pDiesisiete<examenOrina><ultimoExamenOrina><resultadoExamenOrina>
+    And Ingreso si estan analizando la sangre<analisisSangre><cuandoAnalisisSangre><detalleResultados>
+    And Ingreso si tiene sintomas todavia <sintomasTodavia><espesifiqueSintomasTodavia>
+    And Ingreso incapacidad para trabajar<incapacidad><cuantoTiempo>
+
+    @P17TC38
+    Examples: Ingreso SI a licencia medica vigente
+      | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |  
+      | "si"                  | ""                | ""              | ""                 | ""                 | ""                | ""                     | ""                     | ""                       | ""      | ""              | ""         | ""         | ""   | ""      | ""                   | ""                 | ""                    | ""          | ""               | ""             | ""      | ""            | ""          | ""                | ""                   | ""             | ""                   | ""                | ""              | ""                         | ""          | ""           | 
 
     @P17NO
     Examples: Ingreso NO a licencia medica vigente
-      | licenciaMedicaVigente |
-      | "no"                  |
+      | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |  
+      | "no"                  | ""                | ""              | ""                 | ""                 | ""                | ""                     | ""                     | ""                       | ""      | ""              | ""         | ""         | ""   | ""      | ""                   | ""                 | ""                    | ""          | ""               | ""             | ""      | ""            | ""          | ""                | ""                   | ""             | ""                   | ""                | ""              | ""                         | ""          | ""           | 
 
   @P18
   Scenario Outline: En los últimos 5 años, ¿ha permanecido ingresado en un centro hospitalario o similar? (no considerar: cirugía por apendicitis, vasectomía, fimosis, circuncisión, amigdalitis crónica, cirugía de vesícula por extracción de cálculos, y parto o cesárea con antigüedad mayor o igual a un año)

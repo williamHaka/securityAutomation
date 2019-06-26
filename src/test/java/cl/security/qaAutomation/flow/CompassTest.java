@@ -54,11 +54,11 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC7StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC8StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC10StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC11StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC12StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC13StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC14StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC15StageSet.class,//OK
+	NuevaPropuestaHombreStageSet.class,TC11StageSet.class,//OK
+	NuevaPropuestaHombreStageSet.class,TC12StageSet.class,//OK
+	NuevaPropuestaHombreStageSet.class,TC13StageSet.class,//OK
+	NuevaPropuestaHombreStageSet.class,TC14StageSet.class,//OK
+	NuevaPropuestaHombreStageSet.class,TC15StageSet.class,//OK
 //	NuevaPropuestaHombreStageSet.class,TC16StageSet.class,//OK
 //	NuevaPropuestaHombreStageSet.class,TC17StageSet.class,//OK
 //	NuevaPropuestaHombreStageSet.class,TC18StageSet.class,//OK
@@ -79,7 +79,6 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC33StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC34StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC35StageSet.class, //OK
-	NuevaPropuestaMujerStageSet.class,TC36StageSet.class
 })
 
 public class CompassTest extends BaseFlow{

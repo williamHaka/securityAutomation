@@ -6,9 +6,11 @@ Feature: Flujo previo a DPS
     When Ingreso usuario y clave"admin""admin"
     And Doy click en nueva propuesta
     And Ingreso nombre de la nueva propuesta<nombrePropuesta>
+    And selecciono tipo de cuestionario"TOUCH_VS"
     And Doy click en siguiente
     And Ingreso nombre<nombre>
     And Ingreso edad<edad>
+    And Ingreso rut<rut>
     And Selecciono genero<genero>
     And Selecciono estado civil<estadoCivil>
     And Selecciono cobertura<cobertura>
@@ -20,13 +22,13 @@ Feature: Flujo previo a DPS
    
   @NuevoAseguradoHombre
   Examples: 
-    | nombrePropuesta | nombre   | edad | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC1"           | "nombre" | "33" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+    | "TC_"           | "nombre" | "33" | "1-9"  | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
     
 	@NuevoAseguradoMujer
   Examples: 
-    | nombrePropuesta | nombre   | edad | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC1"           | "Mujer"  | "33" | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+    | "TC_"           | "Mujer"  | "33" | "1-9"  | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
     
 
     
