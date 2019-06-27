@@ -6,42 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
-import cl.security.qaAutomation.stageSet.NuevaPropuestaMujerStageSet;
-import cl.security.qaAutomation.stageSet.TC10StageSet;
-import cl.security.qaAutomation.stageSet.TC11StageSet;
-import cl.security.qaAutomation.stageSet.TC12StageSet;
-import cl.security.qaAutomation.stageSet.TC13StageSet;
-import cl.security.qaAutomation.stageSet.TC14StageSet;
-import cl.security.qaAutomation.stageSet.TC15StageSet;
-import cl.security.qaAutomation.stageSet.TC16StageSet;
-import cl.security.qaAutomation.stageSet.TC17StageSet;
-import cl.security.qaAutomation.stageSet.TC18StageSet;
-import cl.security.qaAutomation.stageSet.TC19StageSet;
-import cl.security.qaAutomation.stageSet.TC1StageSet;
-import cl.security.qaAutomation.stageSet.TC20StageSet;
-import cl.security.qaAutomation.stageSet.TC21StageSet;
-import cl.security.qaAutomation.stageSet.TC22StageSet;
-import cl.security.qaAutomation.stageSet.TC23StageSet;
-import cl.security.qaAutomation.stageSet.TC24StageSet;
-import cl.security.qaAutomation.stageSet.TC25StageSet;
-import cl.security.qaAutomation.stageSet.TC26StageSet;
-import cl.security.qaAutomation.stageSet.TC27StageSet;
-import cl.security.qaAutomation.stageSet.TC28StageSet;
-import cl.security.qaAutomation.stageSet.TC29StageSet;
-import cl.security.qaAutomation.stageSet.TC2StageSet;
-import cl.security.qaAutomation.stageSet.TC30StageSet;
-import cl.security.qaAutomation.stageSet.TC31StageSet;
-import cl.security.qaAutomation.stageSet.TC32StageSet;
-import cl.security.qaAutomation.stageSet.TC33StageSet;
-import cl.security.qaAutomation.stageSet.TC34StageSet;
-import cl.security.qaAutomation.stageSet.TC35StageSet;
-import cl.security.qaAutomation.stageSet.TC36StageSet;
-import cl.security.qaAutomation.stageSet.TC3StageSet;
-import cl.security.qaAutomation.stageSet.TC4StageSet;
-import cl.security.qaAutomation.stageSet.TC5StageSet;
-import cl.security.qaAutomation.stageSet.TC6StageSet;
-import cl.security.qaAutomation.stageSet.TC7StageSet;
-import cl.security.qaAutomation.stageSet.TC8StageSet;
+import cl.security.qaAutomation.stageSet.TC42StageSet;
+
 
 
 @SuiteClasses({
@@ -54,11 +20,11 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC7StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC8StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC10StageSet.class,//OK
-	NuevaPropuestaHombreStageSet.class,TC11StageSet.class,//OK
-	NuevaPropuestaHombreStageSet.class,TC12StageSet.class,//OK
-	NuevaPropuestaHombreStageSet.class,TC13StageSet.class,//OK
-	NuevaPropuestaHombreStageSet.class,TC14StageSet.class,//OK
-	NuevaPropuestaHombreStageSet.class,TC15StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC11StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC12StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC13StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC14StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC15StageSet.class,//OK
 //	NuevaPropuestaHombreStageSet.class,TC16StageSet.class,//OK
 //	NuevaPropuestaHombreStageSet.class,TC17StageSet.class,//OK
 //	NuevaPropuestaHombreStageSet.class,TC18StageSet.class,//OK
@@ -79,6 +45,13 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC33StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC34StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC35StageSet.class, //OK
+//	NuevaPropuestaMujerStageSet.class,TC36StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC37StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC38StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC39StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC40StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC41StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC42StageSet.class,
 })
 
 public class CompassTest extends BaseFlow{

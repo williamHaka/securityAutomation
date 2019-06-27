@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = {
-				   "@P1TC16"
+				   "@P1TC17"
 				+ ",@P2NO"
 				+ ",@P3NO"
 				+ ",@P4NO"
@@ -20,10 +20,10 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P10NO"
 				+ ",@P11NO"
 				+ ",@P12NO"
-				+ ",@P13TC37"
-				+ ",@P14NO"
+				+ ",@P13NO"
+				+ ",@P14TC37"
 				+ ",@P15NO"
-				+ ",@P16TC37"
+				+ ",@P16NO"
 				+ ",@P17NO"
 				+ ",@P18NO"
 				+ ",@P19NO"

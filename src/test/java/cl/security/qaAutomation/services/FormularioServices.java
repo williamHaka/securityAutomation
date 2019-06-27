@@ -168,8 +168,17 @@ public class FormularioServices {
 		if(divCalendar==0) {
 			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(0));
 			GenericMethod.clickElement(calendar);
-		}else {
+		}else if(divCalendar==1){
 			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(5));
+			GenericMethod.clickElement(calendar);
+		}else if(divCalendar==2) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(10));
+			GenericMethod.clickElement(calendar);
+		}else if(divCalendar==3) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(15));
+			GenericMethod.clickElement(calendar);
+		}else if(divCalendar==4) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(20));
 			GenericMethod.clickElement(calendar);
 		}
 		Thread.sleep(1000);
@@ -177,8 +186,17 @@ public class FormularioServices {
 		if(divCalendar==0) {
 			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio2.get(1));
 			GenericMethod.clickElement(calendar);
-		}else {
+		}else if(divCalendar==1){
 			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio2.get(6));
+			GenericMethod.clickElement(calendar);
+		}else if(divCalendar==2) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio2.get(11));
+			GenericMethod.clickElement(calendar);
+		}else if(divCalendar==3) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(16));
+			GenericMethod.clickElement(calendar);
+		}else if(divCalendar==4) {
+			WebElement calendar = GenericMethod.waitForClickeable(2,divAnio.get(21));
 			GenericMethod.clickElement(calendar);
 		}
 		Thread.sleep(1000);
@@ -212,6 +230,48 @@ public class FormularioServices {
 						Thread.sleep(1000);
 					} 
 				}
+			}else if(divCalendar==2){
+				for (Integer i=24;i<=35;i++) {
+					List<WebElement> listAnios = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'year')]"));
+					if(listAnios.get(i).getText().toString().equals(anio)) {
+						Thread.sleep(1000);
+						listAnios.get(i).click();
+						encontroAnio = true;
+						break;
+					}	else if(i==35){
+						WebElement anioPrevio = BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'prev')]")).get(11);
+						anioPrevio.click();
+						Thread.sleep(1000);
+					} 
+				}
+			}else if(divCalendar==3){
+				for (Integer i=36;i<=47;i++) {
+					List<WebElement> listAnios = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'year')]"));
+					if(listAnios.get(i).getText().toString().equals(anio)) {
+						Thread.sleep(1000);
+						listAnios.get(i).click();
+						encontroAnio = true;
+						break;
+					}	else if(i==47){
+						WebElement anioPrevio = BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'prev')]")).get(11);
+						anioPrevio.click();
+						Thread.sleep(1000);
+					} 
+				}
+			}else if(divCalendar==4){
+				for (Integer i=48;i<=59;i++) {
+					List<WebElement> listAnios = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'year')]"));
+					if(listAnios.get(i).getText().toString().equals(anio)) {
+						Thread.sleep(1000);
+						listAnios.get(i).click();
+						encontroAnio = true;
+						break;
+					}	else if(i==59){
+						WebElement anioPrevio = BaseFlow.driver.findElements(By.xpath("//th[contains(@class,'prev')]")).get(22);
+						anioPrevio.click();
+						Thread.sleep(1000);
+					} 
+				}
 			}
 		}
 	}
@@ -223,26 +283,43 @@ public class FormularioServices {
 		if(divMes==0) {
 			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes-1));
 			element.click();
-		}else {
+		}else if(divMes==1) {
 			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes+11));
+			element.click();
+		}else if(divMes==2) {
+			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes+24));
+			element.click();
+		}else if(divMes==3) {
+			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes+35));
+			element.click();
+		}else if(divMes==4) {
+			WebElement element =  GenericMethod.waitForClickeable(2,listMes.get(mes+47));
 			element.click();
 		}
 	}
 	
 	private static void seleccionarDiaCalendar(Integer divDIa, Integer dia) throws Exception {
-		if(!GenericMethod.existElement(By.xpath("//button[contains(@class,'custom-label')]"))) {
-			if(divDIa==0) {
-				Thread.sleep(1000);
-				List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
-				Thread.sleep(1000);
-				dias.get(dia-1).click();
-			}else {
-				Thread.sleep(1000);
-				List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
-				Thread.sleep(1000);
-				dias.get(dia-1).click();
-			}
+//		if(!GenericMethod.existElement(By.xpath("//button[contains(@class,'custom-label')]"))) {
+		Thread.sleep(1000);
+		List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
+		Thread.sleep(1000);
+		if(divDIa==0) {
+			Thread.sleep(1000);
+			dias.get(dia-1).click();
+		}else if(divDIa==1) {
+			Thread.sleep(1000);
+			dias.get(dia+30).click();
+		}else if(divDIa==2) {
+			Thread.sleep(1000);
+			dias.get(dia+60).click();
+		}else if(divDIa==3) {
+			Thread.sleep(1000);
+			dias.get(dia+90).click();
+		}else if(divDIa==4) {
+			Thread.sleep(1000);
+			dias.get(dia+119).click();
 		}
+//		}
 	}
 	
 	private  static void seleccionarSustanciasEncapsuladas(String sustanciasEncapsuladas, String sustanciasNoEncapsuladas) throws InterruptedException {
@@ -783,12 +860,15 @@ public class FormularioServices {
 		List<WebElement> listFumador = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
 		switch (queFuma) {
 		case Constants.FUMA_CIGARRILLOS:
+			Thread.sleep(1000);
 			listFumador.get(0).click();
 			break;
 		case Constants.FUMA_CIGARROS_O_PUROS:
+			Thread.sleep(1000);
 			listFumador.get(1).click();
 			break;
 		case Constants.FUMA_PIPAS:
+			Thread.sleep(1000);
 			listFumador.get(2).click();
 			break;			
 		default:
@@ -801,15 +881,11 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		List<WebElement> txtCantidad = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
 		if(countFumador==0) {
-			txtCantidad.get(3).click();
 			Thread.sleep(1000);
 			txtCantidad.get(3).sendKeys(frecuenciaFuma);
-			Thread.sleep(1000);
 		}else if(countFumador==1) {
-			txtCantidad.get(4).click();
 			Thread.sleep(1000);
 			txtCantidad.get(4).sendKeys(frecuenciaFuma);
-			Thread.sleep(1000);
 		}
 		
 	}
@@ -868,6 +944,7 @@ public class FormularioServices {
 		WebElement txtSearch = GenericMethod.implicityWait(2, By.xpath("//input[(@class='ember-power-select-search-input')]"));
 		GenericMethod.ingresarTextoSugerido(txtSearch, nombreComplicacion);
 		Thread.sleep(1000);
+		GenericMethod.implicityWait(10, By.xpath("//div[(@class='left ')]"));
 		ingresarFechaDesdeHasta(fechaDesde, fechaHasta);
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
@@ -995,21 +1072,21 @@ public class FormularioServices {
 	}
 	private static void ingresarTrastornoPorAccidente(String trastornoVariasVeces)throws Exception{
 		Thread.sleep(1000);
+		indexRadio+=7;
 		List<WebElement> radioTrastorno = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (trastornoVariasVeces.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
-			indexRadio+=5;
 			radioTrastorno.get(indexRadio).click();
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
-			indexRadio+=6;
-			radioTrastorno.get(indexRadio).click();
+			radioTrastorno.get(indexRadio+1).click();
 			break;
 		default:
 			break;
 		}
+		indexRadio+=2;
 	}
 	
 	private static void ingresarSecuelasAccidentes(String secuelasAcc,String especifiqueSecuelasAcc) throws Exception{
@@ -1018,13 +1095,11 @@ public class FormularioServices {
 		switch (secuelasAcc.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
-			indexRadio+=1;
 			radioSecuelas.get(indexRadio).click();
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
-			indexRadio+=2;
-			radioSecuelas.get(indexRadio).click();
+			radioSecuelas.get(indexRadio+1).click();
 			Thread.sleep(1000);
 			WebElement txtSecuelas = BaseFlow.driver.findElement(By.xpath("//input[contains(@placeholder,'Describa las complicaciones o secuelas')]"));
 			txtSecuelas.sendKeys(especifiqueSecuelasAcc);
@@ -1032,6 +1107,7 @@ public class FormularioServices {
 		default:
 			break;
 		}
+		indexRadio+=2;
 	}
 	
 	

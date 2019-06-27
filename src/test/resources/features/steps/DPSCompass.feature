@@ -572,7 +572,7 @@ Feature: Ingresar respuestas de formulario DPS
       | "si"   | ""           | ""          | "si"    | ""      | ""                 | ""                 |
 
     @P12TC18
-    Examples: Ingreso no a consumo de drogas
+    Examples: Ingreso si a consumo de drogas
       | drogas | alucinogenos | anfetaminas | cocaina | heroina | marihuanaFrecuente | marihuanaOcacional |
       | "si"   | ""           | ""          | ""      | "si"    | ""                 | ""                 |
 
@@ -601,14 +601,9 @@ Feature: Ingresar respuestas de formulario DPS
     When Ingreso embarazo pTrece<embarazada><complicaciones><nombreComplicacion><fechaDesde><fechaHasta><secuelas><especifiqueSecuelas>
 
     @P13TC36
-    Examples: Ingreso NO a embarazo
-      | embarazada | complicaciones | nombreComplicacion | fechaDesde | fechaHasta | secuelas | especifiqueSecuelas |
-      | "si"       | "no"           | ""                 | ""         | ""         | ""       | ""                  |
-
-    @P13TC37
-    Examples: Ingreso NO a embarazo
+    Examples: Ingreso SI a embarazo
       | embarazada | complicaciones | nombreComplicacion | fechaDesde   | fechaHasta   | secuelas | especifiqueSecuelas  |
-      | "si"       | "si"           | "preclamcia"       | "01-01-2019" | "01-03-2019" | "si"     | "secuelas multiples" |
+      | "si"       | "si"           | "preclampsia"      | "01-01-2019" | "01-03-2019" | "si"     | "secuelas multiples" |
 
     @P13NO
     Examples: Ingreso NO a embarazo
@@ -619,10 +614,6 @@ Feature: Ingresar respuestas de formulario DPS
   Scenario Outline: Ingresar prueba de VIH en los últimos doce meses
     When Ingreso prueba de VIH en los ultimos doce meses pCatorce<pruebaVIH><resultadoVIH>
 
-    @P14TC36
-    Examples: Ingreso no a prueba de VIH
-      | pruebaVIH | resultadoVIH |
-      | "si"      | "si"         |
 
     @P14TC37
     Examples: Ingreso no a prueba de VIH
@@ -638,7 +629,7 @@ Feature: Ingresar respuestas de formulario DPS
   Scenario Outline: Ingresar pension de invalidez vigente
     When Ingreso pension de invalidez pQuince<pensionInvalidez><motivoPension>
 
-    @P15TC36
+    @P15TC38
     Examples: 
       | pensionInvalidez | motivoPension       |
       | "si"             | "motivo pensionado" |
