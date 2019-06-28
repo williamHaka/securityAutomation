@@ -157,7 +157,7 @@ public class FormularioServices {
 		formatoCalendar.click();
 		Thread.sleep(1000);
 		seleccionarAnioCalendar(indexCalendar,anio);
-		seleccionarMesCalendar(indexCalendar,Integer.parseInt(mes));
+ 		seleccionarMesCalendar(indexCalendar,Integer.parseInt(mes));
 		seleccionarDiaCalendar(indexCalendar,Integer.parseInt(dia));
 	}
 	
@@ -299,27 +299,35 @@ public class FormularioServices {
 	}
 	
 	private static void seleccionarDiaCalendar(Integer divDIa, Integer dia) throws Exception {
-//		if(!GenericMethod.existElement(By.xpath("//button[contains(@class,'custom-label')]"))) {
 		Thread.sleep(1000);
 		List<WebElement> dias = BaseFlow.driver.findElements(By.xpath("//*[(@class='day')]"));
 		Thread.sleep(1000);
 		if(divDIa==0) {
-			Thread.sleep(1000);
-			dias.get(dia-1).click();
+			if(GenericMethod.existElement(By.xpath("//button[contains(@class,'hidden')]"))) {
+				Thread.sleep(1000);
+				dias.get(dia-1).click();
+			}
 		}else if(divDIa==1) {
-			Thread.sleep(1000);
-			dias.get(dia+30).click();
+			if(GenericMethod.existElement(By.xpath("//button[contains(@class,'hidden')]"))) {
+				Thread.sleep(1000);
+				dias.get(dia+30).click();
+			}
 		}else if(divDIa==2) {
-			Thread.sleep(1000);
-			dias.get(dia+60).click();
+			if(GenericMethod.existElement(By.xpath("//button[contains(@class,'hidden')]"))) {
+				Thread.sleep(1000);
+				dias.get(dia+60).click();
+			}
 		}else if(divDIa==3) {
-			Thread.sleep(1000);
-			dias.get(dia+90).click();
+			if(GenericMethod.existElement(By.xpath("//button[contains(@class,'hidden')]"))) {
+				Thread.sleep(1000);
+				dias.get(dia+90).click();
+			}
 		}else if(divDIa==4) {
-			Thread.sleep(1000);
-			dias.get(dia+119).click();
+			if(GenericMethod.existElement(By.xpath("//button[contains(@class,'hidden')]"))) {
+				Thread.sleep(1000);
+				dias.get(dia+119).click();
+			}
 		}
-//		}
 	}
 	
 	private  static void seleccionarSustanciasEncapsuladas(String sustanciasEncapsuladas, String sustanciasNoEncapsuladas) throws InterruptedException {
@@ -1111,14 +1119,137 @@ public class FormularioServices {
 	}
 	
 	
+	public static Integer ingresarCentroHospitalario(Integer index,String trastorno, String cuando, String sintomasAun, String especifiqueSintoma, String tratamientoMedico, String fechaInicioTratamiento, String fechaTermino, String operado, String frecuenciaOperado, String especifiqueOperado, String fechaOperacionUno, String fechaOperacionDos, String fechaOperacionTres, String cirugiaPlaneada, String fechaCirugiaPlaneada, String tipoCirugiaPlaneada, String incapacidad, String fechaDiscapacidad, String promedioIncapacitado, String cambioProfesion, String ocupacion, String ocupacionRecomendada)throws Exception{
+		indexRadio = index;
+		Thread.sleep(1000);
+		WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		txtTrastorno.click();
+		Thread.sleep(1000);
+		WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+		GenericMethod.ingresarTextoSugerido(txtSearch, trastorno);
+		FormularioServices.seleccionarFechaCalendar(cuando, 0);
+		indexRadio+=3;
+		ingresoSintomasHopitalario(sintomasAun, especifiqueSintoma, tratamientoMedico, fechaInicioTratamiento, fechaTermino, operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres, cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada, incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
+		return indexRadio;
+	}
 	
+	private static void ingresoSintomasHopitalario(String sintomasAun, String especifiqueSintoma, String tratamientoMedico, String fechaInicioTratamiento, String fechaTermino, String operado, String frecuenciaOperado, String especifiqueOperado, String fechaOperacionUno, String fechaOperacionDos, String fechaOperacionTres, String cirugiaPlaneada, String fechaCirugiaPlaneada, String tipoCirugiaPlaneada, String incapacidad, String fechaDiscapacidad, String promedioIncapacitado, String cambioProfesion, String ocupacion, String ocupacionRecomendada) throws Exception {
+		Thread.sleep(1000);
+		List<WebElement> radioSintomasAun = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (sintomasAun.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			radioSintomasAun.get(indexRadio).click();
+			indexRadio+=2;
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			radioSintomasAun.get(indexRadio+1).click();
+			Thread.sleep(1000);
+			WebElement txtSintoma = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Por favor, especifique sus complicaciones')]"));
+			txtSintoma.sendKeys(especifiqueSintoma);
+			indexRadio+=2;
+			ingresoTratamientoMedicoHospitalario(tratamientoMedico, fechaInicioTratamiento, fechaTermino);
+			ingresoOperadoHospitalario(operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres);
+			ingresoCirugiaHospitalario(cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada);
+			ingresoIncapacidadHospitalario(incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
+			break;
+		default:
+			break;
+		}
+	}
 	
+	private static void ingresoTratamientoMedicoHospitalario(String tratamientoMedico, String fechaInicioTratamiento, String fechaTermino) throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> radioMedico = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (tratamientoMedico.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			radioMedico.get(indexRadio).click();
+			indexRadio+=2;
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			radioMedico.get(indexRadio+1).click();
+			FormularioServices.seleccionarFechaCalendar(fechaInicioTratamiento, 1);
+			if(fechaTermino.equals("")) {
+				Thread.sleep(1000);
+				List<WebElement> iconDate = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-cuestionario')]"));
+				iconDate.get(0).click();
+			}else {
+				FormularioServices.seleccionarFechaCalendar(fechaInicioTratamiento, 2);
+				indexRadio +=3;
+			}
+			indexRadio+=6;
+			break;
+		default:
+			break;
+		}
+		indexRadio+=2;
+	} 
 	
+	private static void ingresoOperadoHospitalario(String operado, String frecuenciaOperado, String especifiqueOperado, String fechaOperacionUno, String fechaOperacionDos, String fechaOperacionTres)throws Exception{
+		Thread.sleep(1000);
+		List<WebElement> radioOperado = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		switch (operado.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			radioOperado.get(indexRadio).click();
+			indexRadio+=2;
+			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			radioOperado.get(indexRadio+1).click();
+			Thread.sleep(1000);
+			List<WebElement> radioFrecuenciaOperado = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+			switch (frecuenciaOperado.toLowerCase().trim()) {
+				case Constants.REPETIDAS_VECES:
+					Thread.sleep(1000);
+					radioFrecuenciaOperado.get(indexRadio).click();
+					indexRadio+=2;
+					break;
+				case Constants.UNA_VEZ:
+					Thread.sleep(1000);
+					radioFrecuenciaOperado.get(indexRadio+1).click();
+					indexRadio+=2;
+					break;
+				default:
+					break;
+			}
+			Thread.sleep(1000);
+			WebElement txtEspecifiqueCirugia = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Por favor, especifique la cirugía realizada')]"));
+			txtEspecifiqueCirugia.sendKeys(especifiqueOperado);
+			Thread.sleep(1000);
+			FormularioServices.seleccionarFechaCalendar(fechaOperacionUno, 3);
+			if(fechaOperacionDos.equals("")) {
+				Thread.sleep(1000);
+				List<WebElement> iconDate = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-cuestionario')]"));
+				iconDate.get(1).click();
+			}else {
+				seleccionarFechaCalendar(fechaOperacionDos, 4);
+			}
+			
+			if(fechaOperacionTres.equals("")) {
+				Thread.sleep(1000);
+				List<WebElement> iconDate = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-cuestionario')]"));
+				iconDate.get(2).click();
+			}else {
+				seleccionarFechaCalendar(fechaOperacionTres, 5);
+			}
+			indexRadio+=2;
+			break;
+		default:
+			break;
+		}
+	}
 	
+	private static void ingresoCirugiaHospitalario(String  cirugiaPlaneada, String fechaCirugiaPlaneada, String tipoCirugiaPlaneada) throws Exception{
+		
+	}
 	
-	
-	
-	
+	private static void ingresoIncapacidadHospitalario(String incapacidad, String fechaDiscapacidad, String promedioIncapacitado, String cambioProfesion, String ocupacion, String ocupacionRecomendada) throws Exception{
+		
+	}
 	
 	
 	

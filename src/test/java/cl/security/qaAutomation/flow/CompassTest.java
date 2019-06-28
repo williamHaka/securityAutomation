@@ -6,7 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
+import cl.security.qaAutomation.stageSet.TC41StageSet;
 import cl.security.qaAutomation.stageSet.TC42StageSet;
+import cl.security.qaAutomation.stageSet.TC43StageSet;
 
 
 
@@ -51,7 +53,8 @@ import cl.security.qaAutomation.stageSet.TC42StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC39StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC40StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC41StageSet.class, //OK
-	NuevaPropuestaHombreStageSet.class,TC42StageSet.class,
+//	NuevaPropuestaHombreStageSet.class,TC42StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC43StageSet.class, //OK
 })
 
 public class CompassTest extends BaseFlow{

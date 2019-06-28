@@ -428,6 +428,7 @@ public class DPSCompassDefinition {
 				Thread.sleep(1000);
 				WebElement txtSintomasPromedio = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(3);
 				txtSintomasPromedio.sendKeys(tiempoPromedioSintomas);
+				indexRadio+=3;
 				break;
 			default:
 				break;
@@ -468,7 +469,7 @@ public class DPSCompassDefinition {
 			isNinguno = ninguno.toLowerCase().trim().equalsIgnoreCase(Constants.SI)?true:false;
 			Thread.sleep(1000);
 			List<WebElement> listCheck = BaseFlow.driver.findElements(By.xpath("//span[(@class='checkbox-custom')]"));
-			if(otro.toLowerCase().trim().equals(Constants.SI)) {
+			if(ninguno.toLowerCase().trim().equals(Constants.SI)) {
 				Thread.sleep(1000);
 				listCheck.get(5).click();
 			}else {
@@ -505,6 +506,8 @@ public class DPSCompassDefinition {
 				btnLike.get(4).click();
 				break;
 			case Constants.UNA_VEZ:
+				Thread.sleep(1000);
+				btnLike.get(3).click();
 				break;	
 			default:
 				break;
@@ -527,11 +530,11 @@ public class DPSCompassDefinition {
 	 		    }
 	 		    if(isCirugiaPrevista) {
 	 		    	Thread.sleep(1000);
-	 		    	 FormularioServices.seleccionarFechaCalendar(cuandoSometeraCirugia, 2);
-	 		    	 indexRadio+=3;
+	 		    	FormularioServices.seleccionarFechaCalendar(cuandoSometeraCirugia, 2);
+	 		    	indexRadio+=3;
 	 		    	Thread.sleep(1000);
-	 		    	 WebElement txtcirugiaPrevista = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué tipo de cirugía le van a realizar')]"));
-	 		    	txtcirugiaPrevista.sendKeys(especifiqueCirugia);
+	 		    	WebElement txtcirugiaPrevista = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué tipo de cirugía le van a realizar')]"));
+	 		    	txtcirugiaPrevista.sendKeys(tipoCirugia);
 	 		    }
 	 		    if(islitotricia) {
 	 		    	
@@ -542,7 +545,12 @@ public class DPSCompassDefinition {
 	 		    	txtMedicacion.sendKeys(queMedicamento);
 	 		    }
 	 		    if(isOtro) {
-	 		    	
+	 		    	Thread.sleep(1000);
+	 		    	WebElement txtOtro = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro tratamiento ha seguido')]"));
+	 		    	txtOtro.sendKeys(queOtro);
+	 		    	Thread.sleep(1000);
+	 		    	FormularioServices.seleccionarFechaCalendar(cuandoComenzo, 1);
+	 		    	indexRadio+=3;
 	 		    }
 	 	    }
 	    }
@@ -657,25 +665,25 @@ public class DPSCompassDefinition {
 			indexRadio+=2;
 		}
 	}
-
-	@When("^Ingreso ha ingresado a un centro hospitalario\"([^\"]*)\"$")
-	public void ingreso_ha_ingresado_a_un_centro_hospitalario(String ingresoHospitalario) throws Throwable {
-		Thread.sleep(2000);
+	@When("^Ingreso ha ingresado a un centro hospitalario pDiesiocho\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_ingresado_a_un_centro_hospitalario_pDiesiocho(String ingresoHospitalario, String trastorno, String cuando, String sintomasAun, String especifiqueSintoma, String tratamientoMedico, String fechaInicioTratamiento, String fechaTermino, String sinFechaTermino, String operado, String frecuenciaOperado, String especifiqueOperado, String fechaOperacionUno, String fechaOperacionDos, String fechaOperacionTres, String cirugiaPlaneada, String fechaCirugiaPlaneada, String tipoCirugiaPlaneada, String incapacidad, String fechaDiscapacidad, String promedioIncapacitado, String cambioProfesion, String ocupacion, String ocupacionRecomendada) throws Throwable {
+		Thread.sleep(1000);
 		List<WebElement> radioHospitalario = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radioHospitalario.get(14));
 		switch (ingresoHospitalario.toLowerCase().trim()) {
 		case Constants.NO:
 			radioHospitalario.get(indexRadio).click();
-                  			break;
+	              			break;
 		case Constants.SI:
 			radioHospitalario.get(indexRadio).click();
-//				TODO ingresar accidentes
+			indexRadio = FormularioServices.ingresarCentroHospitalario(indexRadio, trastorno, cuando, sintomasAun, especifiqueSintoma, tratamientoMedico, fechaInicioTratamiento, fechaTermino, sinFechaTermino, operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres, cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada, incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
 			break;
 		default:
 			break;
 		}
 	}
-
+	
+		
 	@When("^Ingreso actualmente se encuentra en observaciones\"([^\"]*)\"$")
 	public void ingreso_actualmente_se_encuentra_en_observaciones(String encuentraObservacion) throws Throwable {
 		indexRadio+=2;
