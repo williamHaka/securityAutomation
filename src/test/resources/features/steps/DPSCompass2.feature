@@ -53,8 +53,8 @@ Feature: Ingresar respuestas de  preguntas 16 a 33 en formulario DPS
       | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
       | "no"                  | ""                | ""              | ""                 | ""                 | ""                | ""                     | ""                     | ""                       | ""      | ""              | ""         | ""         | ""   | ""      | ""                   | ""                 | ""                    | ""          | ""               | ""             | ""      | ""            | ""          | ""                | ""                   | ""             | ""                   | ""                | ""              | ""                         | ""          | ""           |
 
-  @P18
-  Scenario Outline: Ingreso si ha permanecido ingresado en un centro hospitalario
+  	@P18
+ 	  Scenario Outline: Ingreso si ha permanecido ingresado en un centro hospitalario
     When Ingreso ha ingresado a un centro hospitalario pDiesiocho<ingresoHospitalario><trastorno><cuando><sintomasAun><especifiqueSintoma><tratamientoMedico><fechaInicioTratamiento><fechaTermino><sinFechaTermino><operado><frecuenciaOperado><especifiqueOperado><fechaOperacionUno><fechaOperacionDos><fechaOperacionTres><cirugiaPlaneada><fechaCirugiaPlaneada><tipoCirugiaPlaneada><incapacidad><fechaDiscapacidad><promedioIncapacitado><cambioProfesion><ocupacion><ocupacionRecomendada>
 
     @P18NO
@@ -62,17 +62,37 @@ Feature: Ingresar respuestas de  preguntas 16 a 33 en formulario DPS
       | ingresoHospitalario | trastorno | cuando | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "no"                | ""        | ""     | ""          | ""                 | ""                | ""                     | ""           | ""              | ""      | ""                | ""                 | ""                | ""                | ""                 | ""              | ""                   | ""                  | ""          | ""                | ""                   | ""              | ""        | ""                   |
 
-  @P19
-  Scenario Outline: Se encuentra actualmente en estudio, observación o realizándose exámenes por alguna dolencia o enfermedad, o le van a realizar alguna intervención quirúrgica
-    When Ingreso actualmente se encuentra en observaciones<encuentraObservacion>
+  	@P19
+  	Scenario Outline: Se encuentra actualmente en observacion de examenes
+    When Ingreso actualmente se encuentra en observaciones pDiesinueve<encuentraObservacion><trastorno><anemiaFerropenica><fechaFerropenica><anemiaSangre><aplasica><celulasFalciformes><hemolitica><hemorragica><perniciosa><otro><causaTrastorno><fechaSintomas><tipoTratamiento><especifiqueTratamientos><sintomasAun><fechaLibreSintomas><complicacionAun><tratamientoMedico><inicioTratamientoMedico><terminoTratamientoMedico><sinDiagnosticar>
+
+    @P19TC49
+    Examples: Ingreso NO a si se encuentra actualmente en observaciones
+      | encuentraObservacion | trastorno | anemiaFerropenica | fechaFerropenica | anemiaSangre | aplasica | celulasFalciformes | hemolitica | hemorragica | perniciosa | otro | causaTrastorno | fechaSintomas | tipoTratamiento | especifiqueTratamientos | sintomasAun | fechaLibreSintomas | complicacionAun | tratamientoMedico | inicioTratamientoMedico | terminoTratamientoMedico | sinDiagnosticar |
+      | "si"                 | "anemia"  | "si"              | "01-01-2019"     | ""           | ""       | ""                 | ""         | ""          | ""         | ""   | " "            | ""            | ""              | ""                      | ""          | ""                 | ""              | ""                | ""                      | ""                       | ""              |
+
+    @P19TC50
+    Examples: Ingreso NO a si se encuentra actualmente en observaciones
+      | encuentraObservacion | trastorno | anemiaFerropenica | fechaFerropenica | anemiaSangre | aplasica | celulasFalciformes | hemolitica | hemorragica | perniciosa | otro | causaTrastorno | fechaSintomas | tipoTratamiento | especifiqueTratamientos | sintomasAun | fechaLibreSintomas | complicacionAun | tratamientoMedico | inicioTratamientoMedico | terminoTratamientoMedico | sinDiagnosticar |
+      | "si"                 | "anemia"  | ""                | ""               | ""           | "si"     | ""                 | "si"       | ""          | ""         | ""   | ""             | ""            | ""              | ""                      | ""          | ""                 | ""              | ""                | ""                      | ""                       | ""              |
+
+    @P19TC51
+    Examples: Ingreso NO a si se encuentra actualmente en observaciones
+      | encuentraObservacion | trastorno | anemiaFerropenica | fechaFerropenica | anemiaSangre | aplasica | celulasFalciformes | hemolitica | hemorragica | perniciosa | otro | causaTrastorno    | fechaSintomas | tipoTratamiento           | especifiqueTratamientos   | sintomasAun | fechaLibreSintomas | complicacionAun | tratamientoMedico | inicioTratamientoMedico | terminoTratamientoMedico | sinDiagnosticar |
+      | "si"                 | "anemia"  | ""                | ""               | ""           | ""       | ""                 | ""         | ""          | ""         | "si" | "causa trastorno" | "01-02-2018"  | "tipo tratamiento prueba" | "especifico tratamientos" | "no"        | "15-01-2019"       | ""              | "no"              | ""                      | ""                       | ""              |
+
+    @P19TC52
+    Examples: Ingreso NO a si se encuentra actualmente en observaciones
+      | encuentraObservacion | trastorno | anemiaFerropenica | fechaFerropenica | anemiaSangre | aplasica | celulasFalciformes | hemolitica | hemorragica | perniciosa | otro | causaTrastorno | fechaSintomas | tipoTratamiento | especifiqueTratamientos | sintomasAun | fechaLibreSintomas | complicacionAun | tratamientoMedico | inicioTratamientoMedico | terminoTratamientoMedico | sinDiagnosticar |
+      | "si"                 | "anemia"  | ""                | ""               | ""           | ""       | ""                 | ""         | ""          | ""         | ""   | ""             | ""            | ""              | ""                      | ""          | ""                 | ""              | ""                | ""                      | ""                       | "si"            |
 
     @P19NO
     Examples: Ingreso NO a si se encuentra actualmente en observaciones
-      | encuentraObservacion |
-      | "no"                 |
+      | encuentraObservacion | trastorno | anemiaFerropenica | fechaFerropenica | anemiaSangre | aplasica | celulasFalciformes | hemolitica | hemorragica | perniciosa | otro | causaTrastorno | fechaSintomas | tipoTratamiento | especifiqueTratamientos | sintomasAun | fechaLibreSintomas | complicacionAun | tratamientoMedico | inicioTratamientoMedico | terminoTratamientoMedico | sinDiagnosticar |
+      | "no"                 | ""        | ""                | ""               | ""           | ""       | ""                 | ""         | ""          | ""         | ""   | ""             | ""            | ""              | ""                      | ""          | ""                 | ""              | ""                | ""                      | ""                       | ""              |
 
   @P20
-  Scenario Outline: Le han prescrito durante cierto tiempo algún tratamiento médico (farmacológico, psicológico, rehabilitación, etc.), o lo sigue en la actualidad? Por favor, no considere los indicados para resfriados o estados gripales
+  Scenario Outline: Le han prescrito durante cierto tiempo algun tratamiento medico 
     When Ingreso le han recetado tratamiento medico<tratamientoMedico>
     And Doy click en boton siguiente
 
@@ -82,13 +102,18 @@ Feature: Ingresar respuestas de  preguntas 16 a 33 en formulario DPS
       | "no"              |
 
   @P21
-  Scenario Outline: Ha sido tratado por algún psicólogo o por otro profesional de la salud o de medicina alternativa
-    When Ingreso ha sido tratado por algun psicologo<tratadoPsicologo>
+  Scenario Outline: Ha sido tratado por algun psicologo
+    When Ingreso ha sido tratado por algun psicologo pVeintiuno<tratadoPsicologo><trastorno>
 
+	  @P21TC58
+    Examples: Ingreso NO ha sido tratado por algun psicologo
+      | tratadoPsicologo | trastorno              |
+      | "si"             | "hemorragia postparto" |
+      
     @P21NO
     Examples: Ingreso NO ha sido tratado por algun psicologo
-      | tratadoPsicologo |
-      | "no"             |
+      | tratadoPsicologo | trastorno |
+      | "no"             | ""        |
 
   @P22
   Scenario Outline: Padece o ha padecido alguna enfermedad del aparato respiratorio como asma, bronquitis crónica, neumonía enfisema pulmonar, apnea del sueño, neumotórax, tuberculosis pulmonar o cualquier otra del aparato respiratorio
