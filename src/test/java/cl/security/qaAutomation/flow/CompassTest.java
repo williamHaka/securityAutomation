@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
 import cl.security.qaAutomation.stageSet.TC1StageSet;
 
+
+
+
 @SuiteClasses({
 	NuevaPropuestaHombreStageSet.class,TC1StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC2StageSet.class,
@@ -43,6 +46,19 @@ import cl.security.qaAutomation.stageSet.TC1StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC33StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC34StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC35StageSet.class, //OK
+//	NuevaPropuestaMujerStageSet.class,TC36StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC37StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC38StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC39StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC40StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC41StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC42StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC43StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC49StageSet.class, // OK
+//	NuevaPropuestaHombreStageSet.class,TC50StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC51StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC52StageSet.class, //OK
+
 })
 
 public class CompassTest extends BaseFlow{

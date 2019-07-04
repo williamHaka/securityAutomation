@@ -42,6 +42,7 @@
 			$('.then > b:first-child').html('Entonces');
 			$('.and > b:first-child').html('Y');
             $('body > nav > div > a').hide();
+            $('.darken-3').attr('background-color', '#2B0D63');
         });
       ]]>
      <!--  var escenario = $('.scenario node');
@@ -59,7 +60,9 @@
     <styles>
       <![CDATA[
         .report-name { padding-left: 10px; } .report-name > img { float: left;height: 100%;width: auto; }
-        .nav-wrapper { background: #0431B4; } 
+        .nav-wrapper { background: #2B0D63; }
+       
+       
       ]]>
     </styles>
   </configuration>
