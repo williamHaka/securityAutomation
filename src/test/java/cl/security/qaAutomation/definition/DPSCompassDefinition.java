@@ -20,25 +20,26 @@ public class DPSCompassDefinition {
 		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
 		GenericMethod.ingresarTextoSugerido(txtActividad, actividad);
 	}
-
+	static Integer index=0;
 	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_riesgos_pDos(String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas,String conCualesTrabaja,	 String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo, String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias,String medidasSeguridadDisponibles, String controlImpactoRadiacion, String sobrepasadoLimiteRadiacion, String conQueFrecuencia, String ultimaVez, String queValores, String tratamientoMedicoRadiacion, String cuando , String cualFueRazon, String consecuenciasSufridas, String hhAnuales) throws Throwable {
 		Thread.sleep(1000);
-		FormularioServices.ingresarRiesgosDps(riesgo, nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas, conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando, cualFueRazon, consecuenciasSufridas, hhAnuales);
+		index = FormularioServices.ingresarRiesgosDps(index,riesgo, nombreEmpleador, areaTrabajo, horasSemanales, desdeCuando, sustanciasEncapsuladas, sustanciasNoEncapsuladas, conCualesTrabaja, aparatoRayosX, RayosXDisruptivos, ningunoRayo, microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias, medidasSeguridadDisponibles, controlImpactoRadiacion, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez, queValores, tratamientoMedicoRadiacion, cuando, cualFueRazon, consecuenciasSufridas, hhAnuales);
+ 		Thread.sleep(1000);
 	}
 	
 	@When("^Ingreso labores de bombero o rescatista voluntario pTres\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_labores_de_bombero_o_rescatista_voluntario_pTres(String realizaLabores, String labor) throws Throwable {
 		Thread.sleep(1000);
-		List<WebElement> radioRescatista = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'radio-custom')]"));
+		List<WebElement> radioRescatista = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (realizaLabores.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
-			radioRescatista.get(0).click();
+			radioRescatista.get(index).click();
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
-			radioRescatista.get(1).click();
+			radioRescatista.get(index+1).click();
 			FormularioServices.ingresarLaboresRescatista(labor);
 			break;
 		default:
@@ -841,7 +842,7 @@ public class DPSCompassDefinition {
 	public void ingreso_ha_padecido_tumores_o_cancer_pVeintiSeis(String cancer, String trastorno, String fechaDiagnosticacion, String cirugia, String quimioterapia, String radioterapia, String otros, String recurrenciaTumor, String extirpadoTotalmente, String otroTratamiento) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(10));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (cancer.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
@@ -849,121 +850,149 @@ public class DPSCompassDefinition {
   			break;
 		case Constants.SI:
 			radio.get(indexRadio+1).click();
-//				TODO ingresar accidentes
+			indexRadio+=2;
+			indexRadio = FormularioServices.ingresarTumores(indexRadio, trastorno, fechaDiagnosticacion, cirugia, quimioterapia, radioterapia, otros, recurrenciaTumor, extirpadoTotalmente, otroTratamiento);
 			break;
 		default:
 			break;
 		}
 	}
 	
-	@When("^Ingreso ha padecido enfermedad del aparato genitourinario\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_del_aparato_genitourinario(String enfermedadGenital) throws Throwable {
-		indexRadio+=2;
+	@When("^Ingreso ha padecido enfermedad del aparato genitourinario pVeintisiete\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_del_aparato_genitourinario_pVeintisiete(String enfermedadGenital, String trastorno, String hospitalizado, String variasVeces) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(12));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadGenital.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
-//				TODO ingresar accidentes
+			radio.get(indexRadio+1).click();
+			indexRadio+=2;
+			Thread.sleep(1000);
+			indexRadio = FormularioServices.ingresarEnfermedadGenital(indexRadio, trastorno, hospitalizado, variasVeces);
 			break;
 		default:
 			break;
 		}
 	}
-
-	@When("^Ingreso ha padecido enfermedad del aparato locomotor\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_del_aparato_locomotor(String enfermedadLocomotor) throws Throwable {
-		indexRadio+=2;
+	
+	@When("^Ingreso ha padecido enfermedad del aparato locomotor pVeintiocho\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_del_aparato_locomotor_pVeintiocho(String enfermedadLocomotor, String trastorno) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(14));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadLocomotor.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
-//				TODO ingresar accidentes
+			radio.get(indexRadio+1).click();
+			indexRadio+=2;
+			Thread.sleep(1000);
+			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+			txtTrastorno.click();
+			Thread.sleep(1000);
+			WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'search')]"));
+			GenericMethod.ingresarTextoSugerido(txtSearch, trastorno);
+			Thread.sleep(3000);
 			break;
 		default:
 			break;
 		}
 	}
-
-	@When("^Ingreso ha padecido enfermedad endocrina\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_endocrina(String enfermedadEndocrina) throws Throwable {
-		indexRadio+=2;
+	
+	@When("^Ingreso ha padecido enfermedad endocrina pVeintinueve\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_endocrina_pVeintinueve(String enfermedadEndocrina, String trastorno, String tipoDiabetes, String aunDiabetesGestacional, String fechaDiagnostico) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(16));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadEndocrina.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
-//				TODO ingresar accidentes
+			radio.get(indexRadio+1).click();
+			indexRadio+=2;
+			indexRadio = FormularioServices.ingresarEnfermedadEndocrina(indexRadio, trastorno, tipoDiabetes, aunDiabetesGestacional, fechaDiagnostico);
 			break;
 		default:
 			break;
 		}
 	}
 	
-	
-	@When("^Ingreso ha padecido enfermedad infecciosa\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_infecciosa(String enfermedadInfecciosa) throws Throwable {
-		indexRadio+=2;
+	@When("^Ingreso ha padecido enfermedad infecciosa pTreinta\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_infecciosa_pTreinta(String enfermedadInfecciosa, String trastorno) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(18));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadInfecciosa.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
-//				TODO ingresar accidentes
+			Thread.sleep(1000);
+			radio.get(indexRadio+1).click();
+			Thread.sleep(1000);
+			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+			txtTrastorno.click();
+			Thread.sleep(1000);
+			WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'search')]"));
+			GenericMethod.ingresarTextoSugerido(txtSearch, trastorno);
+			Thread.sleep(3000);
+			indexRadio+=2;
 			break;
 		default:
 			break;
 		}
 	}
 
-	@When("^Ingreso ha padecido enfermedad de los ojos\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_de_los_ojos(String enfermedadOcular) throws Throwable {
-		indexRadio+=2;
+	@When("^Ingreso ha padecido enfermedad de los ojos pTreintaiuno\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_de_los_ojos_pTreintaiuno(String enfermedadOcular, String trastorno) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(20));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadOcular.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
-//				TODO ingresar accidentes
+			Thread.sleep(1000);
+			radio.get(indexRadio+1).click();
+			Thread.sleep(1000);
+			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+			txtTrastorno.click();
+			Thread.sleep(1000);
+			WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'search')]"));
+			GenericMethod.ingresarTextoSugerido(txtSearch, trastorno);
+			Thread.sleep(3000);
+			indexRadio+=2;
 			break;
 		default:
 			break;
 		}
 	}
-
+	
 	@When("^Ingreso ha padecido enfermedad del sistema nervioso\"([^\"]*)\"$")
 	public void ingreso_ha_padecido_enfermedad_del_sistema_nervioso(String enfermedadNerviosa) throws Throwable {
-		indexRadio+=2;
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(22));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadNerviosa.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
 //				TODO ingresar accidentes
 			break;
 		default:
@@ -973,16 +1002,17 @@ public class DPSCompassDefinition {
 
 	@When("^Ingreso ha padecido enfermedad de la piel\"([^\"]*)\"$")
 	public void ingreso_ha_padecido_enfermedad_de_la_piel(String enfermedadPiel) throws Throwable {
-		indexRadio+=2;
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(24));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadPiel.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
   			break;
 		case Constants.SI:
 			radio.get(indexRadio).click();
+			indexRadio+=2;
 //				TODO ingresar accidentes
 			break;
 		default:

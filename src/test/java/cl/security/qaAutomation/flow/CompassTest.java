@@ -6,15 +6,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
-import cl.security.qaAutomation.stageSet.TC73StageSet;
+import cl.security.qaAutomation.stageSet.TC4StageSet;
 
 
 
 @SuiteClasses({
-//	NuevaPropuestaHombreStageSet.class,TC1StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC2StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC3StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC4StageSet.class,
+//	NuevaPropuestaHombreStageSet.class,TC1StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC2StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC3StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC4StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC5StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC6StageSet.class,
 //	NuevaPropuestaHombreStageSet.class,TC7StageSet.class,
@@ -71,13 +71,26 @@ import cl.security.qaAutomation.stageSet.TC73StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC64StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC65StageSet.class, //NOK
 //	NuevaPropuestaHombreStageSet.class,TC66StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC67StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC68StageSet.class, //OK
 	
+	//TODO pendientes de revision en matriz
+//	NuevaPropuestaHombreStageSet.class,TC67StageSet.class, //NOK
+//	NuevaPropuestaHombreStageSet.class,TC68StageSet.class, //NOK
+//	NuevaPropuestaHombreStageSet.class,TC69StageSet.class, //NOK
 	
+//	NuevaPropuestaHombreStageSet.class,TC70StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC71StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC72StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC73StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC74StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC75StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC76StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC77StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC78StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC79StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC80StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC81StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC82StageSet.class,
 	
-	
-	NuevaPropuestaHombreStageSet.class,TC73StageSet.class,
 })
 
 public class CompassTest extends BaseFlow{

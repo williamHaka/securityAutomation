@@ -94,25 +94,25 @@ Feature: Ingresar respuestas de seccion Salud II
   Scenario Outline: Padece o ha padecido tumores
     When Ingreso ha padecido tumores o cancer pVeintiSeis<cancer><trastorno><fechaDiagnosticacion><cirugia><quimioterapia><radioterapia><otros><recurrenciaTumor><extirpadoTotalmente><otroTratamiento>
 
- 		@P26TC73
+ 		@P26TC70
     Examples: Ingreso SI a tumores o cancer
       | cancer | trastorno        | fechaDiagnosticacion | cirugia | quimioterapia | radioterapia | otros | recurrenciaTumor | extirpadoTotalmente | otroTratamiento   |
       | "si"   | "cancer mamario" | "01-01-2019"         | "si"    | ""            | ""           | ""    | "no"             | "si"                | "otro tatamiento" |
 
-		@P26TC74
+		@P26TC71
     Examples: Ingreso SI a tumores o cancer
       | cancer | trastorno        | fechaDiagnosticacion | cirugia | quimioterapia | radioterapia | otros | recurrenciaTumor | extirpadoTotalmente | otroTratamiento |
       | "si"   | "cancer mamario" | "01-01-2019"         | ""      | "si"          | ""           | ""    | "no"             | "no"                | ""              |
 
-		@P26TC75
+		@P26TC72
     Examples: Ingreso SI a tumores o cancer
       | cancer | trastorno        | fechaDiagnosticacion | cirugia | quimioterapia | radioterapia | otros | recurrenciaTumor | extirpadoTotalmente | otroTratamiento |
       | "si"   | "cancer mamario" | "01-01-2019"         | ""      | ""            | "si"         | ""    | "no"             | "no"                | ""              |
 
-		@P26TC76
+		@P26TC73
     Examples: Ingreso SI a tumores o cancer
-      | cancer | trastorno        | fechaDiagnosticacion | cirugia | quimioterapia | radioterapia | otros | recurrenciaTumor | extirpadoTotalmente | otroTratamiento |
-      | "si"   | "cancer mamario" | "01-01-2019"         | ""      | ""            | ""           | "si"  | "no"             | "no"                | ""              |
+      | cancer | trastorno        | fechaDiagnosticacion | cirugia | quimioterapia | radioterapia | otros | recurrenciaTumor | extirpadoTotalmente | otroTratamiento    |
+      | "si"   | "cancer mamario" | "01-01-2019"         | ""      | ""            | ""           | "si"  | "no"             | "no"                | "otro Tratamiento" |
 	
 
     @P26NO
@@ -121,52 +121,93 @@ Feature: Ingresar respuestas de seccion Salud II
       | "no"   | ""        | ""                   | ""      | ""            | ""           | ""    | ""               | ""                  | ""              |
 
   @P27
-  Scenario Outline: Padece o ha padecido alguna enfermedad del aparato genitourinario como infecciones urinarias a repetición, cálculos renales, pielonefritis, riñones poliquísticos, insuficiencia renal, o de los testículos, próstata, útero, ovarios, mamas u otras enfermedades del aparato genital masculino o femenino
-    When Ingreso ha padecido enfermedad del aparato genitourinario<enfermedadGenital>
+  Scenario Outline: Padece o ha padecido alguna enfermedad del aparato genitourinario
+    When Ingreso ha padecido enfermedad del aparato genitourinario pVeintisiete<enfermedadGenital><trastorno><hospitalizado><variasVeces>
+
+		@P27TC74
+    Examples: Ingreso No ha padecido enfermedad del aparato genitourinario
+      | enfermedadGenital |trastorno                        | hospitalizado | variasVeces |
+      | "si"              | "infeccion del tracto urinario" | "no"          | "no"        |
+      
+    @P27TC75
+    Examples: Ingreso No ha padecido enfermedad del aparato genitourinario
+      | enfermedadGenital |trastorno                        | hospitalizado | variasVeces |
+      | "si"              | "infeccion del tracto urinario" | "si"          | "no"        |
+      
+    @P27TC76
+    Examples: Ingreso No ha padecido enfermedad del aparato genitourinario
+      | enfermedadGenital |trastorno                        | hospitalizado | variasVeces |
+      | "si"              | "infeccion del tracto urinario" | "si"          | "si"        |
 
     @P27NO
     Examples: Ingreso No ha padecido enfermedad del aparato genitourinario
-      | enfermedadGenital |
-      | "no"              |
+      | enfermedadGenital |trastorno | hospitalizado | variasVeces |
+      | "no"              | ""       | ""            | ""          |
 
   @P28
-  Scenario Outline: Padece o ha padecido alguna enfermedad del sistema locomotor como enfermedades de los huesos y articulaciones, lumbago, afecciones de la columna vertebral, artritis, artrosis, ciática, reumatismo, escoliosis, atrofia muscular, tendinitis, mutilación o malformación de algún miembro, u otra alteración
-    When Ingreso ha padecido enfermedad del aparato locomotor<enfermedadLocomotor>
+  Scenario Outline: Padece o ha padecido alguna enfermedad del sistema locomotor 
+    When Ingreso ha padecido enfermedad del aparato locomotor pVeintiocho<enfermedadLocomotor><trastorno>
+
+		@P28TC77
+    Examples: Ingreso No ha padecido enfermedad del aparato locomotor
+      | enfermedadLocomotor | trastorno                                                        |
+      | "si"                | "ciatica y sindrome de dolor en la parte inferior de la espalda" |
 
     @P28NO
     Examples: Ingreso No ha padecido enfermedad del aparato locomotor
-      | enfermedadLocomotor |
-      | "no"                |
+      | enfermedadLocomotor | trastorno |
+      | "no"                | ""        |
 
   @P29
-  Scenario Outline: Padece o ha padecido alguna enfermedad endocrina o metabólica como diabetes, colesterol elevado, bocio, hipotiroidismo, mal de Addison, gota, hemocromatosis u otros trastornos endocrinos o metabólicos
-    When Ingreso ha padecido enfermedad endocrina<enfermedadEndocrina>
+  Scenario Outline: Padece o ha padecido alguna enfermedad endocrina 
+    When Ingreso ha padecido enfermedad endocrina pVeintinueve<enfermedadEndocrina><trastorno><tipoDiabetes><aunDiabetesGestacional><fechaDiagnostico>
+
+		@P29TC78
+    Examples: Ingreso No ha padecido enfermedad endocrina
+      | enfermedadEndocrina | trastorno  | tipoDiabetes  | aunDiabetesGestacional | fechaDiagnostico |
+      | "si"                | "diabetes" | "gestacional" | "si"                   | "01-01-2019"     |
+
+		@P29TC79
+    Examples: Ingreso No ha padecido enfermedad endocrina
+      | enfermedadEndocrina | trastorno  | tipoDiabetes  | aunDiabetesGestacional | fechaDiagnostico |
+      | "si"                | "diabetes" | "gestacional" | "no"                   | ""               |
+
 
     @P29NO
     Examples: Ingreso No ha padecido enfermedad endocrina
-      | enfermedadEndocrina |
-      | "no"                |
+      | enfermedadEndocrina | trastorno | tipoDiabetes | aunDiabetesGestacional | fechaDiagnostico |
+      | "no"                | ""        | ""           | ""                     | ""               |
 
   @P30
-  Scenario Outline: Padece o ha padecido alguna enfermedad infecciosa o de transmisión sexual como VIH o SIDA, fiebre tifoidea, escarlatina, hepatitis, difteria, amigdalitis, meningitis, septicemia, malaria, dengue sífilis, gonorrea, virus del papiloma humano u otra
-    When Ingreso ha padecido enfermedad infecciosa<enfermedadInfecciosa>
+  Scenario Outline: Padece o ha padecido alguna enfermedad infecciosa o de transmisión sexual como VIH o SIDA
+    When Ingreso ha padecido enfermedad infecciosa pTreinta<enfermedadInfecciosa><trastorno>
+
+  @P30TC80
+    Examples: Ingreso No ha padecido enfermedad infecciosa
+      | enfermedadInfecciosa | trastorno     |
+      | "si"                 | "amigdalitis" |
 
     @P30NO
     Examples: Ingreso No ha padecido enfermedad infecciosa
-      | enfermedadInfecciosa |
-      | "no"                 |
+      | enfermedadInfecciosa | trastorno |
+      | "no"                 | ""        |
 
   @P31
-  Scenario Outline: Padece o ha padecido alguna enfermedad de los ojos (astigmatismo, miopía, cataratas, glaucoma, hipermetropía), de la nariz (pólipos, sinusitis crónica), de la garganta (hipertrofia de las amígdalas), o de los oídos (otitis crónica, supuración, sordera) u otras
-    When Ingreso ha padecido enfermedad de los ojos<enfermedadOcular>
+  Scenario Outline: Padece o ha padecido alguna enfermedad de los ojos 
+    When Ingreso ha padecido enfermedad de los ojos pTreintaiuno<enfermedadOcular><trastorno>
+
+	@P31TC81
+    Examples: Ingreso No ha padecido enfermedad de los ojos
+      | enfermedadOcular | trastorno |
+      | "si"             | "miopia"  |
 
     @P31NO
     Examples: Ingreso No ha padecido enfermedad de los ojos
-      | enfermedadOcular |
-      | "no"             |
+      | enfermedadOcular | trastorno |
+      | "no"             | ""        |
 
   @P32
-  Scenario Outline: Padece o ha padecido alguna enfermedad del sistema nervioso (cefaleas, migrañas, ictus, esclerosis múltiple, epilepsia) o mental (ansiedad, depresión, estrés) u otras
+  Scenario Outline: Padece o ha padecido alguna enfermedad del sistema nervioso 
     When Ingreso ha padecido enfermedad del sistema nervioso<enfermedadNerviosa>
 
     @P32NO
@@ -175,7 +216,7 @@ Feature: Ingresar respuestas de seccion Salud II
       | "no"               |
 
   @P33
-  Scenario Outline: Padece o ha padecido alguna enfermedad de la piel (eccema, dermatitis, psoriasis, eritema, pénfigo, extirpación de lunares, esclerosis sistémica difusa) u otras
+  Scenario Outline: Padece o ha padecido alguna enfermedad de la piel
     When Ingreso ha padecido enfermedad de la piel<enfermedadPiel>
 
     @P33NO
