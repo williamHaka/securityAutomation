@@ -1,7 +1,10 @@
 package cl.security.qaAutomation.utils;
 
+import static org.junit.Assert.assertFalse;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -55,6 +58,19 @@ public class GenericMethod {
 			System.out.println(e);
 		}
     	return elemento;
+    }
+	
+	public static Boolean isElementVisible(Integer timeoutInSeconds,By element)throws Exception{
+    	Boolean valid = false;
+		WebElement elemento = BaseFlow.driver.findElements(element).get(0);
+    	try {
+    		WebDriverWait wait = new WebDriverWait(BaseFlow.driver, timeoutInSeconds); 
+        	elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        	valid = elemento!=null?true:false;
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+    	return valid;
     }
 	
 	
