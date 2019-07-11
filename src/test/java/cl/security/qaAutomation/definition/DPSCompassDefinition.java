@@ -74,8 +74,8 @@ public class DPSCompassDefinition {
 		}
 	}
 	
-	@When("^ingreso deportes aventura pCinco\"([^\"]*)\"\"([^\"]*)\"$")
-	public void ingreso_deportes_aventura_pCinco(String deporteAventura, String actividades) throws Throwable {
+@When("^ingreso deportes aventura pCinco\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_deportes_aventura_pCinco(String deporteAventura,String actividad, String tipoAficionado, String alaska, String antartica, String artico, String groenlandia, String ninguna, String alturaMaxima, String intentoSolitario, String libre, String ninguno, String actividadProxima, String especifique) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radioDeportes = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (deporteAventura.toLowerCase().trim()) {
@@ -86,26 +86,30 @@ public class DPSCompassDefinition {
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioDeportes.get(3).click();
-//			TODO ingresar actividades
+			FormularioServices.ingresarDeportesAventura(actividad, tipoAficionado, alaska, antartica, artico, groenlandia, ninguna, alturaMaxima, intentoSolitario, libre, ninguno, actividadProxima, especifique);
 			break;
 		default:
 			break;
 		}
 	}
+	
 	private static Integer countSeguro= 0;
 	@When("^Ingreso vigencia seguro de vida pSeis\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_vigencia_seguro_de_vida_pSeis(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion) throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		List<WebElement> radioSeguros = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (seguroVidaVigente.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioSeguros.get(0).click();
+			Thread.sleep(1000);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioSeguros.get(1).click();
+			Thread.sleep(1000);
 			FormularioServices.ingresoVigenciaSeguroVida(seguroVidaVigente, tipoSeguro, compania, sumaAsegurada, fechaCobertura, resultadoAceptacion,countSeguro);
+			Thread.sleep(1000);
 			break;
 		default:
 			break;
@@ -118,6 +122,7 @@ public class DPSCompassDefinition {
 		countSeguro=0;
 		Thread.sleep(1000);
 		List<WebElement> radioViaje = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		Thread.sleep(1000);
 		switch (viajesExtranjero.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
@@ -127,6 +132,7 @@ public class DPSCompassDefinition {
 			Thread.sleep(1000);
 			radioViaje.get(1).click();
 			FormularioServices.ingresoViajesAlExtranjero(pais, motivo, tiempoEstancia, dondeReside, dondeAloja, viajesActividad, countViaje);
+			Thread.sleep(1000);
 			break;
 		default:
 			break;
@@ -980,8 +986,8 @@ public class DPSCompassDefinition {
 		}
 	}
 	
-	@When("^Ingreso ha padecido enfermedad del sistema nervioso\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_del_sistema_nervioso(String enfermedadNerviosa) throws Throwable {
+	@When("^Ingreso ha padecido enfermedad del sistema nervioso\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_del_sistema_nervioso(String enfermedadNerviosa, String trastorno, String doloresUltimaVez, String frecuenciaMedicacion, String frecuenciaMigranias, String horas, String nauseas, String paralisis, String parpadeos, String otro, String queOtro, String ninguno, String incapacidadLaboral, String tiempoIncapacidad) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radio.get(indexRadio));
@@ -991,15 +997,15 @@ public class DPSCompassDefinition {
 			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
+			radio.get(indexRadio+1).click();
 			indexRadio+=2;
-//				TODO ingresar accidentes
+			indexRadio = FormularioServices.ingresarMigrania(indexRadio, trastorno, doloresUltimaVez, frecuenciaMedicacion, frecuenciaMigranias, horas, nauseas, paralisis, parpadeos, otro, queOtro, ninguno, incapacidadLaboral, tiempoIncapacidad);
 			break;
 		default:
 			break;
 		}
 	}
-
+	
 	@When("^Ingreso ha padecido enfermedad de la piel\"([^\"]*)\"$")
 	public void ingreso_ha_padecido_enfermedad_de_la_piel(String enfermedadPiel) throws Throwable {
 		Thread.sleep(1000);
@@ -1011,7 +1017,7 @@ public class DPSCompassDefinition {
 			indexRadio+=2;
   			break;
 		case Constants.SI:
-			radio.get(indexRadio).click();
+			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 //				TODO ingresar accidentes
 			break;

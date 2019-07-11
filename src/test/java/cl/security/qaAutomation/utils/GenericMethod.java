@@ -34,8 +34,9 @@ public class GenericMethod {
 	}
 	
 	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
-		element.click();
 		Thread.sleep(1000);
+		element.click();
+		Thread.sleep(2000);
 		WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
 		txtBuscar.sendKeys(texto);
 		Thread.sleep(1000);

@@ -214,13 +214,43 @@ Feature: Ingresar respuestas de formulario DPS
 
   @P5
   Scenario Outline: Ingreso respuesta pregunta cinco
-    When ingreso deportes aventura pCinco<deporteAventura><actividades>
+    When ingreso deportes aventura pCinco<deporteAventura><actividad><tipoAficionado><alaska><antartica><artico><groenlandia><ninguna><alturaMaxima><intentoSolitario><libre><ninguno><actividadProxima><especifique>
     And Doy click en boton siguiente
-
+	
+		@P5TC92
+    Examples: Ingreso No a deportes aventura
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique          |
+      | "si"            | "andinismo" | "amateur"      | "si"   | ""        | ""     | ""          | ""      | "100"        | "si"             | ""    | ""      | "si"             | "actividades varias" |
+      
+    @P5TC93
+    Examples: Ingreso No a deportes aventura
+      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" |  "amateur"      | ""     | "si"      | ""     | ""          | ""      | "100"        | ""               | "si"  | ""      | "no"             | ""          |
+    
+    @P5TC94
+    Examples: Ingreso No a deportes aventura
+      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+      
+    @P5TC95
+    Examples: Ingreso No a deportes aventura
+      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | ""     | "si"        | ""      | "100"        | "si"             | "si"  | ""      | "no"             | ""          |
+      
+    @P5TC96
+    Examples: Ingreso No a deportes aventura
+      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | ""     | ""          | "si"    | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+      
+    @P5TC97
+    Examples: Ingreso No a deportes aventura
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | "si"   | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+      
     @P5NO
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividades |
-      | "no"            | ""          |
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "no"            | "andinismo" | "amateur"      | ""     | ""        | ""     | ""          | ""      | ""           | ""               | ""    | ""      | ""               | ""          |
 
   @P6
   Scenario Outline: Ingreso seguros de vida pregunta seis
@@ -348,7 +378,7 @@ Feature: Ingresar respuestas de formulario DPS
     When Ingreso estatura en centimetros pOcho<estatura>
 
     @P8NO
-    Examples: Ingreso 170 centimetros
+    Examples: Ingreso 160 centimetros
       | estatura |
       | "160"    |
 

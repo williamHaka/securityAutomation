@@ -6,54 +6,54 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
-import cl.security.qaAutomation.stageSet.TC4StageSet;
+import cl.security.qaAutomation.stageSet.TC85StageSet;
 
 
 
 @SuiteClasses({
-//	NuevaPropuestaHombreStageSet.class,TC1StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC2StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC3StageSet.class, //OK
-	NuevaPropuestaHombreStageSet.class,TC4StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC5StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC6StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC7StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC8StageSet.class,
-//	NuevaPropuestaHombreStageSet.class,TC10StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC11StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC12StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC13StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC14StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC15StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC16StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC17StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC18StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC19StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC20StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC21StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC22StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC23StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC24StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC25StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC26StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC27StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC28StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC29StageSet.class,//OK
-//	NuevaPropuestaHombreStageSet.class,TC30StageSet.class,//OK
+//	NuevaPropuestaHombreStageSet.class,TC1StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC2StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC3StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC4StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC5StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC6StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC7StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC8StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC10StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC11StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC12StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC13StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC14StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC15StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC16StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC17StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC18StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC19StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC20StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC21StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC22StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC23StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC24StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC25StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC26StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC27StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC28StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC29StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC30StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC31StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC32StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC33StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC34StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC35StageSet.class, //OK
-//	NuevaPropuestaMujerStageSet.class,TC36StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC37StageSet.class,//OK
+//	NuevaPropuestaMujerStageSet.class,TC36StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC37StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC38StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC39StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC40StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC41StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC42StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC43StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC49StageSet.class, // OK
+//	NuevaPropuestaHombreStageSet.class,TC49StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC50StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC51StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC52StageSet.class, //OK
@@ -89,7 +89,18 @@ import cl.security.qaAutomation.stageSet.TC4StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC79StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC80StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC81StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC82StageSet.class,
+//	NuevaPropuestaHombreStageSet.class,TC82StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC83StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC84StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC85StageSet.class,
+	
+	
+//	NuevaPropuestaHombreStageSet.class,TC92StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC93StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC94StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC95StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC96StageSet.class, //OK
+//	NuevaPropuestaHombreStageSet.class,TC97StageSet.class, //OK
 	
 })
 

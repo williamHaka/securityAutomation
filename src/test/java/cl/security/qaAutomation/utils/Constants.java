@@ -107,8 +107,8 @@ public class Constants {
 	public static final String RECURRENTEMENTE = "recurrentemente";
 	
 	
-	
-	
+//	PREGUNTA 32
+	public static final String SOLO_CUANDO_ES_NECESARIO = "cuandoesnecesario";
 	
 	
 }
