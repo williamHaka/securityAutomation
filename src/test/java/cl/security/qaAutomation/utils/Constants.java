@@ -101,11 +101,14 @@ public class Constants {
 	public static final String UNA_VEZ = "unavez";
 	
 	
+//	PREGUNTA 20 
+	
+	public static final String PERMANENTEMENTE = "permanentemente";
+	public static final String RECURRENTEMENTE = "recurrentemente";
 	
 	
-	
-	
-	
+//	PREGUNTA 32
+	public static final String SOLO_CUANDO_ES_NECESARIO = "cuandoesnecesario";
 	
 	
 }

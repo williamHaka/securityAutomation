@@ -1,22 +1,24 @@
 package cl.security.qaAutomation.services;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 public class Prueba {
 	public static void main(String[] args) throws Exception {
-		//		EndPointModel model = new EndPointModel();
-//		model.setUser("admin");
-//		model.setPassword("admin");
-//		model = EndPointServices.authPost(model);
-//		
-//		model.setIdPropuesta("MC64");
-//		EndPointServices.applicationGet(model);
-//		EndPointServices.getResult(model);
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");
-		LocalDateTime localDate = LocalDateTime.now();
-        System.out.println(dtf.format(localDate).toString());
+	
+	StringSelection stringSelection = new StringSelection("C:\\Users\\Matias Briso\\Desktop\\cencosud_test");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	Robot robot = new Robot();
+	Thread.sleep(3000);
+	robot.keyPress(KeyEvent.VK_CONTROL);
+	robot.keyPress(KeyEvent.VK_V);
+	robot.keyPress(KeyEvent.VK_ENTER);
+	
+	robot.keyRelease(KeyEvent.VK_CONTROL);
+	robot.keyRelease(KeyEvent.VK_V);
+	robot.keyRelease(KeyEvent.VK_ENTER);
 	
 	}
-
 }
