@@ -5,9 +5,6 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
-import cl.security.qaAutomation.stageSet.TC8StageSet;
-
 
 
 @SuiteClasses({
@@ -18,7 +15,7 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	NuevaPropuestaHombreStageSet.class,TC5StageSet.class,  //OK
 //	NuevaPropuestaHombreStageSet.class,TC6StageSet.class,  //OK
 //	NuevaPropuestaHombreStageSet.class,TC7StageSet.class,  //OK
-	NuevaPropuestaHombreStageSet.class,TC8StageSet.class,  //OK
+//	NuevaPropuestaHombreStageSet.class,TC8StageSet.class,  //OK
 //	NuevaPropuestaHombreStageSet.class,TC10StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC11StageSet.class, //OK
 //	NuevaPropuestaHombreStageSet.class,TC12StageSet.class, //OK
