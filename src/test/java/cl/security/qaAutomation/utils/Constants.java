@@ -109,6 +109,7 @@ public class Constants {
 	
 //	PREGUNTA 32
 	public static final String SOLO_CUANDO_ES_NECESARIO = "cuandoesnecesario";
-	
-	
+
+	//PREGUNTA 33
+	public static final String NOSE = "nose";
 }

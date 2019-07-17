@@ -12,7 +12,9 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
@@ -55,7 +57,7 @@ public class BaseFlow {
 	    
 	@AfterClass
 	public static void setUpFinal() throws Exception {
-//		driver.quit();
+		driver.quit();
 	}
 
 	public static void setDriverDesa() throws Exception {
@@ -70,17 +72,33 @@ public class BaseFlow {
 			break;
 		
 		case "iExplorer":
-//			System.setProperty("webdriver.ie.driver", Constants.iExplorerDriver);
-			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();    
-			caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);    
-			caps.setCapability("requireWindowFocus", true);
-			driver = new InternetExplorerDriver(caps);
-			driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"/WebDriver/IExplorer/Windows/IEDriverServer.exe");
+//			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();    
+//			caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);   
+//			caps.setCapability("ignoreZoomSetting", true);
+//			caps.setCapability("requireWindowFocus", true);
+			
+			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			capabilities.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false); 
+			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+			capabilities.setCapability("allow-blocked-content", true);
+			driver = new InternetExplorerDriver(capabilities);
+			
+			
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			Runtime.getRuntime().exec("C:/Users/HugoyNathalie/Desktop/will/cencosud_test/WebDriver/IExplorer/Windows/aut.exe");
 			break;
-		
+			
+		case "edge":
+			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"/WebDriver/IExplorer/Windows/Edge/MicrosoftWebDriver.exe" );
+			driver = new EdgeDriver();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			break;
 		}
 		
 	}
