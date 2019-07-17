@@ -1,31 +1,39 @@
 package cl.security.qaAutomation.utils;
 
-import static org.junit.Assert.assertFalse;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import cl.security.qaAutomation.flow.BaseFlow;
 
 public class GenericMethod {
 
+	
 	public static void scrollElement( WebElement element) throws InterruptedException {
 		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].scrollIntoView();", element);
 		Thread.sleep(1000);
 	}
 	
-	public static void focusElement( WebElement element) {
+	public static void focusElement( WebElement element) throws Exception {
+		Thread.sleep(1000);
 		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].focus();", element);
+		Thread.sleep(1000);
 	}
 	
+	public static void focus(WebElement element) throws Exception {
+		Thread.sleep(1000);
+		new Actions(BaseFlow.driver).moveToElement(element).perform(); 
+		Thread.sleep(1000);
+	}
+
 	public static void clickElement(WebElement element) throws Exception {
 		((JavascriptExecutor) BaseFlow.driver).executeScript("arguments[0].scrollIntoView();", element);
 		Thread.sleep(500);
@@ -36,7 +44,10 @@ public class GenericMethod {
 	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
 		Thread.sleep(1000);
 		element.click();
-		Thread.sleep(2000);
+		if(!existElement(By.xpath("//input[(@type='search')]"))) {
+			Thread.sleep(1000);
+			element.click();
+		}
 		WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
 		txtBuscar.sendKeys(texto);
 		Thread.sleep(1000);

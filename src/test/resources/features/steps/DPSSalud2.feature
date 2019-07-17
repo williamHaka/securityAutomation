@@ -83,12 +83,27 @@ Feature: Ingresar respuestas de seccion Salud II
 
   @P25
   Scenario Outline: Padece o ha padecido alguna enfermedad del aparato digestivo
-    When Ingreso enfermedad del aparato digestivo<enfermedadDigestiva>
+    When Ingreso enfermedad del aparato digestivo pVeinticinco<enfermedadDigestiva><trastorno>
 
+    @P25TC67
+    Examples: Ingreso NO a enfermedad del aparato digestivo
+      | enfermedadDigestiva | trastorno   |
+      | "si"                | "hepatitis" |
+      
+    @P25TC68
+    Examples: Ingreso NO a enfermedad del aparato digestivo
+      | enfermedadDigestiva | trastorno   |
+      | "si"                | "hepatitis" |
+      
+    @P25TC69
+    Examples: Ingreso NO a enfermedad del aparato digestivo
+      | enfermedadDigestiva | trastorno   |
+      | "si"                | "hepatitis" |
+      
     @P25NO
     Examples: Ingreso NO a enfermedad del aparato digestivo
-      | enfermedadDigestiva |
-      | "no"                |
+      | enfermedadDigestiva | trastorno |
+      | "no"                | ""        |
 
   @P26
   Scenario Outline: Padece o ha padecido tumores
@@ -235,9 +250,44 @@ Feature: Ingresar respuestas de seccion Salud II
 
   @P33
   Scenario Outline: Padece o ha padecido alguna enfermedad de la piel
-    When Ingreso ha padecido enfermedad de la piel<enfermedadPiel>
+    When Ingreso ha padecido enfermedad de la piel pTreintaitres<enfermedadPiel><trastorno><esMaligno><seguimiento><FechaDiagnostico><cirugia><quimioterapia><radioterapia><otros><detalleOtro><Recurrencia><extirpado><seguimientoTratamiento><cuandoDiagnostico><algunOtroTratamiento><queOtroTratamiento><estaCurado>
 
+	  @P33TC86
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "no"      | "no"        | "01-01-2019"     | "si"    | ""            | ""           | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
+	
+		@P33TC87
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | "si"          | ""           | ""    | ""          | "si"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
+		
+		@P33TC88
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | ""            | "si"         | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
+	
+		@P33TC89
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | ""            | ""           | "si"  | "otro deta" | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
+	
+		@P33TC90
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | "si"    | "si"          | ""           | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
+	
+		@P33TC91
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "nose"    | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | "no"                   | "01-01-2019"      | "no"                 | ""                 | "si"       |
+	
+		@P33TC92
+    Examples: Ingreso No ha padecido enfermedad de la piel
+      | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "si"           | "lunar carnoso" | "si"      | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | ""                     | ""                | ""                   | ""                 | ""         |
+	
     @P33NO
     Examples: Ingreso No ha padecido enfermedad de la piel
-      | enfermedadPiel |
-      | "no"           |
+      | enfermedadPiel | trastorno | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
+      | "no"           | ""        | ""        | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | ""                     | ""                | ""                   | ""                 | ""         |

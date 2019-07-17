@@ -222,13 +222,10 @@ public class DPSCompassDefinition {
 		}
 	}
 	
-	private static Boolean isEmbarazada, isComplicaciones = false;
 	@When("^Ingreso embarazo pTrece\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_embarazo_pTrece(String embarazada, String complicaciones, String nombreComplicacion, String fechaDesde, String fechaHasta, String secuelas, String especifiqueSecuelas) throws Throwable {
 		Thread.sleep(1000);
 		if(PropuestaCompassDefinition.genero.trim().toLowerCase().equalsIgnoreCase("f")) {
-			isEmbarazada = embarazada.equals(Constants.SI)?true:false;
-			isComplicaciones = complicaciones.equals(Constants.SI)?true:false;
 			List<WebElement> radioEmbarazada = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 			Thread.sleep(1000);
 			GenericMethod.scrollElement(radioEmbarazada.get(6));
@@ -712,8 +709,9 @@ public class DPSCompassDefinition {
 		}
 	}
 	
-	@When("^Ingreso le han recetado tratamiento medico pVeinte\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
-	public void ingreso_le_han_recetado_tratamiento_medico_pVeinte(String tratamientoMedico, String trastorno, String fechaPrimeraVez, String sintomasAun, String queSintomasActuales, String frecuencia, String sintomasUltimaVez, String SintomasAnio, String promedioSintomas, String revisionesMedico, String cirugia, String cuandoSometioCirugia, String especifiqueCirugia, String cirugiaPrevista, String cuandoSometeraCirugia, String tipoCirugia, String medicacion, String medicacionTomando, String otro, String otroTratamiento, String fechaTratamiento,String sinTratamiento, String continuidadLaboral, String fechaBaja) throws Throwable {
+	
+	@When("^Ingreso le han recetado tratamiento medico pVeinte\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_le_han_recetado_tratamiento_medico_pVeinte(String tratamientoMedico, String trastorno, String fechaPrimeraVez, String sintomasAun, String queSintomasActuales, String fechaLibreSintomas, String promedioTieneSintomas,String frecuencia, String sintomasUltimaVez, String SintomasAnio, String promedioSintomas, String revisionesMedico, String cirugia, String cuandoSometioCirugia, String especifiqueCirugia, String cirugiaPrevista, String cuandoSometeraCirugia, String tipoCirugia, String medicacion, String medicacionTomando, String otro, String otroTratamiento, String fechaTratamiento,String sinTratamiento, String continuidadLaboral, String fechaBaja) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radiotratamiento = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radiotratamiento.get(indexRadio));
@@ -726,7 +724,7 @@ public class DPSCompassDefinition {
 			Thread.sleep(1000);
 			radiotratamiento.get(indexRadio+1).click();
 			indexRadio+=2;
-			indexRadio = FormularioServices.ingresarTratamientoMedicoPVeinte(indexRadio, trastorno, fechaPrimeraVez, sintomasAun, queSintomasActuales, frecuencia, sintomasUltimaVez, SintomasAnio, promedioSintomas, revisionesMedico, cirugia, cuandoSometioCirugia, especifiqueCirugia, cirugiaPrevista, cuandoSometeraCirugia, tipoCirugia, medicacion, medicacionTomando, otro, otroTratamiento, fechaTratamiento, sinTratamiento, continuidadLaboral, fechaBaja);
+			indexRadio = FormularioServices.ingresarTratamientoMedicoPVeinte(indexRadio, trastorno, fechaPrimeraVez, sintomasAun, queSintomasActuales, fechaLibreSintomas, promedioTieneSintomas, frecuencia, sintomasUltimaVez, SintomasAnio, promedioSintomas, revisionesMedico, cirugia, cuandoSometioCirugia, especifiqueCirugia, cirugiaPrevista, cuandoSometeraCirugia, tipoCirugia, medicacion, medicacionTomando, otro, otroTratamiento, fechaTratamiento, sinTratamiento, continuidadLaboral, fechaBaja);
 			break;
 		default:
 			break;
@@ -823,9 +821,9 @@ public class DPSCompassDefinition {
 				break;
 		}
 	}
-
-	@When("^Ingreso enfermedad del aparato digestivo\"([^\"]*)\"$")
-	public void ingreso_enfermedad_del_aparato_digestivo(String enfermedadDigestiva) throws Throwable {
+	
+	@When("^Ingreso enfermedad del aparato digestivo pVeinticinco\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_enfermedad_del_aparato_digestivo_pVeinticinco(String enfermedadDigestiva, String trastorno) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radio.get(8));
@@ -837,12 +835,29 @@ public class DPSCompassDefinition {
 		case Constants.SI:
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
-//				TODO ingresar accidentes
+			Thread.sleep(1000);
+			WebElement txtElement = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+			txtElement.click();
+			Thread.sleep(1000);
+			WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+			txtBuscar.sendKeys(trastorno);
+			Thread.sleep(1000);
+			List<WebElement> list = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
+			for(WebElement li : list) {
+				if(li.getText().toString().equalsIgnoreCase(trastorno)) {
+					Thread.sleep(1000);
+					li.click();
+					break;
+				}
+			}
+			Thread.sleep(3000);
 			break;
 		default:
 			break;
 		}
 	}
+
+
 
 	@When("^Ingreso ha padecido tumores o cancer pVeintiSeis\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_ha_padecido_tumores_o_cancer_pVeintiSeis(String cancer, String trastorno, String fechaDiagnosticacion, String cirugia, String quimioterapia, String radioterapia, String otros, String recurrenciaTumor, String extirpadoTotalmente, String otroTratamiento) throws Throwable {
@@ -1006,8 +1021,8 @@ public class DPSCompassDefinition {
 		}
 	}
 	
-	@When("^Ingreso ha padecido enfermedad de la piel\"([^\"]*)\"$")
-	public void ingreso_ha_padecido_enfermedad_de_la_piel(String enfermedadPiel) throws Throwable {
+	@When("^Ingreso ha padecido enfermedad de la piel pTreintaitres\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_ha_padecido_enfermedad_de_la_piel_pTreintaitres(String enfermedadPiel, String trastorno, String esMaligno, String seguimiento, String FechaDiagnostico, String cirugia, String quimioterapia, String radioterapia, String otros, String detalleOtro, String Recurrencia, String extirpado, String seguimientoTratamiento, String cuandoDiagnostico, String algunOtroTratamiento, String queOtroTratamiento, String estaCurado) throws Throwable {
 		Thread.sleep(1000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radio.get(indexRadio));
@@ -1019,16 +1034,14 @@ public class DPSCompassDefinition {
 		case Constants.SI:
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
-//				TODO ingresar accidentes
+			indexRadio = FormularioServices.ingresarEnfermedadPiel(indexRadio, trastorno, esMaligno, seguimiento, FechaDiagnostico, cirugia, quimioterapia, radioterapia, otros, detalleOtro, Recurrencia, extirpado, seguimientoTratamiento, cuandoDiagnostico, algunOtroTratamiento, queOtroTratamiento, estaCurado);
 			break;
 		default:
 			break;
 		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		WebElement btnGuardar = BaseFlow.driver.findElement(By.className("right-header"));
 		btnGuardar.click();
 	}
-
-	
 }

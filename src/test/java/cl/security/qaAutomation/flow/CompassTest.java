@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
 import cl.security.qaAutomation.stageSet.NuevaPropuestaMujerStageSet;
 import cl.security.qaAutomation.stageSet.TC10StageSet;
@@ -48,8 +49,11 @@ import cl.security.qaAutomation.stageSet.TC4StageSet;
 import cl.security.qaAutomation.stageSet.TC50StageSet;
 import cl.security.qaAutomation.stageSet.TC51StageSet;
 import cl.security.qaAutomation.stageSet.TC52StageSet;
+import cl.security.qaAutomation.stageSet.TC53StageSet;
 import cl.security.qaAutomation.stageSet.TC54StageSet;
+import cl.security.qaAutomation.stageSet.TC55StageSet;
 import cl.security.qaAutomation.stageSet.TC56StageSet;
+import cl.security.qaAutomation.stageSet.TC57StageSet;
 import cl.security.qaAutomation.stageSet.TC58StageSet;
 import cl.security.qaAutomation.stageSet.TC59StageSet;
 import cl.security.qaAutomation.stageSet.TC5StageSet;
@@ -58,7 +62,11 @@ import cl.security.qaAutomation.stageSet.TC61StageSet;
 import cl.security.qaAutomation.stageSet.TC62StageSet;
 import cl.security.qaAutomation.stageSet.TC63StageSet;
 import cl.security.qaAutomation.stageSet.TC64StageSet;
+import cl.security.qaAutomation.stageSet.TC65StageSet;
 import cl.security.qaAutomation.stageSet.TC66StageSet;
+import cl.security.qaAutomation.stageSet.TC67StageSet;
+import cl.security.qaAutomation.stageSet.TC68StageSet;
+import cl.security.qaAutomation.stageSet.TC69StageSet;
 import cl.security.qaAutomation.stageSet.TC6StageSet;
 import cl.security.qaAutomation.stageSet.TC70StageSet;
 import cl.security.qaAutomation.stageSet.TC71StageSet;
@@ -77,7 +85,13 @@ import cl.security.qaAutomation.stageSet.TC82StageSet;
 import cl.security.qaAutomation.stageSet.TC83StageSet;
 import cl.security.qaAutomation.stageSet.TC84StageSet;
 import cl.security.qaAutomation.stageSet.TC85StageSet;
+import cl.security.qaAutomation.stageSet.TC86StageSet;
+import cl.security.qaAutomation.stageSet.TC87StageSet;
+import cl.security.qaAutomation.stageSet.TC88StageSet;
+import cl.security.qaAutomation.stageSet.TC89StageSet;
 import cl.security.qaAutomation.stageSet.TC8StageSet;
+import cl.security.qaAutomation.stageSet.TC90StageSet;
+import cl.security.qaAutomation.stageSet.TC91StageSet;
 import cl.security.qaAutomation.stageSet.TC92StageSet;
 import cl.security.qaAutomation.stageSet.TC93StageSet;
 import cl.security.qaAutomation.stageSet.TC94StageSet;
@@ -86,7 +100,6 @@ import cl.security.qaAutomation.stageSet.TC96StageSet;
 import cl.security.qaAutomation.stageSet.TC97StageSet;
 
 @SuiteClasses({
-
 	NuevaPropuestaHombreStageSet.class,TC1StageSet.class,  //OK
 	NuevaPropuestaHombreStageSet.class,TC2StageSet.class,  //OK
 	NuevaPropuestaHombreStageSet.class,TC3StageSet.class,  //OK
@@ -133,11 +146,11 @@ import cl.security.qaAutomation.stageSet.TC97StageSet;
 	NuevaPropuestaHombreStageSet.class,TC50StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC51StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC52StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC53StageSet.class, //NOK
+	NuevaPropuestaHombreStageSet.class,TC53StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC54StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC55StageSet.class, //NOK
+	NuevaPropuestaHombreStageSet.class,TC55StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC56StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC57StageSet.class, //NOK
+	NuevaPropuestaHombreStageSet.class,TC57StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC58StageSet.class, //OK 
 	NuevaPropuestaHombreStageSet.class,TC59StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC60StageSet.class, //OK
@@ -145,14 +158,11 @@ import cl.security.qaAutomation.stageSet.TC97StageSet;
 	NuevaPropuestaHombreStageSet.class,TC62StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC63StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC64StageSet.class, //OK
-//	NuevaPropuestaHombreStageSet.class,TC65StageSet.class, //NOK
+	NuevaPropuestaHombreStageSet.class,TC65StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC66StageSet.class, //OK
-	
-	//TODO pendientes de revision en matriz
-//	NuevaPropuestaHombreStageSet.class,TC67StageSet.class, //NOK
-//	NuevaPropuestaHombreStageSet.class,TC68StageSet.class, //NOK
-//	NuevaPropuestaHombreStageSet.class,TC69StageSet.class, //NOK
-	
+	NuevaPropuestaHombreStageSet.class,TC67StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC68StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC69StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC70StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC71StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC72StageSet.class, //OK
@@ -168,9 +178,13 @@ import cl.security.qaAutomation.stageSet.TC97StageSet;
 	NuevaPropuestaHombreStageSet.class,TC82StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC83StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC84StageSet.class, //OK
-	NuevaPropuestaHombreStageSet.class,TC85StageSet.class,
-	
-	
+	NuevaPropuestaHombreStageSet.class,TC85StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC86StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC87StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC88StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC89StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC90StageSet.class, //OK
+	NuevaPropuestaHombreStageSet.class,TC91StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC92StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC93StageSet.class, //OK
 	NuevaPropuestaHombreStageSet.class,TC94StageSet.class, //OK
