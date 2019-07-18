@@ -9,7 +9,6 @@ import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.When;
 
 public class DPSCompassDefinition {
@@ -19,6 +18,7 @@ public class DPSCompassDefinition {
 		Thread.sleep(1000);
 		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
 		GenericMethod.ingresarTextoSugerido(txtActividad, actividad);
+		Thread.sleep(3000);
 	}
 	static Integer index=0;
 	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
@@ -676,12 +676,14 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radioHospitalario.get(14));
 		switch (ingresoHospitalario.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radioHospitalario.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
-			indexRadio+=1;
-			radioHospitalario.get(indexRadio).click();
+			Thread.sleep(1000);
+			radioHospitalario.get(indexRadio+1).click();
+			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarCentroHospitalario(indexRadio, trastorno, cuando, sintomasAun, especifiqueSintoma, tratamientoMedico, fechaInicioTratamiento, sinFechaTermino, operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres, cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada, incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
 			break;
 		default:

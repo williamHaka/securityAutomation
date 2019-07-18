@@ -5,10 +5,9 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.security.qaAutomation.stageSet.NuevaPropuestaHombreStageSet;
 import cl.security.qaAutomation.stageSet.TC44StageSet;
 
-@SuiteClasses({NuevaPropuestaHombreStageSet.class,TC44StageSet.class})
+@SuiteClasses({TC44StageSet.class})
 
 public class TC44Test extends BaseFlow{
 	private static final Logger LOGGER = LoggerFactory.getLogger(TC44Test.class);

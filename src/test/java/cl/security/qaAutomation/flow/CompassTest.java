@@ -100,11 +100,11 @@ import org.slf4j.LoggerFactory;
 })
 
 public class CompassTest extends BaseFlow{
-	private static final Logger LOGGER = LoggerFactory.getLogger(CompassTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CompassTest.class); 
     @BeforeClass
     public static void flag() throws Exception {
     	LOGGER.info("**************************************");
-        LOGGER.info("*  Ejecutando flujo de Compass DPS   *");
-        LOGGER.info("**************************************");
+    	LOGGER.info("*  Ejecutando flujo de Compass DPS   *");
+    	LOGGER.info("**************************************");
     }
 }
