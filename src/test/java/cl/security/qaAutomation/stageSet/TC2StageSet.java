@@ -8,7 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = {
-				   "@P1TC2"
+				  "@NuevoAseguradoHombre"
+				+ ",@P1TC2"
 				+ ",@P2TC2"
 				+ ",@P3NO"
 				+ ",@P4NO"
