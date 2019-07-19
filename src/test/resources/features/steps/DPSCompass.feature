@@ -848,8 +848,8 @@ Feature: Flujo end2end compass DPS
 
     @P20NO
     Examples: Ingreso colon irritable a tratamiento medico
-      | tratamientoMedico | tratorno                       | fechaPrimeraVez | sintomasAun | queSintomasActuales | fechaLibreSintomas | promedioTieneSintomas | frecuencia | sintomasUltimaVez | SintomasAnio | promedioSintomas | revisionesMedico | cirugia | cuandoSometioCirugia | especifiqueCirugia | cirugiaPrevista | cuandoSometeraCirugia | tipoCirugia | medicacion | medicacionTomando | otro | otroTratamiento | fechaTratamiento | sinTratamiento | continuidadLaboral | fechaBaja |
-      | "no"              | "sindrome del colon irritable" | ""              | ""          | ""                  | ""                 | ""                    | ""         | ""                | ""           | ""               | ""               | ""      | ""                   | ""                 | ""              | ""                    | ""          | ""         | ""                | ""   | ""              | ""               | ""             | ""                 | ""        |
+      | tratamientoMedico | tratorno | fechaPrimeraVez | sintomasAun | queSintomasActuales | fechaLibreSintomas | promedioTieneSintomas | frecuencia | sintomasUltimaVez | SintomasAnio | promedioSintomas | revisionesMedico | cirugia | cuandoSometioCirugia | especifiqueCirugia | cirugiaPrevista | cuandoSometeraCirugia | tipoCirugia | medicacion | medicacionTomando | otro | otroTratamiento | fechaTratamiento | sinTratamiento | continuidadLaboral | fechaBaja |
+      | "no"              | ""       | ""              | ""          | ""                  | ""                 | ""                    | ""         | ""                | ""           | ""               | ""               | ""      | ""                   | ""                 | ""              | ""                    | ""          | ""         | ""                | ""   | ""              | ""               | ""             | ""                 | ""        |
 
       @P21
   Scenario Outline: Ha sido tratado por algun psicologo

@@ -1204,8 +1204,10 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
 		GenericMethod.ingresarTextoSugerido(txtSearch, trastorno);
+		Thread.sleep(1000);
 		FormularioServices.seleccionarFechaCalendar(cuando, 0);
 		indexRadio+=3;
+		Thread.sleep(1000);
 		ingresoSintomasHopitalario(sintomasAun, especifiqueSintoma, tratamientoMedico, fechaInicioTratamiento, fechaTermino, operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres, cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada, incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
 		return indexRadio;
 	}
@@ -1226,9 +1228,13 @@ public class FormularioServices {
 			WebElement txtSintoma = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Por favor, especifique sus complicaciones')]"));
 			txtSintoma.sendKeys(especifiqueSintoma);
 			indexRadio+=2;
+			Thread.sleep(1000);
 			ingresoTratamientoMedicoHospitalario(tratamientoMedico, fechaInicioTratamiento, fechaTermino);
+			Thread.sleep(1000);
 			ingresoOperadoHospitalario(operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres);
+			Thread.sleep(1000);
 			ingresoCirugiaHospitalario(cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada);
+			Thread.sleep(1000);
 			ingresoIncapacidadHospitalario(incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
 			break;
 		default:
