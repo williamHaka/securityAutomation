@@ -1,6 +1,6 @@
 Feature: Flujo end2end compass DPS
 
-	@NuevoAsegurado
+  @NuevoAsegurado
   Scenario Outline: Ingresar datos del asegurado
     Given Ingreso a la url"https://vs-as-compass-des.azurewebsites.net/"
     When Ingreso usuario y clave"admin""admin"
@@ -19,16 +19,16 @@ Feature: Flujo end2end compass DPS
     And Ingreso duracion<duracion>
     And Doy click en siguiente
     And Acepto termino de conformidad<aceptoTermino>
-   
-  @NuevoAseguradoHombre
-  Examples: 
-    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC_"           | "nombre" | "33" | "1-9"  | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
-    
-	@NuevoAseguradoMujer
-  Examples: 
-    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC_"           | "Mujer"  | "33" | "1-9"  | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoHombre
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC_"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoMujer
+    Examples: 
+      | nombrePropuesta | nombre  | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC_"           | "Mujer" | "33" | "1-9" | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
 
   @P1
   Scenario Outline: Ingreso respuesta de pregusta uno
@@ -246,37 +246,37 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingreso respuesta pregunta cinco
     When ingreso deportes aventura pCinco<deporteAventura><actividad><tipoAficionado><alaska><antartica><artico><groenlandia><ninguna><alturaMaxima><intentoSolitario><libre><ninguno><actividadProxima><especifique>
     And Doy click en boton siguiente
-	
-		@P5TC92
+
+    @P5TC92
     Examples: Ingreso No a deportes aventura
       | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique          |
       | "si"            | "andinismo" | "amateur"      | "si"   | ""        | ""     | ""          | ""      | "100"        | "si"             | ""    | ""      | "si"             | "actividades varias" |
-      
+
     @P5TC93
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | "si"      | ""     | ""          | ""      | "100"        | ""               | "si"  | ""      | "no"             | ""          |
-    
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | "si"      | ""     | ""          | ""      | "100"        | ""               | "si"  | ""      | "no"             | ""          |
+
     @P5TC94
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
-      
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+
     @P5TC95
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | ""     | "si"        | ""      | "100"        | "si"             | "si"  | ""      | "no"             | ""          |
-      
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | ""        | ""     | "si"        | ""      | "100"        | "si"             | "si"  | ""      | "no"             | ""          |
+
     @P5TC96
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | ""     | ""          | "si"    | "100"        | ""               | ""    | "si"    | "no"             | ""          |
-      
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | ""        | ""     | ""          | "si"    | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+
     @P5TC97
     Examples: Ingreso No a deportes aventura
       | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
       | "si"            | "andinismo" | "amateur"      | "si"   | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
-      
+
     @P5NO
     Examples: Ingreso No a deportes aventura
       | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
@@ -674,7 +674,6 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingresar prueba de VIH en los últimos doce meses
     When Ingreso prueba de VIH en los ultimos doce meses pCatorce<pruebaVIH><resultadoVIH>
 
-
     @P14TC37
     Examples: Ingreso no a prueba de VIH
       | pruebaVIH | resultadoVIH |
@@ -699,7 +698,6 @@ Feature: Flujo end2end compass DPS
       | pensionInvalidez | motivoPension |
       | "no"             | ""            |
 
-      
   @P16
   Scenario Outline: Ingresar accidentes
     When Ingreso si ha sido victima de algun accidente pDiesiseis<accidente><complicacionesAcc><especifiqueComplicacionesAcc><fechaDesdeAcc><fechaHastaAcc><trastornoVariasVeces><secuelasAcc><especifiqueSecuelasAcc>
@@ -757,31 +755,31 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingreso si ha permanecido ingresado en un centro hospitalario
     When Ingreso ha ingresado a un centro hospitalario pDiesiocho<ingresoHospitalario><trastorno><cuando><sintomasAun><especifiqueSintoma><tratamientoMedico><fechaInicioTratamiento><fechaTermino><sinFechaTermino><operado><frecuenciaOperado><especifiqueOperado><fechaOperacionUno><fechaOperacionDos><fechaOperacionTres><cirugiaPlaneada><fechaCirugiaPlaneada><tipoCirugiaPlaneada><incapacidad><fechaDiscapacidad><promedioIncapacitado><cambioProfesion><ocupacion><ocupacionRecomendada>
 
-	  @P18TC44
+    @P18TC44
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "no"        | ""                 | ""                | ""                     | ""           | ""              | "no"    | ""                | ""                 | ""                | ""                | ""                 | "no"            | ""                   | ""                  | ""          | ""                | ""                   | ""              | ""        | ""                   |
-	
- 		@P18TC45
+
+    @P18TC45
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "no"              | ""                     | ""           | ""              | "no"    | ""                | ""                 | ""                | ""                | ""                 | "no"            | ""                   | ""                  | "no"        | ""                | ""                   | ""              | ""        | ""                   |
 
-		@P18TC46
+    @P18TC46
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "si"              | "15-01-2019"           | ""           | ""              | "no"    | ""                | ""                 | ""                | ""                | ""                 | "si"            | "01-03-2019"         | "varias"            | "no"        | ""                | ""                   | ""              | ""        | ""                   |
-	
-		@P18TC47
+
+    @P18TC47
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "si"              | "15-01-2019"           | "01-02-2019" | ""              | "si"    | "repetidasveces"  | "espe. cirugia"    | "01-01-2019"      | ""                | ""                 | "no"            | ""                   | ""                  | "si"        | "01-03-2018"      | "10"                 | "no"            | ""        | ""                   |
-	
-		@P18TC48
+
+    @P18TC48
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion   | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "si"              | "15-01-2019"           | "01-02-2019" | ""              | "si"    | "repetidasveces"  | "espe. cirugia"    | "01-01-2019"      | ""                | ""                 | "no"            | ""                   | ""                  | "si"        | "01-03-2018"      | "10"                 | "si"            | "ocupacion" | "ocu. recomendada"   |
-	
+
     @P18NO
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno | cuando | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
@@ -851,7 +849,7 @@ Feature: Flujo end2end compass DPS
       | tratamientoMedico | tratorno | fechaPrimeraVez | sintomasAun | queSintomasActuales | fechaLibreSintomas | promedioTieneSintomas | frecuencia | sintomasUltimaVez | SintomasAnio | promedioSintomas | revisionesMedico | cirugia | cuandoSometioCirugia | especifiqueCirugia | cirugiaPrevista | cuandoSometeraCirugia | tipoCirugia | medicacion | medicacionTomando | otro | otroTratamiento | fechaTratamiento | sinTratamiento | continuidadLaboral | fechaBaja |
       | "no"              | ""       | ""              | ""          | ""                  | ""                 | ""                    | ""         | ""                | ""           | ""               | ""               | ""      | ""                   | ""                 | ""              | ""                    | ""          | ""         | ""                | ""   | ""              | ""               | ""             | ""                 | ""        |
 
-      @P21
+  @P21
   Scenario Outline: Ha sido tratado por algun psicologo
     When Ingreso ha sido tratado por algun psicologo pVeintiuno<tratadoPsicologo><trastorno>
 
@@ -940,17 +938,17 @@ Feature: Flujo end2end compass DPS
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno   |
       | "si"                | "hepatitis" |
-      
+
     @P25TC68
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno   |
       | "si"                | "hepatitis" |
-      
+
     @P25TC69
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno   |
       | "si"                | "hepatitis" |
-      
+
     @P25NO
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno |
@@ -1103,43 +1101,42 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Padece o ha padecido alguna enfermedad de la piel
     When Ingreso ha padecido enfermedad de la piel pTreintaitres<enfermedadPiel><trastorno><esMaligno><seguimiento><FechaDiagnostico><cirugia><quimioterapia><radioterapia><otros><detalleOtro><Recurrencia><extirpado><seguimientoTratamiento><cuandoDiagnostico><algunOtroTratamiento><queOtroTratamiento><estaCurado>
 
-	  @P33TC86
+    @P33TC86
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "no"        | "01-01-2019"     | "si"    | ""            | ""           | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC87
+
+    @P33TC87
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | "si"          | ""           | ""    | ""          | "si"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-		
-		@P33TC88
+
+    @P33TC88
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | ""            | "si"         | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC89
+
+    @P33TC89
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | ""            | ""           | "si"  | "otro deta" | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC90
+
+    @P33TC90
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | "si"    | "si"          | ""           | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC91
+
+    @P33TC91
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "nose"    | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | "no"                   | "01-01-2019"      | "no"                 | ""                 | "si"       |
-	
-		@P33TC92
+
+    @P33TC92
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "si"      | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | ""                     | ""                | ""                   | ""                 | ""         |
-	
+
     @P33NO
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "no"           | ""        | ""        | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | ""                     | ""                | ""                   | ""                 | ""         |
-      
