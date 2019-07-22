@@ -44,8 +44,8 @@ public class PropuestaCompassDefinition {
 
 	@When("^Ingreso nombre de la nueva propuesta\"([^\"]*)\"$")
 	public void ingreso_nombre_de_la_nueva_propuesta(String nombre) throws Throwable {
-		log.info("Ingreso nombre de propuesta"+nombre);
 		String idPropuesta = nombre+GenericMethod.getDate();
+		log.info("Ingreso nombre de propuesta "+idPropuesta);
 		BaseFlow.endpointModel.setIdPropuesta(idPropuesta);
 		BaseFlow.pageModel.getTxtNuevaPropuesta().sendKeys(idPropuesta);
 		Thread.sleep(2000);

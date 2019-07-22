@@ -315,7 +315,7 @@ Feature: Flujo end2end compass DPS
     @P6NO
     Examples: Ingreso No a seguros de vida
       | seguroVidaVigente | tipoSeguro | compania | sumaAsegurada | fechaCobertura | resultadoAceptacion |
-      | "no"              | ""         | ""       | "2500"        | "01-10-2017"   | "a"                 |
+      | "no"              | ""         | ""       | ""            | ""             | ""                  |
 
   @P7
   Scenario Outline: Ingreso viajes con regularidad al extranjero pregunta siete
