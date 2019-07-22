@@ -71,7 +71,7 @@ import cl.security.qaAutomation.stageSet.TC65StageSet;
 //	TC62StageSet.class,
 //	TC63StageSet.class,
 //	TC64StageSet.class,
-	TC65StageSet.class,
+//	TC65StageSet.class,
 //	TC66StageSet.class,
 //	TC67StageSet.class,
 //	TC68StageSet.class,
