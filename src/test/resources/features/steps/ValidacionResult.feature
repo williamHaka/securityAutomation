@@ -11,4 +11,3 @@ Feature: Validacion de reglas desde servicio Result
       | applicationId  | reglas |
       | "NKBaSSsCU8q7" | ""     |
       
-##applicationId propuesta No a todo NKBaSSsCU8q7

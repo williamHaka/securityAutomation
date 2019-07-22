@@ -531,24 +531,9 @@ public class DPSCompassDefinition {
 				}
 			}
 			Thread.sleep(1000);
-			List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//span[(@class='icon-Suscribir')]"));
-			switch (frecuenciaSintoma) {
-			case Constants.CONSTANTEMENTE:
-				Thread.sleep(1000);
-				btnLike.get(2).click();
-				break;
-			case Constants.REPETIDAS_VECES:
-				Thread.sleep(1000);
-				btnLike.get(4).click();
-				break;
-			case Constants.UNA_VEZ:
-				Thread.sleep(1000);
-				btnLike.get(3).click();
-				break;	
-			default:
-				break;
-			}
-			
+			WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[(@class='icon-Suscribir')]"));
+			btnLike.click();
+			Thread.sleep(1000);
 		}
 	}
 

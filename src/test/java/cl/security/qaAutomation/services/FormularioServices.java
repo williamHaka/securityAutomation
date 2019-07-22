@@ -998,7 +998,7 @@ public class FormularioServices {
 			listDrogas.get(5).click();
 		}
 		Thread.sleep(1000);
-		WebElement iconGrabar = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(4);
+		WebElement iconGrabar = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(0);
 		iconGrabar.click();
 		Thread.sleep(1000);
 	}
@@ -1236,6 +1236,7 @@ public class FormularioServices {
 			ingresoCirugiaHospitalario(cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada);
 			Thread.sleep(1000);
 			ingresoIncapacidadHospitalario(incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
+			Thread.sleep(2000);
 			break;
 		default:
 			break;
@@ -1425,14 +1426,10 @@ public class FormularioServices {
 			Thread.sleep(1000);
 			listCheck.get(8).click();
 		}
-		
-		if(indexRadio<10) {
-			WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
-			btnLike.click();
-		}else {
-			WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(2);
-			btnLike.click();
-		}
+		Thread.sleep(1000);
+		WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
+		btnLike.click();
+		Thread.sleep(1000);
 		if(anemiaFerropenica.equals(Constants.SI)) {
 			Thread.sleep(1000);
 			seleccionarFechaCalendar(fechaFerropenica, 0);
@@ -1492,8 +1489,15 @@ public class FormularioServices {
 			seleccionarFechaCalendar(inicioTratamientoMedico, 1);
 			indexRadio+=3;
 			Thread.sleep(1000);
-			seleccionarFechaCalendar(terminoTratamientoMedico, 2);
-			indexRadio+=3;
+			if(!terminoTratamientoMedico.equals("")) {
+				WebElement btnCalendar = BaseFlow.driver.findElements(By.xpath("//button[contains(@class,'btn custom-label dedo ')]")).get(2);
+				btnCalendar.click();
+				Thread.sleep(1000);
+				seleccionarFechaCalendar(terminoTratamientoMedico, 2);
+				indexRadio+=3;
+			}
+				
+			
 			break;
 		default:
 			break;
@@ -1529,8 +1533,6 @@ public class FormularioServices {
 			WebElement txtPromedio = BaseFlow.driver.findElements(By.xpath("//input[(@type='number')]")).get(2);
 			txtPromedio.sendKeys(promedioTieneSintomas);
 			Thread.sleep(1000);
-			List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
-			btnLike.get(2).click();
 			ingresarFrecuenciaSintomasOpcionNO(frecuencia, SintomasAnio);
 			ingresarRevisionesRegularesMedico(revisionesMedico);
 			seleccionarQueTratamientosSigueNO(cirugia, cuandoSometioCirugia, especifiqueCirugia, cirugiaPrevista, cuandoSometeraCirugia, tipoCirugia, medicacion, medicacionTomando, otro, otroTratamiento, fechaTratamiento,sinTratamiento);
@@ -1690,12 +1692,10 @@ public class FormularioServices {
 		}
 		
 		Thread.sleep(1000);
-		List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
-		
+		WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
+		btnLike.click();
 		if(!sinTratamiento.toLowerCase().trim().equals(Constants.SI)) {
 			if(cirugia.toLowerCase().trim().equals(Constants.SI)) {
-				Thread.sleep(1000);
-				btnLike.get(3).click();
 				Thread.sleep(1000);
 				seleccionarFechaCalendar(cuandoSometioCirugia, 2);
 				indexRadio+=3;
@@ -1703,8 +1703,6 @@ public class FormularioServices {
 				WebElement txtEspecifiqueCirugia = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Por favor, especifique')]"));
 				txtEspecifiqueCirugia.sendKeys(especifiqueCirugia);
 			}if(cirugiaPrevista.toLowerCase().trim().equals(Constants.SI)) {
-				Thread.sleep(1000);
-				btnLike.get(3).click();
 				Thread.sleep(1000);
 				seleccionarFechaCalendar(cuandoSometeraCirugia, 2);
 				indexRadio+=3;
@@ -1716,8 +1714,6 @@ public class FormularioServices {
 				WebElement txtMedicacion = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué medicación está tomando')]"));
 				txtMedicacion.sendKeys(medicacionTomando);
 			}if(otro.toLowerCase().trim().equals(Constants.SI)) {
-				Thread.sleep(1000);
-				btnLike.get(3).click();
 				Thread.sleep(1000);
 				WebElement txtOtro = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro tratamiento ha seguido')]"));
 				txtOtro.sendKeys(otroTratamiento);
@@ -1751,14 +1747,11 @@ public class FormularioServices {
 				listTratamientos.get(3).click();
 			}
 		}
-		
 		Thread.sleep(1000);
-		List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
-		
+		WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
+		btnLike.click();
 		if(!sinTratamiento.toLowerCase().trim().equals(Constants.SI)) {
 			if(cirugia.toLowerCase().trim().equals(Constants.SI)) {
-				Thread.sleep(1000);
-				btnLike.get(3).click();
 				Thread.sleep(1000);
 				seleccionarFechaCalendar(cuandoSometioCirugia, 1);
 				indexRadio+=3;
@@ -1767,8 +1760,6 @@ public class FormularioServices {
 				txtEspecifiqueCirugia.sendKeys(especifiqueCirugia);
 			}if(cirugiaPrevista.toLowerCase().trim().equals(Constants.SI)) {
 				Thread.sleep(1000);
-				btnLike.get(3).click();
-				Thread.sleep(1000);
 				seleccionarFechaCalendar(cuandoSometeraCirugia, 1);
 				indexRadio+=3;
 				Thread.sleep(1000);
@@ -1776,13 +1767,9 @@ public class FormularioServices {
 				txtCirugiaRealizar.sendKeys(tipoCirugia);
 			}if(medicacion.toLowerCase().trim().equals(Constants.SI)) {
 				Thread.sleep(1000);
-				btnLike.get(3).click();
-				Thread.sleep(1000);
 				WebElement txtMedicacion = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué medicación está tomando')]"));
 				txtMedicacion.sendKeys(medicacionTomando);
 			}if(otro.toLowerCase().trim().equals(Constants.SI)) {
-				Thread.sleep(1000);
-				btnLike.get(3).click();
 				Thread.sleep(1000);
 				WebElement txtOtro = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro tratamiento ha seguido')]"));
 				txtOtro.sendKeys(otroTratamiento);
@@ -1792,7 +1779,7 @@ public class FormularioServices {
 			}
 		}else {
 			Thread.sleep(1000);
-			btnLike.get(3).click();
+			btnLike.click();
 		}
 	}
 	
@@ -1932,8 +1919,6 @@ public class FormularioServices {
 			if(cirugia.trim().equalsIgnoreCase(Constants.SI)) {
 				Thread.sleep(1000);
 				listTratamiento.get(0).click();
-				List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//button[contains(@class,'btn-ok')]"));
-				btnLike.get(1).click();
 			}if(cirugiaPrevista.trim().equalsIgnoreCase(Constants.SI)) {
 				Thread.sleep(1000);
 				listTratamiento.get(1).click();
@@ -1944,15 +1929,14 @@ public class FormularioServices {
 				Thread.sleep(1000);
 				listTratamiento.get(3).click();
 				Thread.sleep(1000);
-				List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//button[contains(@class,'btn-ok')]"));
-				btnLike.get(3).click();
 			}if(otro.trim().equalsIgnoreCase(Constants.SI)) {
 				Thread.sleep(1000);
 				listTratamiento.get(4).click();
-				List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//button[contains(@class,'btn-ok')]"));
-				btnLike.get(2).click();
 			}
 		}
+		Thread.sleep(1000);
+		WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//button[contains(@class,'btn-ok')]"));
+		btnLike.click();
 		Thread.sleep(1000);
 		if(cirugia.trim().equalsIgnoreCase(Constants.SI)) {
 			Thread.sleep(1000);
@@ -2247,9 +2231,6 @@ public class FormularioServices {
 		WebElement txtAltura = BaseFlow.driver.findElement(By.xpath("//input[(@type='number')]"));
 		txtAltura.sendKeys(alturaMaxima);
 		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(1);
-		btnLike.click();
-		Thread.sleep(1000);
 		ingresarActividades(intentoSolitario, libre, ninguno);
 		ingresarProximaActividad(actividadProxima, especifique);
 		Thread.sleep(1000);
@@ -2307,7 +2288,7 @@ public class FormularioServices {
 			listRegiones.get(7).click();
 		}
 		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(2);
+		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(1);
 		btnLike.click();
 	}
 	
@@ -2361,7 +2342,7 @@ public class FormularioServices {
 		WebElement txtHoras = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
 		txtHoras.sendKeys(horas);
 		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(indexMigrania);
+		WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
 		btnLike.click();
 		ingresarSintomasMigranias(nauseas, paralisis, parpadeos, otro, queOtro, ninguno);
 		ingresarIncapacidadMigrania(incapacidadLaboral, tiempoIncapacidad);

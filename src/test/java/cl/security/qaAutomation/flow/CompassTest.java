@@ -6,102 +6,102 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @SuiteClasses({
-//	 TC1StageSet.class  //OK
-//	,TC2StageSet.class  //NOK
-//	,TC3StageSet.class  //NOK
-//	,TC4StageSet.class  //NOK
-//	,TC5StageSet.class  //NOK
-//	,TC6StageSet.class  //OK
-//	,TC7StageSet.class  //OK
-//	,TC8StageSet.class  //OK
-//	,TC10StageSet.class //OK
-//	,TC11StageSet.class //OK
-//	,TC12StageSet.class //OK
-//	,TC13StageSet.class //OK
-//	,TC14StageSet.class //OK
-//	,TC15StageSet.class //NOK
-//	,TC16StageSet.class //NOK
-//	,TC17StageSet.class //NOK
-//	,TC18StageSet.class //NOK
-//	,TC19StageSet.class //OK
-//	,TC20StageSet.class //OK
-//	,TC21StageSet.class //OK
-//	,TC22StageSet.class //OK
-//	,TC23StageSet.class //OK
-//	,TC24StageSet.class //OK
-//	,TC25StageSet.class //OK
-//	,TC26StageSet.class //OK
-//	,TC27StageSet.class //OK
-//	,TC28StageSet.class //OK
-//	,TC29StageSet.class //OK
-//	,TC30StageSet.class //OK
-//	,TC31StageSet.class //OK
-//	,TC32StageSet.class //OK
-//	,TC33StageSet.class //OK
-//	,TC34StageSet.class //OK
-//	,TC35StageSet.class //OK
-//	,TC36StageSet.class //OK
-//	,TC37StageSet.class //OK
-//	,TC38StageSet.class //OK
-//	,TC39StageSet.class //OK
-//	,TC40StageSet.class //OK
-//	,TC41StageSet.class //OK
-//	,TC42StageSet.class //OK
-//	,TC43StageSet.class //OK
-//	,TC44StageSet.class //OK
-//	 TC45StageSet.class //OK
-//	,TC46StageSet.class //OK
-//	,TC47StageSet.class //NOK
-//	,TC48StageSet.class //NOK
-//	,TC49StageSet.class //OK
-//	,TC50StageSet.class //OK
-//	,TC51StageSet.class //OK
-//	,TC52StageSet.class //OK
-//	,TC53StageSet.class //OK
-//	,TC54StageSet.class //OK
-//	,TC55StageSet.class //OK
-//	,TC56StageSet.class //OK
-//	,TC57StageSet.class //OK
-//	,TC58StageSet.class //OK 
-//	,TC59StageSet.class //OK
-//	,TC60StageSet.class //OK
-//	,TC61StageSet.class //OK
-//	,TC62StageSet.class //OK
-//	,TC63StageSet.class //OK
-//	,TC64StageSet.class //OK
-//	,TC65StageSet.class //OK
-//	,TC66StageSet.class //OK
-//	,TC67StageSet.class //OK
-//	,TC68StageSet.class //OK
-//	,TC69StageSet.class //OK
-//	,TC70StageSet.class //OK
-//	,TC71StageSet.class //OK
-//	,TC72StageSet.class //OK
-//	,TC73StageSet.class //OK
-//	,TC74StageSet.class //OK
-//	,TC75StageSet.class //OK
-//	,TC76StageSet.class //OK
-//	,TC77StageSet.class //OK
-//	,TC78StageSet.class //OK
-//	,TC79StageSet.class //OK
-//	,TC80StageSet.class //OK
-//	,TC81StageSet.class //OK
-//	,TC82StageSet.class //OK
-//	,TC83StageSet.class //OK
-//	,TC84StageSet.class //OK
-//	,TC85StageSet.class //OK
-//	,TC86StageSet.class //OK
-//	,TC87StageSet.class //OK
-//	,TC88StageSet.class //OK
-//	,TC89StageSet.class //OK
-//	,TC90StageSet.class //OK
-//	,TC91StageSet.class //OK
-//	,TC92StageSet.class //OK
-//	,TC93StageSet.class //OK
-//	,TC94StageSet.class //OK
-//	,TC95StageSet.class //OK
-//	,TC96StageSet.class //OK
-//	,TC97StageSet.class //OK
+//	TC1StageSet.class, 
+//	TC2StageSet.class, 
+//	TC3StageSet.class, 
+//	TC4StageSet.class, 
+//	TC5StageSet.class, 
+//	TC6StageSet.class, 
+//	TC7StageSet.class, 
+//	TC8StageSet.class, 
+//	TC10StageSet.class,
+//	TC11StageSet.class,
+//	TC12StageSet.class,
+//	TC13StageSet.class,
+//	C14StageSet.class ,
+//	TC15StageSet.class,
+//	TC16StageSet.class,
+//	TC17StageSet.class,
+//	TC18StageSet.class,
+//	TC19StageSet.class,
+//	TC20StageSet.class,
+//	TC21StageSet.class,
+//	TC22StageSet.class,
+//	TC23StageSet.class,
+//	TC24StageSet.class,
+//	TC25StageSet.class,
+//	TC26StageSet.class,
+//	TC27StageSet.class,
+//	TC28StageSet.class,
+//	TC29StageSet.class,
+//	TC30StageSet.class,
+//	TC31StageSet.class,
+//	TC32StageSet.class,
+//	TC33StageSet.class,
+//	TC34StageSet.class,
+//	TC35StageSet.class,
+//	TC36StageSet.class,
+//	TC37StageSet.class,
+//	TC38StageSet.class,
+//	TC39StageSet.class,
+//	TC40StageSet.class,
+//	TC41StageSet.class,
+//	TC42StageSet.class,
+//	TC43StageSet.class,
+//	TC44StageSet.class,
+//	TC45StageSet.class,
+//	TC46StageSet.class,
+//	TC47StageSet.class,
+//	TC48StageSet.class,
+//	TC49StageSet.class,
+//	TC50StageSet.class,
+//	TC51StageSet.class,
+//	TC52StageSet.class,
+//	TC53StageSet.class,
+//	TC54StageSet.class,
+//	TC55StageSet.class,
+//	TC56StageSet.class,
+//	TC57StageSet.class,
+//	TC58StageSet.class,
+//	TC59StageSet.class,
+//	TC60StageSet.class,
+//	TC61StageSet.class,
+//	TC62StageSet.class,
+//	TC63StageSet.class,
+//	TC64StageSet.class,
+//	TC65StageSet.class,
+//	TC66StageSet.class,
+//	TC67StageSet.class,
+//	TC68StageSet.class,
+//	TC69StageSet.class,
+//	TC70StageSet.class,
+//	TC71StageSet.class,
+//	TC72StageSet.class,
+//	TC73StageSet.class,
+//	TC74StageSet.class,
+//	TC75StageSet.class,
+//	TC76StageSet.class,
+//	TC77StageSet.class,
+//	TC78StageSet.class,
+//	TC79StageSet.class,
+//	TC80StageSet.class,
+//	TC81StageSet.class,
+//	TC82StageSet.class,
+//	TC83StageSet.class,
+//	TC84StageSet.class,
+//	TC85StageSet.class,
+//	TC86StageSet.class,
+//	TC87StageSet.class,
+//	TC88StageSet.class,
+//	TC89StageSet.class,
+//	TC90StageSet.class,
+//	TC91StageSet.class,
+//	TC92StageSet.class,
+//	TC93StageSet.class,
+//	TC94StageSet.class,
+//	TC95StageSet.class,
+//	TC96StageSet.class,
+//	TC97StageSet.class,
 })
 
 public class CompassTest extends BaseFlow{
