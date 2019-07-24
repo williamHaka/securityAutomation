@@ -312,6 +312,29 @@ public class DPSCompassDefinition {
 		}
 	}
 	
+	@When("^Ingreso a padecido enfermedad congenita pveinticuatro\"([^\"]*)\"\"([^\"]*)\"$")
+	public void ingreso_a_padecido_enfermedad_congenita_pveinticuatro(String enfermedadCongenita, String trastorno) throws Throwable {
+		log.info("Ingreso pregunta 34");
+		Thread.sleep(2000);
+		List<WebElement> radioPension = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
+		GenericMethod.scrollElement(radioPension.get(indexRadio));
+		switch (enfermedadCongenita.toLowerCase().trim()) {
+		case Constants.NO:
+			Thread.sleep(1000);
+			radioPension.get(indexRadio).click();
+			indexRadio+=2;
+  			break;
+		case Constants.SI:
+			Thread.sleep(1000);
+			radioPension.get(indexRadio+1).click();
+			Thread.sleep(1000);
+			break;
+		default:
+			break;
+		}
+	}
+
+	
 	@When("^Ingreso pension de invalidez pQuince\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_pension_de_invalidez_pQuince(String pensionInvalidez, String motivoPension) throws Throwable {
 		log.info("Ingreso pregunta 15");

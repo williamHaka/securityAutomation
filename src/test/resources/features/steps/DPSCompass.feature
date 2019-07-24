@@ -19,16 +19,16 @@ Feature: Flujo end2end compass DPS
     And Ingreso duracion<duracion>
     And Doy click en siguiente
     And Acepto termino de conformidad<aceptoTermino>
-
-    @NuevoAseguradoHombre
-    Examples: 
-      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-      | "TC_"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
-
-    @NuevoAseguradoMujer
-    Examples: 
-      | nombrePropuesta | nombre  | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-      | "TC_"           | "Mujer" | "33" | "1-9" | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+   
+  @NuevoAseguradoHombre
+  Examples: 
+    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+    | "TC"           | "nombre" | "33" | "1-9"  | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+    
+	@NuevoAseguradoMujer
+  Examples: 
+    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+    | "TC"           | "Mujer"  | "33" | "1-9"  | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
 
   @P1
   Scenario Outline: Ingreso respuesta de pregusta uno
@@ -683,6 +683,15 @@ Feature: Flujo end2end compass DPS
     Examples: Ingreso no a prueba de VIH
       | pruebaVIH | resultadoVIH |
       | "no"      | "no"         |
+
+	@P34
+	Scenario Outline: Ingreso a padecido enfermedad congenita pveinticuatro
+		When Ingreso a padecido enfermedad congenita pveinticuatro<enfermedadCongenita><trastorno>
+	
+	@P34NO
+    Examples: Ingreso no a enfemedad congenita
+      | enfermedadCongenita | trastorno |
+      | "no"                | ""        |
 
   @P15
   Scenario Outline: Ingresar pension de invalidez vigente
