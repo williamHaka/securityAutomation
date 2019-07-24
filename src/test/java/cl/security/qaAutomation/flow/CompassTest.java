@@ -5,10 +5,8 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.security.qaAutomation.stageSet.TC1StageSet;
-
 @SuiteClasses({
-	TC1StageSet.class, 
+//	TC1StageSet.class, 
 //	TC2StageSet.class, 
 //	TC3StageSet.class, 
 //	TC4StageSet.class, 
