@@ -286,8 +286,8 @@ public class DPSCompassDefinition {
 		switch (pruebaVIH.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
-				radioVIH.get(indexRadio).click();
-				indexRadio+=2;
+			radioVIH.get(indexRadio).click();
+			indexRadio+=2;
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -714,7 +714,7 @@ public class DPSCompassDefinition {
 		log.info("Ingreso pregunta 18");
 		Thread.sleep(2000);
 		List<WebElement> radioHospitalario = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radioHospitalario.get(14));
+		GenericMethod.scrollElement(radioHospitalario.get(indexRadio));
 		switch (ingresoHospitalario.toLowerCase().trim()) {
 		case Constants.NO:
 			Thread.sleep(1000);
@@ -740,10 +740,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radioObservacion.get(indexRadio));
 		switch (encuentraObservacion.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radioObservacion.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radioObservacion.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarObservacionesMedicas(indexRadio, trastorno, anemiaFerropenica, fechaFerropenica, anemiaSangre, aplasica, celulasFalciformes, hemolitica, hemorragica, perniciosa, otro, causaTrastorno, fechaSintomas, tipoTratamiento, especifiqueTratamientos, sintomasAun, fechaLibreSintomas, complicacionAun, tratamientoMedico, inicioTratamientoMedico, terminoTratamientoMedico, sinDiagnosticar);
@@ -782,7 +784,7 @@ public class DPSCompassDefinition {
 		indexRadio=0;
 		Thread.sleep(2000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(0));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (tratadoPsicologo.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
@@ -807,13 +809,15 @@ public class DPSCompassDefinition {
 		log.info("Ingreso pregunta 22");
 		Thread.sleep(2000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(2));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadRespiratoria.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarEnfermedadRespiratoria(indexRadio, trastorno, frecuenciaTrastorno, ultimosSintomas, frecuenciaSintomas, sintomasPrimeraVez, sintomasPromedio, molestiaAlergia, detalleAlergia, tratamientoMedico, cirugia, cuandoCirugia, especifiqueCirugia, cirugiaPrevista, cuandoSometeraCirugia, cirugiaRealizar, medicacion, queMedicacion, terapiaOxigeno, cuandoInicioTerapia, otro, queOtro, cuandoComenzo, ninguno, pruebasPulmonar, quePruebas, sintomasAun, especifiqueSintomasAun, incapacidadLaboral, tiempoIncapacidad);
@@ -831,10 +835,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadSangre.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarObservacionesMedicas(indexRadio, trastorno, anemiaFerropenica, fechaFerropenica, anemiaSangre, aplasica, celulasFalciformes, hemolitica, hemorragica, perniciosa, otro, causaTrastorno, fechaSintomas, tipoTratamiento, especifiqueTratamientos, sintomasAun, fechaLibreSintomas, complicacionAun, tratamientoMedico, inicioTratamientoMedico, terminoTratamientoMedico, sinDiagnosticar);
@@ -876,13 +882,15 @@ public class DPSCompassDefinition {
 		log.info("Ingreso pregunta 25");
 		Thread.sleep(2000);
 		List<WebElement> radio = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
-		GenericMethod.scrollElement(radio.get(8));
+		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadDigestiva.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			Thread.sleep(1000);
@@ -917,10 +925,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (cancer.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarTumores(indexRadio, trastorno, fechaDiagnosticacion, cirugia, quimioterapia, radioterapia, otros, recurrenciaTumor, extirpadoTotalmente, otroTratamiento);
@@ -938,10 +948,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadGenital.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			Thread.sleep(1000);
@@ -960,10 +972,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadLocomotor.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			Thread.sleep(1000);
@@ -987,10 +1001,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadEndocrina.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarEnfermedadEndocrina(indexRadio, trastorno, tipoDiabetes, aunDiabetesGestacional, fechaDiagnostico);
@@ -1037,6 +1053,7 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadOcular.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
@@ -1065,10 +1082,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadNerviosa.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarMigrania(indexRadio, trastorno, doloresUltimaVez, frecuenciaMedicacion, frecuenciaMigranias, horas, nauseas, paralisis, parpadeos, otro, queOtro, ninguno, incapacidadLaboral, tiempoIncapacidad);
@@ -1086,10 +1105,12 @@ public class DPSCompassDefinition {
 		GenericMethod.scrollElement(radio.get(indexRadio));
 		switch (enfermedadPiel.toLowerCase().trim()) {
 		case Constants.NO:
+			Thread.sleep(1000);
 			radio.get(indexRadio).click();
 			indexRadio+=2;
   			break;
 		case Constants.SI:
+			Thread.sleep(1000); 
 			radio.get(indexRadio+1).click();
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarEnfermedadPiel(indexRadio, trastorno, esMaligno, seguimiento, FechaDiagnostico, cirugia, quimioterapia, radioterapia, otros, detalleOtro, Recurrencia, extirpado, seguimientoTratamiento, cuandoDiagnostico, algunOtroTratamiento, queOtroTratamiento, estaCurado);

@@ -690,8 +690,8 @@ Feature: Flujo end2end compass DPS
 	
 	@P34NO
     Examples: Ingreso no a enfemedad congenita
-      | enfermedadCongenita | trastorno |
-      | "no"                | ""        |
+      | enfermedadCongenita | trastorno            |
+      | "no"                | "sindrome de marfan" |
 
   @P15
   Scenario Outline: Ingresar pension de invalidez vigente
