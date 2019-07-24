@@ -23,6 +23,7 @@ import cucumber.api.junit.Cucumber;
 				+ ",@P12NO"
 				+ ",@P13TC36"
 				+ ",@P14NO"
+				+ ",@P34NO"
 				+ ",@P15NO"
 				+ ",@P16NO"
 				+ ",@P17NO"
