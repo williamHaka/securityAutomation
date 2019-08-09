@@ -5,8 +5,6 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.security.qaAutomation.stageSet.TC8StageSet;
-
 @SuiteClasses({
 //	TC1StageSet.class, 
 //	TC2StageSet.class, 
@@ -15,7 +13,7 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	TC5StageSet.class, 
 //	TC6StageSet.class, 
 //	TC7StageSet.class, 
-	TC8StageSet.class, 
+//	TC8StageSet.class, 
 //	TC10StageSet.class,
 //	TC11StageSet.class,
 //	TC12StageSet.class,
@@ -106,8 +104,8 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	TC97StageSet.class,
 })
 
-public class CompassTest extends BaseFlow{
-	private static final Logger LOGGER = LoggerFactory.getLogger(CompassTest.class); 
+public class Compass extends BaseFlow{
+	private static final Logger LOGGER = LoggerFactory.getLogger(Compass.class); 
     @BeforeClass
     public static void flag() throws Exception {
     	LOGGER.info("**************************************");
