@@ -23,12 +23,12 @@ Feature: Flujo end2end compass DPS
   @NuevoAseguradoHombre
   Examples: 
     | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC"           | "nombre" | "33" | "1-9"  | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+    | "TC"           | "nombre"  | "33" | "1-9"  | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
     
 	@NuevoAseguradoMujer
   Examples: 
     | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC"           | "Mujer"  | "33" | "1-9"  | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+    | "TC"           | "Mujer"   | "33" | "1-9"  | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
 
   @P1
   Scenario Outline: Ingreso respuesta de pregusta uno

@@ -2,6 +2,10 @@ package cl.security.qaAutomation.utils;
 
 public class Constants {
 	
+//	TIMEOUT  representados en ms
+	public static final Integer TIMEOUT_WAIT_NEXT_STEP = 1000;
+	public static final Integer TIMEOUT_LOAD_RESPONSE = 3000;
+	
 //constant end point 
 	public static final String URL_BASE = "http://10.62.4.76:8170/compass-api/";
 	public static final String OAUTH =URL_BASE+"auth"; 

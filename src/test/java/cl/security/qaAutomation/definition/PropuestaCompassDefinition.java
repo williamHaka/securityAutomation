@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.services.FormularioServices;
+import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -38,7 +39,7 @@ public class PropuestaCompassDefinition {
 
 	@When("^Doy click en nueva propuesta$")
 	public void doy_click_en_nuevRa_propuesta() throws Throwable {
-		Thread.sleep(1000);
+		GenericMethod.implicityWait(Constants.TIMEOUT_WAIT_NEXT_STEP, By.xpath("//a[contains(@href,'#/propuestas/nueva')]"));
 	    BaseFlow.pageModel.getBtnNuevaPropuesta().click();
 	}
 	Integer numeroTC = 0;
