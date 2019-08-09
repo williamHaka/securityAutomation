@@ -42,7 +42,7 @@ public class GenericMethod {
 	}
 	
 	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		element.click();
 		if(!existElement(By.xpath("//input[(@type='search')]"))) {
 			Thread.sleep(1000);
@@ -52,7 +52,7 @@ public class GenericMethod {
 		txtBuscar.sendKeys(texto);
 		Thread.sleep(1000);
 		txtBuscar.sendKeys(Keys.ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 	}
 	
 	public static String getDate() {

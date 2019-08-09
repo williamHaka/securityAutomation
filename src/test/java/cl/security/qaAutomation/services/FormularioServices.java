@@ -1,7 +1,6 @@
 package cl.security.qaAutomation.services;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -68,7 +67,6 @@ public class FormularioServices {
 	public static Integer ingresarRiesgosDps(Integer index, String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas,String conCualesTrabaja, String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo, String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias, String medidasSeguridadDisponibles, String controlImpactoRadiacion, String sobrepasadoLimiteRadiacion, String conQueFrecuencia, String ultimaVez, String queValores, String tratamientoMedicoRadiacion, String cuando , String cualFueRazon, String consecuenciasSufridas, String hhAnuales) throws Exception {
 		Thread.sleep(1000);
 		WebElement txtRiesgo = BaseFlow.driver.findElement(By.xpath("//*[contains(@class,'ember-power-select-trigger')]"));
-		Thread.sleep(1000);
 		GenericMethod.ingresarTextoSugerido(txtRiesgo, riesgo);
 		Thread.sleep(1000);
 		switch (riesgo.trim().toLowerCase()) {
@@ -91,21 +89,32 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		WebElement txtEmpleador =  BaseFlow.driver.findElement(By.xpath("//textarea[(@tabindex=\"1\")]"));
 		txtEmpleador.sendKeys(nombreEmpleador);
-		Thread.sleep(1000);
+		ClickBtnOK(indexLike);
 		seleccionarAreaTrabajo(areaTrabajo);
-		Thread.sleep(1000);
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 		WebElement horasTrabajo = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
 		horasTrabajo.sendKeys(horasSemanales);
+		Thread.sleep(2000);
+		ClickBtnOK(indexLike);
 		Thread.sleep(1000);
 		seleccionarFechaCalendar(desdeCuando,0);
 		index+=3;
+		Thread.sleep(2000);
+		if(areaTrabajo.equals(Constants.AT_OTRA_AREA)) {
+			Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+			WebElement txtOtraArea = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro área')]"));
+			GenericMethod.scrollElement(txtOtraArea);
+			Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+			txtOtraArea.sendKeys("que otra area");
+			ClickBtnOK(indexLike);
+		}
 		Thread.sleep(1000);
 		seleccionarSustanciasEncapsuladas(sustanciasEncapsuladas, sustanciasNoEncapsuladas);
 		Thread.sleep(1000);
 		WebElement txtSustanciasRadiactivas =BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Con qué sustancias radiactivas trabaja')]"));
 		GenericMethod.scrollElement(txtSustanciasRadiactivas);
 		txtSustanciasRadiactivas.sendKeys(conCualesTrabaja);
-		Thread.sleep(1000);
+		ClickBtnOK(indexLike);
 		seleccionarTrabajaCon(aparatoRayosX,RayosXDisruptivos,ningunoRayo);
 		Thread.sleep(1000);
 		seleccionarRadiacionPresenteTareasDiarias(microondas, radiacionAlfa, radiacionBeta, radiacionDeNeutrones, radiacionDeRayosX, radiacionDeGamma, radiacionLaser, radiacionMaster, rayosUltravioletasArtificiales, otros, otraRadiacion, ningunoPresenteTareasDiarias);
@@ -113,8 +122,7 @@ public class FormularioServices {
 		WebElement txtmedidasDisponibles =BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué medidas de seguridad están disponibles')]"));
 		GenericMethod.scrollElement(txtmedidasDisponibles);
 		txtmedidasDisponibles.sendKeys(medidasSeguridadDisponibles);
-		indexLike+=1;
-		Thread.sleep(1000);
+		ClickBtnOK(indexLike);
 		index = seleccionarControlRadiacion(index, controlImpactoRadiacion);
 		Thread.sleep(1000);
 		index = seleccionarSobrepasarLimiteRadiacion(index, sobrepasadoLimiteRadiacion, conQueFrecuencia, ultimaVez,queValores);
@@ -148,15 +156,11 @@ public class FormularioServices {
 			Thread.sleep(1000);
 			optionAreaTrabajo.get(2).click();
 			Thread.sleep(1000);
-			WebElement txtOtraArea = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro área')]"));
-			GenericMethod.scrollElement(txtOtraArea);
-			Thread.sleep(1000);
-			txtOtraArea.sendKeys("que otra area");
-			indexLike+=1;
 			break;
 		default:
 			break;
 		}
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 	}
 	
 	public static void seleccionarFechaCalendar(String desdeCuando,Integer indexCalendar) throws Exception {
@@ -166,6 +170,7 @@ public class FormularioServices {
 			String dia = fecha[0];
 			String mes = fecha[1];
 			String anio = fecha[2];
+			Thread.sleep(2000);
 //			selleciono formato de calendarfr
 			WebElement formatoCalendar = BaseFlow.driver.findElements(By.xpath("//label[contains(@for,'days')]")).get(indexCalendar);
 //			GenericMethod.scrollElement(formatoCalendar);
@@ -365,15 +370,7 @@ public class FormularioServices {
 			WebElement checkSustanciasNoEncapsuladas = listCheckbox.get(1);
 			checkSustanciasNoEncapsuladas.click();
 		}
-		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(indexLike);
-		if(GenericMethod.waitForClickeable(5, btnLike)!=null) {
-			Thread.sleep(1000);
-			btnLike.click();
-		}else {
-			assertFalse("El boton like de sustancias radiactivas no esta activo",true);
-		}
-		indexLike+=1;
+		ClickBtnOK(indexLike);
 	}
 	
 	private static void seleccionarTrabajaCon(String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo) throws Exception {
@@ -389,15 +386,7 @@ public class FormularioServices {
 			Thread.sleep(1000);
 			listTratamiento.get(4).click();
 		}
-		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(indexLike);
-		if(GenericMethod.waitForClickeable(5, btnLike)!=null) {
-			Thread.sleep(1000);
-			btnLike.click();
-		} else {
-			assertTrue("El boton like de Trabaja con? no esta activo",true);
-		}
-		indexLike+=1;
+		ClickBtnOK(indexLike);
 	}
 	
 	private static void seleccionarRadiacionPresenteTareasDiarias(String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias) throws Exception {
@@ -448,20 +437,12 @@ public class FormularioServices {
 			Thread.sleep(1000);
 			listCheckbox.get(15).click();
 		}
-		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(indexLike);
-		if(GenericMethod.waitForClickeable(5, btnLike)!=null) {
-			Thread.sleep(1000);
-			btnLike.click();
-		} else {
-			assertTrue("El boton like de Trabaja con? no esta activo",true);
-		}
-		Thread.sleep(1000);
+		ClickBtnOK(indexLike);
 		if(otros.trim().toLowerCase().equals(Constants.SI) ) {
 			Thread.sleep(1000);
 			WebElement txtOtra = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otra radiación')]"));
 			txtOtra.sendKeys(otraRadiacion);
-			indexLike+=1;
+			ClickBtnOK(indexLike);
 		}
 	}
 	
@@ -481,6 +462,7 @@ public class FormularioServices {
 		default:
 			break;
 		}
+		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 		return index;
 	}
 	
@@ -492,24 +474,23 @@ public class FormularioServices {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioControlRadiacion.get(index).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			index+=2;
 			break;
 		case Constants.SI:
-			Thread.sleep(1000);
 			radioControlRadiacion.get(index+1).click();
 			index+=2;
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			WebElement txtFrecuencia = BaseFlow.driver.findElements(By.xpath("//input[contains(@type,'number')]")).get(1);
 			GenericMethod.scrollElement(txtFrecuencia);
 			txtFrecuencia.sendKeys(conQueFrecuencia);
-			indexLike+=1;
-			Thread.sleep(1000);
+			ClickBtnOK(indexLike);
 			seleccionarFechaCalendar(ultimaVez,1);
 			index+=3;
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			WebElement txtQueValores = BaseFlow.driver.findElement(By.xpath("//input[contains(@placeholder,'Qué valores')]"));
 			txtQueValores.sendKeys(queValores);
-			indexLike+=1;
+			ClickBtnOK(indexLike);
 			break;
 		default:
 			break;
@@ -524,12 +505,13 @@ public class FormularioServices {
 		switch (tratamientoMedicoRadiacion) {
 		case Constants.NO:
 			radioTratamientoMedico.get(index).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			index+=2;
 			break;
 		case Constants.SI:
 			radioTratamientoMedico.get(index+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			index+=2;
-			Thread.sleep(1000);
 			seleccionarFechaCalendar(cuando,1);
 			index+=3;
 			Thread.sleep(1000);
@@ -2570,4 +2552,10 @@ public class FormularioServices {
 	}
 	
 	
+	public static void ClickBtnOK(Integer index) throws Exception {
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+		BaseFlow.driver.findElements(By.xpath("//button[contains(@class,'btn-ok')]")).get(index).click();
+		indexLike+=1;
+		Thread.sleep(3000);
+	}
 }

@@ -17,7 +17,7 @@ public class NuevaPropuestaModel {
 	@FindBy(how = How.CLASS_NAME, using = "btn-action") 
 	private WebElement btnEntrar;
 	
-	@FindBy(how = How.XPATH, using = "//*[contains(@href,'#/propuestas/nueva')]")
+	@FindBy(how = How.XPATH, using = "//a[contains(@href,'#/propuestas/nueva')]")
 	private WebElement btnNuevaPropuesta;
 	
 	@FindBy(how = How.CLASS_NAME, using = "input-default")

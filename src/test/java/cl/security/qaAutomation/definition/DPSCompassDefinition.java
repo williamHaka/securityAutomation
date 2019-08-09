@@ -24,7 +24,7 @@ public class DPSCompassDefinition {
 		Thread.sleep(1000);
 		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
 		GenericMethod.ingresarTextoSugerido(txtActividad, actividad);
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 	}
 	static Integer index=0;
 	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
@@ -44,10 +44,12 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioRescatista.get(index).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioRescatista.get(index+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresarLaboresRescatista(labor);
 			break;
 		default:
@@ -63,7 +65,7 @@ public class DPSCompassDefinition {
 		if(btnNext!=null) {
 			Thread.sleep(1000);
 			btnNext.click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 		}else {
 			assertFalse("El boton siguiente no se encuentra habilitado para dar click",true);
 		}
@@ -79,10 +81,12 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioMoto.get(0).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioMoto.get(1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresoMotocicletaComoMedioTransporte(cilindrada);
 			break;
 		default:
@@ -99,11 +103,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioDeportes.get(2).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioDeportes.get(3).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresarDeportesAventura(actividad, tipoAficionado, alaska, antartica, artico, groenlandia, ninguna, alturaMaxima, intentoSolitario, libre, ninguno, actividadProxima, especifique);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -120,14 +127,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioSeguros.get(0).click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioSeguros.get(1).click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresoVigenciaSeguroVida(seguroVidaVigente, tipoSeguro, compania, sumaAsegurada, fechaCobertura, resultadoAceptacion,countSeguro);
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -146,12 +153,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioViaje.get(0).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioViaje.get(1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresoViajesAlExtranjero(pais, motivo, tiempoEstancia, dondeReside, dondeAloja, viajesActividad, countViaje);
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -176,6 +185,7 @@ public class DPSCompassDefinition {
 		List<WebElement> txtPeso = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
 		GenericMethod.scrollElement(txtPeso.get(1));
 		txtPeso.get(1).sendKeys(peso);
+		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 	}
 	
 	private static Integer countBebidas = 0;
@@ -189,11 +199,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radiobebidas.get(0).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radiobebidas.get(1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresoConsumoBebidasAlcoholicas(countBebidas,tipo, frecuencia);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -213,11 +226,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioFumador.get(2).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioFumador.get(3).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresoFumador(countFumador,queFuma, frecuenciaFuma);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -236,11 +252,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioDrogas.get(4).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioDrogas.get(5).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			FormularioServices.ingresoConsumoDrogas(alucinogenos, anfetaminas, cocaina, heroina, marihuanaFrecuente, marihuanaOcacional);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -259,10 +278,11 @@ public class DPSCompassDefinition {
 			case Constants.NO:
 				Thread.sleep(1000);
 				radioEmbarazada.get(6).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;
 			case Constants.SI:
 				radioEmbarazada.get(7).click();
-				Thread.sleep(1000);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				FormularioServices.ingresoEmbarazo(complicaciones, nombreComplicacion, fechaDesde, fechaHasta, secuelas, especifiqueSecuelas);
 				break;
 			default:
@@ -287,13 +307,14 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioVIH.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			indexRadio+=1;
 			radioVIH.get(indexRadio).click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			List<WebElement> radioResultadoVIH = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 			if(resultadoVIH.equals(Constants.NO)){
 				Thread.sleep(1000);
@@ -322,12 +343,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioPension.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioPension.get(indexRadio+1).click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -345,12 +367,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioPension.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioPension.get(indexRadio+1).click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			WebElement textArea = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@class,'ember-text-area')]"));
 			textArea.sendKeys(motivoPension);
 			indexRadio+=2;
@@ -369,13 +392,16 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioAccidentes.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			indexRadio+=1;
 			radioAccidentes.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio = FormularioServices.ingresarAccidente(complicacionesAcc, especifiqueComplicacionesAcc, fechaDesdeAcc, fechaHastaAcc, trastornoVariasVeces, secuelasAcc, especifiqueSecuelasAcc,indexRadio);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -393,10 +419,12 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioLicencia.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioLicencia.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -410,7 +438,7 @@ public class DPSCompassDefinition {
 			Thread.sleep(2000);
 			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 			txtTrastorno.click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
 			GenericMethod.ingresarTextoSugerido(txtSearch, trastornoLicencia);
 		}
@@ -428,14 +456,17 @@ public class DPSCompassDefinition {
 			case Constants.BILATERALMENTE:
 				Thread.sleep(1000);
 				listAfectado.get(0).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;
 			case Constants.NINGUNA:
 				Thread.sleep(1000);
 				listAfectado.get(1).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;
 			case Constants.UNILATERAL:
 				Thread.sleep(1000);
 				listAfectado.get(2).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;
 			default:
 				break;
@@ -457,7 +488,7 @@ public class DPSCompassDefinition {
 			case Constants.CONSTANTEMENTE:
 				Thread.sleep(1000);
 				listFrecuencia.get(0).click();
-				Thread.sleep(1000);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				FormularioServices.seleccionarFechaCalendar(sintomasPrimeraVez, 0);
 				Thread.sleep(1000);
 				FormularioServices.seleccionarFechaCalendar(sintomasUltimaVez, 1);
@@ -465,8 +496,7 @@ public class DPSCompassDefinition {
 				break;
 			case Constants.REPETIDAS_VECES:
 				Thread.sleep(1000);
-				listFrecuencia.get(1).click();
-				Thread.sleep(1000);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				FormularioServices.seleccionarFechaCalendar(sintomasPrimeraVez, 0);
 				Thread.sleep(1000);
 				FormularioServices.seleccionarFechaCalendar(sintomasUltimaVez, 1);
@@ -481,7 +511,7 @@ public class DPSCompassDefinition {
 			case Constants.UNA_VEZ:
 				Thread.sleep(1000);
 				listFrecuencia.get(2).click();
-				Thread.sleep(1000);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				FormularioServices.seleccionarFechaCalendar(sintomasUltimaVez, 0);
 				Thread.sleep(1000);
 				WebElement txtSintomasPromedio = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]")).get(3);
@@ -503,10 +533,12 @@ public class DPSCompassDefinition {
 			case Constants.NO:
 				Thread.sleep(1000);
 				radioLicencia.get(indexRadio).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;
 			case Constants.SI:
 				Thread.sleep(1000);
 				radioLicencia.get(indexRadio+1).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;	
 			default:
 				break;
@@ -694,12 +726,13 @@ public class DPSCompassDefinition {
 			switch (incapacidad.toLowerCase().trim()) {
 			case Constants.NO:
 				Thread.sleep(1000);
-				radioIncapacidad.get(indexRadio).click(); 
+				radioIncapacidad.get(indexRadio).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				break;
 			case Constants.SI:
 				Thread.sleep(1000);
 				radioIncapacidad.get(indexRadio+1).click();
-				Thread.sleep(1000);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				WebElement txtSintomas = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Durante cuánto tiempo estuvo de baja')]"));
 				txtSintomas.sendKeys(cuantoTiempo);
 				break;
@@ -719,11 +752,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioHospitalario.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioHospitalario.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
  			indexRadio = FormularioServices.ingresarCentroHospitalario(indexRadio, trastorno, cuando, sintomasAun, especifiqueSintoma, tratamientoMedico, fechaInicioTratamiento, sinFechaTermino, operado, frecuenciaOperado, especifiqueOperado, fechaOperacionUno, fechaOperacionDos, fechaOperacionTres, cirugiaPlaneada, fechaCirugiaPlaneada, tipoCirugiaPlaneada, incapacidad, fechaDiscapacidad, promedioIncapacitado, cambioProfesion, ocupacion, ocupacionRecomendada);
 			break;
@@ -742,11 +777,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioObservacion.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radioObservacion.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarObservacionesMedicas(indexRadio, trastorno, anemiaFerropenica, fechaFerropenica, anemiaSangre, aplasica, celulasFalciformes, hemolitica, hemorragica, perniciosa, otro, causaTrastorno, fechaSintomas, tipoTratamiento, especifiqueTratamientos, sintomasAun, fechaLibreSintomas, complicacionAun, tratamientoMedico, inicioTratamientoMedico, terminoTratamientoMedico, sinDiagnosticar);
 			break;
@@ -766,10 +803,12 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radiotratamiento.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radiotratamiento.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarTratamientoMedicoPVeinte(indexRadio, trastorno, fechaPrimeraVez, sintomasAun, queSintomasActuales, fechaLibreSintomas, promedioTieneSintomas, frecuencia, sintomasUltimaVez, SintomasAnio, promedioSintomas, revisionesMedico, cirugia, cuandoSometioCirugia, especifiqueCirugia, cirugiaPrevista, cuandoSometeraCirugia, tipoCirugia, medicacion, medicacionTomando, otro, otroTratamiento, fechaTratamiento, sinTratamiento, continuidadLaboral, fechaBaja);
 			break;
@@ -788,10 +827,11 @@ public class DPSCompassDefinition {
 		switch (tratadoPsicologo.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
   			break;
 		case Constants.SI:
 			radio.get(indexRadio+1).click();
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 			txtTrastorno.click();
 			Thread.sleep(1000);
@@ -814,11 +854,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarEnfermedadRespiratoria(indexRadio, trastorno, frecuenciaTrastorno, ultimosSintomas, frecuenciaSintomas, sintomasPrimeraVez, sintomasPromedio, molestiaAlergia, detalleAlergia, tratamientoMedico, cirugia, cuandoCirugia, especifiqueCirugia, cirugiaPrevista, cuandoSometeraCirugia, cirugiaRealizar, medicacion, queMedicacion, terapiaOxigeno, cuandoInicioTerapia, otro, queOtro, cuandoComenzo, ninguno, pruebasPulmonar, quePruebas, sintomasAun, especifiqueSintomasAun, incapacidadLaboral, tiempoIncapacidad);
 			break;
@@ -837,11 +879,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarObservacionesMedicas(indexRadio, trastorno, anemiaFerropenica, fechaFerropenica, anemiaSangre, aplasica, celulasFalciformes, hemolitica, hemorragica, perniciosa, otro, causaTrastorno, fechaSintomas, tipoTratamiento, especifiqueTratamientos, sintomasAun, fechaLibreSintomas, complicacionAun, tratamientoMedico, inicioTratamientoMedico, terminoTratamientoMedico, sinDiagnosticar);
 			break;
@@ -859,10 +903,12 @@ public class DPSCompassDefinition {
 		switch (enfermedadCirculatorio.toLowerCase().trim()) {
 			case Constants.NO:
 				radio.get(indexRadio).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				indexRadio+=2;
 	  			break;
 			case Constants.SI:
 				radio.get(indexRadio+1).click();
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				indexRadio+=2;
 				Thread.sleep(1000);
 				WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
@@ -887,11 +933,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			Thread.sleep(1000);
 			WebElement txtElement = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
@@ -927,11 +975,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarTumores(indexRadio, trastorno, fechaDiagnosticacion, cirugia, quimioterapia, radioterapia, otros, recurrenciaTumor, extirpadoTotalmente, otroTratamiento);
 			break;
@@ -950,11 +1000,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			Thread.sleep(1000);
 			indexRadio = FormularioServices.ingresarEnfermedadGenital(indexRadio, trastorno, hospitalizado, variasVeces);
@@ -974,11 +1026,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			Thread.sleep(1000);
 			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
@@ -1003,11 +1057,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarEnfermedadEndocrina(indexRadio, trastorno, tipoDiabetes, aunDiabetesGestacional, fechaDiagnostico);
 			break;
@@ -1026,11 +1082,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			Thread.sleep(1000);
 			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 			txtTrastorno.click();
@@ -1055,11 +1113,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			Thread.sleep(1000);
 			WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
 			txtTrastorno.click();
@@ -1084,11 +1144,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarMigrania(indexRadio, trastorno, doloresUltimaVez, frecuenciaMedicacion, frecuenciaMigranias, horas, nauseas, paralisis, parpadeos, otro, queOtro, ninguno, incapacidadLaboral, tiempoIncapacidad);
 			break;
@@ -1107,11 +1169,13 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
 			Thread.sleep(1000); 
 			radio.get(indexRadio+1).click();
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			indexRadio+=2;
 			indexRadio = FormularioServices.ingresarEnfermedadPiel(indexRadio, trastorno, esMaligno, seguimiento, FechaDiagnostico, cirugia, quimioterapia, radioterapia, otros, detalleOtro, Recurrencia, extirpado, seguimientoTratamiento, cuandoDiagnostico, algunOtroTratamiento, queOtroTratamiento, estaCurado);
 			break;

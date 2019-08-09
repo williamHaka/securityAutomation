@@ -8,8 +8,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = {"@NuevoAseguradoHombre"}
-		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/FlujoCompassDPS.html" }
+		tags = {"@examples"}
+		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:ReporteHTML/automationCRM.html" }
 )
 public class NuevaPropuestaHombreStageSet extends StageSet{
 

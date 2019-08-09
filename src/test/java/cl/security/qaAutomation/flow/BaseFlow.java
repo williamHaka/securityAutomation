@@ -36,7 +36,7 @@ public class BaseFlow {
 	    
 	@AfterClass
 	public static void setUpFinal() throws Exception {
-		driver.quit();
+//		driver.quit();
 	}
 
 	public static void setDriverDesa() throws Exception {
