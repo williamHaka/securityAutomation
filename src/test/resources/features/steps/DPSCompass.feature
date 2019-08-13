@@ -47,12 +47,12 @@ Feature: Flujo end2end compass DPS
     @P1TC3
     Examples: Ingreso actividad Guardia de seguridad - con arma
       | actividad                        |
-      | "Guarda de seguridad - con arma" |
+      | "Guardia de seguridad - con arma" |
 
     @P1TC4
     Examples: Ingreso actividad Guardaespaldas
       | actividad        |
-      | "Guardaespaldas" |
+      | "Guardaespalda" |
 
     @P1TC5
     Examples: Ingreso actividad Detective privado
@@ -87,7 +87,7 @@ Feature: Flujo end2end compass DPS
     @P1TC11
     Examples: Ingreso actividad  Minero trabajo subterráneo
       | actividad                     |
-      | " Minero trabajo subterráneo" |
+      | "Minero trabajo subterráneo" |
 
     @P1TC12
     Examples: Ingreso actividad Minero manejo de explosivos
@@ -732,7 +732,7 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingresar licencia médica
     When Ingreso licencia medica vigente pDiesisiete<licenciaMedicaVigente>
     And Ingreso trastorno sufrido pDiesisiete<trastornoLicencia>
-    And Ingreso si ha afectado los riñones pDiesisiete<afectadoRiñones>
+    And Ingreso si ha afectado los rinones pDiesisiete<afectadoRinones>
     And Ingreso frecuencia en que padece sintomas pDiesisiete<frecuenciaSintomas><sintomasPrimeraVez><sintomasUltimaVez><frecuenciaSintomasAnio><tiempoPromedioSintomas>
     And Ingreso si esta bajo seguimiento medico regular pDiesisiete<seguimientoMedicoRegular>
     And Ingreso metodo de tratamiento pDiesisiete<cirugia><cirugiaPrevista><litotricia><medicacion><otro><ninguno>
@@ -744,22 +744,22 @@ Feature: Flujo end2end compass DPS
 
     @P17TC41
     Examples: Ingreso SI a licencia medica vigente
-      | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones  | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento          | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados   | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo           |
+      | licenciaMedicaVigente | trastornoLicencia | afectadoRinones  | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento          | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados   | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo           |
       | "si"                  | "pielonefritis"   | "bilateralmente" | "constantemente"   | "01-01-2018"       | "01-06-2019"      | ""                     | ""                     | "si"                     | "si"    | ""              | ""         | "si"       | ""   | ""      | "01-01-2019"         | "cirugia prueba"   | ""                    | ""          | ""               | "medicamento de prueba" | ""      | ""            | "si"        | "15-05-2019"      | "resultado positivo" | "si"           | "20-04-2019"         | "resultados prueba" | "si"            | "sintomas todavia prueba"  | "si"        | "cuanto tiempo prueba" |
 
     @P17TC42
     Examples: Ingreso SI a licencia medica vigente
-      | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia           | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
+      | licenciaMedicaVigente | trastornoLicencia | afectadoRinones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia           | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
       | "si"                  | "pielonefritis"   | "ninguna"       | "repetidasveces"   | "01-01-2018"       | "01-06-2019"      | "100"                  | "2"                    | "no"                     | ""      | "si"            | ""         | ""         | ""   | ""      | ""                   | ""                 | "01-01-2019"          | "tipo cirugia prueba" | ""               | ""             | ""      | ""            | "no"        | ""                | ""                   | "no"           | ""                   | ""                | "no"            | ""                         | "no"        | ""           |
 
     @P17TC43
     Examples: Ingreso SI a licencia medica vigente
-      | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro           | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
+      | licenciaMedicaVigente | trastornoLicencia | afectadoRinones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro           | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
       | "si"                  | "pielonefritis"   | "unilateral"    | "unavez"           | ""                 | "01-06-2019"      | ""                     | "2"                    | "no"                     | ""      | ""              | ""         | ""         | "si" | ""      | ""                   | ""                 | ""                    | ""          | ""               | ""             | "que otro prueba" | "01-01-2019"  | "no"        | ""                | ""                   | "no"           | ""                   | ""                | "no"            | ""                         | "no"        | ""           |
 
     @P17NO
     Examples: Ingreso NO a licencia medica vigente
-      | licenciaMedicaVigente | trastornoLicencia | afectadoRiñones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
+      | licenciaMedicaVigente | trastornoLicencia | afectadoRinones | frecuenciaSintomas | sintomasPrimeraVez | sintomasUltimaVez | frecuenciaSintomasAnio | tiempoPromedioSintomas | seguimientoMedicoRegular | cirugia | cirugiaPrevista | litotricia | medicacion | otro | ninguno | cuandoSometioCirugia | especifiqueCirugia | cuandoSometeraCirugia | tipoCirugia | cuandoLitotricia | queMedicamento | queOtro | cuandoComenzo | examenOrina | ultimoExamenOrina | resultadoExamenOrina | analisisSangre | cuandoAnalisisSangre | detalleResultados | sintomasTodavia | espesifiqueSintomasTodavia | incapacidad | cuantoTiempo |
       | "no"                  | ""                | ""              | ""                 | ""                 | ""                | ""                     | ""                     | ""                       | ""      | ""              | ""         | ""         | ""   | ""      | ""                   | ""                 | ""                    | ""          | ""               | ""             | ""      | ""            | ""          | ""                | ""                   | ""             | ""                   | ""                | ""              | ""                         | ""          | ""           |
 
   @P18
@@ -1086,22 +1086,22 @@ Feature: Flujo end2end compass DPS
     @P32TC82
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias | horas | nauseas | paralisis | parpadeos | otro | queOtro    | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migraña" | "01-01-2019"     | "permanentemente"    | "diariamente"       | "2"   | ""      | ""        | ""        | "si" | "que otro" | ""      | "no"               | ""                |
+      | "si"               | "migrana" | "01-01-2019"     | "permanentemente"    | "diariamente"       | "2"   | ""      | ""        | ""        | "si" | "que otro" | ""      | "no"               | ""                |
 
     @P32TC83
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias | horas | nauseas | paralisis | parpadeos | otro | queOtro | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migraña" | "01-01-2019"     | "cuandoesnecesario"  | "raras veces"       | "2"   | "si"    | ""        | "si"      | ""   | ""      | ""      | "si"               | "20"              |
+      | "si"               | "migrana" | "01-01-2019"     | "cuandoesnecesario"  | "raras veces"       | "2"   | "si"    | ""        | "si"      | ""   | ""      | ""      | "si"               | "20"              |
 
     @P32TC84
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias        | horas | nauseas | paralisis | parpadeos | otro | queOtro | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migraña" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces a la semana" | "2"   | ""      | ""        | ""        | ""   | ""      | "si"    | "no"               | ""                |
+      | "si"               | "migrana" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces a la semana" | "2"   | ""      | ""        | ""        | ""   | ""      | "si"    | "no"               | ""                |
 
     @P32TC85
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias   | horas | nauseas | paralisis | parpadeos | otro | queOtro | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migraña" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces al mes" | "2"   | ""      | "si"      | ""        | ""   | ""      | ""      | "no"               | ""                |
+      | "si"               | "migrana" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces al mes" | "2"   | ""      | "si"      | ""        | ""   | ""      | ""      | "no"               | ""                |
 
     @P32NO
     Examples: Ingreso No ha padecido enfermedad de la piel

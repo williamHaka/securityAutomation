@@ -5,7 +5,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.security.qaAutomation.stageSet.TC8StageSet;
+import cl.security.qaAutomation.stageSet.TC56StageSet;
 
 @SuiteClasses({
 //	TC1StageSet.class, 
@@ -15,7 +15,7 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	TC5StageSet.class, 
 //	TC6StageSet.class, 
 //	TC7StageSet.class, 
-	TC8StageSet.class, 
+//	TC8StageSet.class, 
 //	TC10StageSet.class,
 //	TC11StageSet.class,
 //	TC12StageSet.class,
@@ -54,7 +54,7 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	TC45StageSet.class,
 //	TC46StageSet.class,
 //	TC47StageSet.class,
-//	TC48StageSet.class,
+//	TC48StageSet.class, 
 //	TC49StageSet.class,
 //	TC50StageSet.class,
 //	TC51StageSet.class,
@@ -62,7 +62,7 @@ import cl.security.qaAutomation.stageSet.TC8StageSet;
 //	TC53StageSet.class,
 //	TC54StageSet.class,
 //	TC55StageSet.class,
-//	TC56StageSet.class,
+	TC56StageSet.class,
 //	TC57StageSet.class,
 //	TC58StageSet.class,
 //	TC59StageSet.class,
