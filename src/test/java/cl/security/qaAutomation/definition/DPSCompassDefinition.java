@@ -65,6 +65,7 @@ public class DPSCompassDefinition {
 		if(btnNext!=null) {
 			Thread.sleep(1000);
 			btnNext.click();
+			Thread.sleep(3000);
 			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 		}else {
 			assertFalse("El boton siguiente no se encuentra habilitado para dar click",true);
@@ -192,7 +193,7 @@ public class DPSCompassDefinition {
 	@When("^Ingreso consumo de bebidas alcoholicas pDiez\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_consumo_de_bebidas_alcoholicas_pDiez(String bebidasAlcoholicas, String tipo, String frecuencia) throws Throwable {
 		log.info("Ingreso pregunta 10");
-		Thread.sleep(2000);
+		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 		List<WebElement> radiobebidas = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		GenericMethod.scrollElement(radiobebidas.get(0));
 		switch (bebidasAlcoholicas.toLowerCase().trim()) {
@@ -444,15 +445,15 @@ public class DPSCompassDefinition {
 		}
 	}
 
-	@When("^Ingreso si ha afectado los riñones pDiesisiete\"([^\"]*)\"$")
-	public void ingreso_si_ha_afectado_los_riñones_pDiesisiete(String afectadoRiñones) throws Throwable {
+	@When("^Ingreso si ha afectado los rinones pDiesisiete\"([^\"]*)\"$")
+	public void ingreso_si_ha_afectado_los_rinones_pDiesisiete(String afectadoRinones) throws Throwable {
 		if(licenciaMedica) {
 			Thread.sleep(5000);
 			WebElement txtAfectado = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
 			txtAfectado.click();
 			Thread.sleep(1000);
 			List<WebElement> listAfectado = BaseFlow.driver.findElements(By.xpath("//li[contains(@class,'ember-power-select-option')]"));
-			switch (afectadoRiñones) {
+			switch (afectadoRinones) {
 			case Constants.BILATERALMENTE:
 				Thread.sleep(1000);
 				listAfectado.get(0).click();

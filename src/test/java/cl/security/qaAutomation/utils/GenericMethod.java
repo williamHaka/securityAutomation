@@ -11,7 +11,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import cl.security.qaAutomation.flow.BaseFlow;
 
 public class GenericMethod {
@@ -42,18 +41,46 @@ public class GenericMethod {
 	}
 	
 	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
-		Thread.sleep(2000);
-		element.click();
-		if(!existElement(By.xpath("//input[(@type='search')]"))) {
-			Thread.sleep(1000);
+		try {
+			Thread.sleep(2000);
 			element.click();
+			if(!existElement(By.xpath("//input[(@type='search')]"))) {
+				Thread.sleep(1000);
+				element.click();
+			}
+			WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+			txtBuscar.sendKeys(texto);
+			Thread.sleep(Constants.TIMEOUT_LOAD_SEARCH_TEXT);
+			txtBuscar.sendKeys(Keys.ENTER);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+		} catch (Exception e) {
+			throw e;
 		}
-		WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
-		txtBuscar.sendKeys(texto);
-		Thread.sleep(1000);
-		txtBuscar.sendKeys(Keys.ENTER);
-		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 	}
+	
+
+//	public static void ingresarTextoSugerido(WebElement element, String texto) throws InterruptedException {
+//		try {
+//			Thread.sleep(2000);
+//			element.click();
+//			if(!existElement(By.xpath("//input[(@type='search')]"))) {
+//				Thread.sleep(1000);
+//				element.click();
+//			}
+//			WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
+//			txtBuscar.sendKeys(texto);
+//			Thread.sleep(Constants.TIMEOUT_LOAD_SEARCH_TEXT);
+//			List<WebElement> listSegurida = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
+//			for (WebElement webElement : listSegurida) {
+//				if(webElement.getText().trim().contains(texto)) {
+//					webElement.click();
+//					Thread.sleep(Constants.TIMEOUT_LOAD_SEARCH_TEXT);
+//				}
+//			}
+//		} catch (Exception e) {
+//			throw e;
+//		}
+//	}
 	
 	public static String getDate() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");
