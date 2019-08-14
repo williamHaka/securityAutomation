@@ -1084,22 +1084,22 @@ Feature: Flujo end2end compass DPS
     @P32TC82
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias | horas | nauseas | paralisis | parpadeos | otro | queOtro    | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migrana" | "01-01-2019"     | "permanentemente"    | "diariamente"       | "2"   | ""      | ""        | ""        | "si" | "que otro" | ""      | "no"               | ""                |
+      | "si"               | "migraña" | "01-01-2019"     | "permanentemente"    | "diariamente"       | "2"   | ""      | ""        | ""        | "si" | "que otro" | ""      | "no"               | ""                |
 
     @P32TC83
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias | horas | nauseas | paralisis | parpadeos | otro | queOtro | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migrana" | "01-01-2019"     | "cuandoesnecesario"  | "raras veces"       | "2"   | "si"    | ""        | "si"      | ""   | ""      | ""      | "si"               | "20"              |
+      | "si"               | "migraña" | "01-01-2019"     | "cuandoesnecesario"  | "raras veces"       | "2"   | "si"    | ""        | "si"      | ""   | ""      | ""      | "si"               | "20"              |
 
     @P32TC84
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias        | horas | nauseas | paralisis | parpadeos | otro | queOtro | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migrana" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces a la semana" | "2"   | ""      | ""        | ""        | ""   | ""      | "si"    | "no"               | ""                |
+      | "si"               | "migraña" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces a la semana" | "2"   | ""      | ""        | ""        | ""   | ""      | "si"    | "no"               | ""                |
 
     @P32TC85
     Examples: Ingreso No ha padecido enfermedad nerviosa
       | enfermedadNerviosa | trastorno | doloresUltimaVez | frecuenciaMedicacion | frecuenciaMigranias   | horas | nauseas | paralisis | parpadeos | otro | queOtro | ninguno | incapacidadLaboral | tiempoIncapacidad |
-      | "si"               | "migrana" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces al mes" | "2"   | ""      | "si"      | ""        | ""   | ""      | ""      | "no"               | ""                |
+      | "si"               | "migraña" | "01-01-2019"     | "cuandoesnecesario"  | "varias veces al mes" | "2"   | ""      | "si"      | ""        | ""   | ""      | ""      | "no"               | ""                |
 
     @P32NO
     Examples: Ingreso No ha padecido enfermedad de la piel
