@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import cl.security.qaAutomation.flow.BaseFlow;
@@ -1700,6 +1699,7 @@ public class FormularioServices {
 				WebElement txtOtro = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro tratamiento ha seguido')]"));
 				txtOtro.sendKeys(otroTratamiento);
 				Thread.sleep(1000);
+				ClickBtnOK(indexLike);
 				seleccionarFechaCalendar(fechaTratamiento, 2);
 				indexRadio+=3;
 			}
@@ -1779,9 +1779,7 @@ public class FormularioServices {
 			WebElement txtTiempoBaja = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Durante cuánto tiempo estuvo de baja')]"));
 			txtTiempoBaja.sendKeys(fechaBaja);
 			Thread.sleep(1000);
-			List<WebElement> btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
-			btnLike.get(4).click();
-			Thread.sleep(1000);
+			ClickBtnOK(indexLike);
 			break;
 		default:
 			assertFalse("No se puede seleccionar opcion de continuidad laboral",true);
@@ -2307,24 +2305,11 @@ public class FormularioServices {
 		ingresarFrecuenciaMedicacion(frecuenciaMedicacion);
 		Thread.sleep(1000);
 		WebElement txtTrastorno = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
-		txtTrastorno.click();
-		Thread.sleep(1000);
-		if(!GenericMethod.existElement(By.xpath("//li[(@class='ember-power-select-option')]"))) {
-			Thread.sleep(1000);
-			WebElement txtTrastorno2 = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
-			txtTrastorno2.click();
-		}
-		Thread.sleep(1000);
-		WebElement txtBuscar = BaseFlow.driver.findElement(By.xpath("//input[(@type='search')]"));
-		txtBuscar.sendKeys(frecuenciaMigranias);
-		Thread.sleep(1000);
-		txtBuscar.sendKeys(Keys.ENTER);
+		GenericMethod.ingresarTextoSugerido(txtTrastorno, frecuenciaMigranias);
 		Thread.sleep(1000);
 		WebElement txtHoras = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
 		txtHoras.sendKeys(horas);
-		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElement(By.xpath("//span[contains(@class,'icon-Suscribir')]"));
-		btnLike.click();
+		ClickBtnOK(indexLike);
 		ingresarSintomasMigranias(nauseas, paralisis, parpadeos, otro, queOtro, ninguno);
 		ingresarIncapacidadMigrania(incapacidadLaboral, tiempoIncapacidad);
 		return indexRadio;
@@ -2337,11 +2322,11 @@ public class FormularioServices {
 		Thread.sleep(1000);
 		WebElement txtSearch = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'search')]"));
 		txtSearch.sendKeys(trastorno);
-		Thread.sleep(1000);
+		Thread.sleep(Constants.TIMEOUT_LOAD_SEARCH_TEXT);
 		List<WebElement> listTrastorno = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
 		for(WebElement li : listTrastorno) {
 			if(li.getText().toString().equalsIgnoreCase(trastorno)) {
-				Thread.sleep(1000);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 				li.click();
 				break;
 			}
@@ -2353,19 +2338,19 @@ public class FormularioServices {
 		List<WebElement> radioFrecuencia = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (frecuenciaMedicacion.toLowerCase().trim()) {
 		case Constants.PERMANENTEMENTE:
-			Thread.sleep(1000);
 			radioFrecuencia.get(indexRadio).click();
 			indexRadio+=2;
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			Thread.sleep(1000);
 			WebElement txtDetalle = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Por favor, dé más detalles en relación a su medicación')]"));
 			txtDetalle.sendKeys("detalle de medicacion");
+			ClickBtnOK(indexLike);
 			indexMigrania+=1;
 			break;
 		case Constants.SOLO_CUANDO_ES_NECESARIO:
-			Thread.sleep(1000);
 			radioFrecuencia.get(indexRadio+1).click();
 			indexRadio+=2;
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		default:
 			break;
@@ -2382,28 +2367,24 @@ public class FormularioServices {
 			if(nauseas.trim().equalsIgnoreCase(Constants.SI)) {
 				Thread.sleep(1000);
 				listCheck.get(0).click();
-			}if(otro.trim().equalsIgnoreCase(Constants.SI)) {
-				Thread.sleep(1000);
-				listCheck.get(1).click();
 			}if(paralisis.trim().equalsIgnoreCase(Constants.SI)) {
 				Thread.sleep(1000);
-				listCheck.get(2).click();
+				listCheck.get(1).click();
 			}if(parpadeos.trim().equalsIgnoreCase(Constants.SI)) {
+				Thread.sleep(1000);
+				listCheck.get(2).click();
+			}if(otro.trim().equalsIgnoreCase(Constants.SI)) {
 				Thread.sleep(1000);
 				listCheck.get(3).click();
 			}
 		}
 		indexMigrania+=1;
-		Thread.sleep(1000);
-		WebElement btnLike = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(indexMigrania);
-		btnLike.click();
+		ClickBtnOK(indexLike);
 		if(otro.trim().equalsIgnoreCase(Constants.SI)) {
 			Thread.sleep(1000);
 			WebElement txtOtro = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otros síntomas tiene')]"));
 			txtOtro.sendKeys(queOtro);
-			Thread.sleep(1000);
-			WebElement btnLikeOtro = BaseFlow.driver.findElements(By.xpath("//span[contains(@class,'icon-Suscribir')]")).get(3);
-			btnLikeOtro.click();
+			ClickBtnOK(indexLike);
 		}
 		
 	}
@@ -2413,17 +2394,17 @@ public class FormularioServices {
 		List<WebElement> radioIncapacidad = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'yes-no-container')]"));
 		switch (incapacidadLaboral.toLowerCase().trim()) {
 		case Constants.NO:
-			Thread.sleep(1000);
 			radioIncapacidad.get(indexRadio).click();
 			indexRadio+=2;
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			break;
 		case Constants.SI:
-			Thread.sleep(1000);
 			radioIncapacidad.get(indexRadio+1).click();
 			indexRadio+=2;
-			Thread.sleep(1000);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 			WebElement txtFrecuenciaIncapacidad = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Durante cuánto tiempo')]"));
 			txtFrecuenciaIncapacidad.sendKeys(tiempoIncapacidad);
+			ClickBtnOK(indexLike);
 			break;
 		default:
 			break;
