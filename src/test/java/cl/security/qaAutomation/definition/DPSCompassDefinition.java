@@ -1,6 +1,7 @@
 package cl.security.qaAutomation.definition;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.security.qaAutomation.flow.BaseFlow;
+import cl.security.qaAutomation.services.EndPointServices;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
@@ -24,7 +26,7 @@ public class DPSCompassDefinition {
 		Thread.sleep(1000);
 		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
 		GenericMethod.ingresarTextoSugerido(txtActividad, actividad);
-		Thread.sleep(6000);
+		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 	}
 	static Integer index=0;
 	@When("^Ingreso riesgos pDos\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
@@ -69,6 +71,7 @@ public class DPSCompassDefinition {
 			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 		}else {
 			assertFalse("El boton siguiente no se encuentra habilitado para dar click",true);
+			assertTrue("El boton siguiente no se encuentra habilitado para dar click",false);
 		}
 		
 	}
@@ -1187,5 +1190,8 @@ public class DPSCompassDefinition {
 		Thread.sleep(2000);
 		WebElement btnGuardar = BaseFlow.driver.findElement(By.className("right-header"));
 		btnGuardar.click();
+		
+		EndPointServices.getApplicationId(BaseFlow.endpointModel);
+		
 	}
 }

@@ -93,12 +93,11 @@ public class FormularioServices {
 		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 		WebElement horasTrabajo = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
 		horasTrabajo.sendKeys(horasSemanales);
-		Thread.sleep(2000);
 		ClickBtnOK(indexLike);
 		Thread.sleep(1000);
 		seleccionarFechaCalendar(desdeCuando,0);
 		index+=3;
-		Thread.sleep(2000);
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 		if(areaTrabajo.equals(Constants.AT_OTRA_AREA)) {
 			Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 			WebElement txtOtraArea = BaseFlow.driver.findElement(By.xpath("//textarea[contains(@placeholder,'Qué otro área')]"));

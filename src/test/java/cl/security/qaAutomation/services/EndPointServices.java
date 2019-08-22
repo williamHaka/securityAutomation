@@ -4,6 +4,10 @@ import java.util.LinkedHashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import com.cucumber.listener.Reporter;
+
+import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.model.CommJson;
 import cl.security.qaAutomation.model.EndPointModel;
 import cl.security.qaAutomation.utils.Constants;
@@ -44,8 +48,6 @@ public class EndPointServices {
 		json.setConnParams(Constants.APPLICATION, params);
 		json.setRequestMethod("GET");
 		json.setRequestProperty("Authorization", model.getToken());
-//		
-		
 		
 		Integer status = json.getResponseCode();
 		if (status == 200) {
@@ -82,5 +84,16 @@ public class EndPointServices {
         	System.out.println(json.getJsonDataError());
         }
 		return model;
+	}
+	
+	public static void getApplicationId(EndPointModel endpointModel) throws Exception {
+		EndPointModel model = new EndPointModel();
+		model = EndPointServices.authPost(BaseFlow.endpointModel);
+		model = EndPointServices.applicationGet(BaseFlow.endpointModel);
+		Reporter.addStepLog("TOKEN = "+model.getToken());
+		Reporter.addStepLog("X-COMPASS-ID = "+model.getId());
+		Reporter.addStepLog("ID PROPUESTA = "+model.getApplicationId());
+//		model.setApplicationId(applicationId);
+//		model = EndPointServices.getResult(model);
 	}
 }

@@ -1,3 +1,4 @@
+
 package cl.security.qaAutomation.stageSet;
 
 import org.junit.runner.RunWith;
@@ -8,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		tags = { 
-				"@NuevoAseguradoHombre"
+				"@NuevoAseguradoTC4"
 				+ ",@P1TC4"
 				+ ",@P2TC4"
 				+ ",@P3NO"

@@ -6,12 +6,12 @@ public class Constants {
 	//tiempo que hay entre interacciones de elementos
 	public static final Integer TIMEOUT_WAIT_NEXT_STEP = 3000;
 	//tiempo qu hay en marcar un radio
-	public static final Integer TIMEOUT_LOAD_RESPONSE = 4000;
+	public static final Integer TIMEOUT_LOAD_RESPONSE = 10000;
 	//tiempo que hay en la busqueda de texto
-	public static final Integer TIMEOUT_LOAD_SEARCH_TEXT = 15000;
+	public static final Integer TIMEOUT_LOAD_SEARCH_TEXT = 6000;
 	
 //constant end point 
-	public static final String URL_BASE = "http://10.62.4.76:8170/compass-api/";
+	public static final String URL_BASE = "http://10.62.4.28:8170/compass-api/";
 	public static final String OAUTH =URL_BASE+"auth"; 
 	public static final String APPLICATION =URL_BASE+"api/v1/compass/application";
 	public static final String RESULT =URL_BASE+"api/v1/compass/result";

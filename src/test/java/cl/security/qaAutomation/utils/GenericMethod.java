@@ -1,7 +1,7 @@
 package cl.security.qaAutomation.utils;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -83,9 +83,18 @@ public class GenericMethod {
 //	}
 	
 	public static String getDate() {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");
-		LocalDateTime localDate = LocalDateTime.now();
-		return dtf.format(localDate);
+		 Calendar fecha = new GregorianCalendar();
+	        //Obtenemos el valor del año, mes, día, hora, minuto y segundo del sistema.
+	        //Usando el método get y el parámetro correspondiente.
+	        Integer annio = fecha.get(Calendar.YEAR);
+	        Integer mes = fecha.get(Calendar.MONTH)+1;
+	        Integer dia = fecha.get(Calendar.DAY_OF_MONTH);
+	        Integer hora = fecha.get(Calendar.HOUR_OF_DAY);
+	        Integer minuto = fecha.get(Calendar.MINUTE);
+	        Integer segundo = fecha.get(Calendar.SECOND);
+	        String anio = String.valueOf(annio)+String.valueOf(mes)+String.valueOf(dia);
+	        String horaTotal = String.valueOf(hora)+String.valueOf(minuto)+String.valueOf(segundo); 
+	        return anio+"_"+horaTotal;
 	}
 	
 	public static WebElement implicityWait(Integer timeoutInSeconds,By element)throws Exception{

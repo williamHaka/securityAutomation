@@ -1,5 +1,6 @@
 package cl.security.qaAutomation.definition;
 
+import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.model.EndPointModel;
 import cl.security.qaAutomation.services.EndPointServices;
 import cucumber.api.java.en.Given;
@@ -27,5 +28,15 @@ public class ValidacionResultDefinition {
 	public void valido_reglas_esperadas(String regla) throws Throwable {
 //		TODO validacion de reglas esperadas contra las obtenidas del result
 	}
+	
+
+	@When("^Realizo consulta a servicio get application$")
+	public void realizo_consulta_a_servicio_get_application() throws Throwable {
+		model = new EndPointModel();
+		EndPointModel model = EndPointServices.applicationGet(BaseFlow.endpointModel);
+//		model.setApplicationId(applicationId);
+		model = EndPointServices.getResult(model);
+	}
+
 
 }

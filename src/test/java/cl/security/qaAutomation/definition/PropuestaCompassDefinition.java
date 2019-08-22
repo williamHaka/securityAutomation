@@ -10,7 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.cucumber.listener.Reporter;
+
 import cl.security.qaAutomation.flow.BaseFlow;
+import cl.security.qaAutomation.model.EndPointModel;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
@@ -32,6 +35,7 @@ public class PropuestaCompassDefinition {
 	@When("^Ingreso usuario y clave\"([^\"]*)\"\"([^\"]*)\"$")
 	public void ingreso_usuario_y_clave(String user, String pass) throws Throwable {
 		log.info("Ingreso usuario "+user+" y clave "+pass);
+		BaseFlow.endpointModel = new EndPointModel();
 		BaseFlow.endpointModel.setUser(user);
 		BaseFlow.endpointModel.setPassword(pass);
 		FormularioServices.loginCompass(user, pass);
@@ -42,13 +46,12 @@ public class PropuestaCompassDefinition {
 		GenericMethod.implicityWait(Constants.TIMEOUT_WAIT_NEXT_STEP, By.xpath("//a[contains(@href,'#/propuestas/nueva')]"));
 	    BaseFlow.pageModel.getBtnNuevaPropuesta().click();
 	}
-	Integer numeroTC = 0;
 	@When("^Ingreso nombre de la nueva propuesta\"([^\"]*)\"$")
 	public void ingreso_nombre_de_la_nueva_propuesta(String nombre) throws Throwable {
 		Thread.sleep(1000);
-		numeroTC+=1;
-		String idPropuesta = nombre+numeroTC+"_"+GenericMethod.getDate();
+		String idPropuesta = nombre+"_"+GenericMethod.getDate();
 		log.info("Ingreso nombre de propuesta "+idPropuesta);
+		Reporter.addStepLog("Nombre TC "+idPropuesta);
 		BaseFlow.endpointModel.setIdPropuesta(idPropuesta);
 		BaseFlow.pageModel.getTxtNuevaPropuesta().sendKeys(idPropuesta);
 		Thread.sleep(2000);

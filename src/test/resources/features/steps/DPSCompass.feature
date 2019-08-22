@@ -1,6 +1,6 @@
 Feature: Flujo end2end compass DPS
 
-	@NuevoAsegurado
+  @NuevoAsegurado
   Scenario Outline: Ingresar datos del asegurado
     Given Ingreso a la url"https://vs-as-compass-des.azurewebsites.net/"
     When Ingreso usuario y clave"admin""admin"
@@ -19,16 +19,491 @@ Feature: Flujo end2end compass DPS
     And Ingreso duracion<duracion>
     And Doy click en siguiente
     And Acepto termino de conformidad<aceptoTermino>
-   
-  @NuevoAseguradoHombre
-  Examples: 
-    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC"           | "nombre"  | "33" | "1-9"  | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
-    
-	@NuevoAseguradoMujer
-  Examples: 
-    | nombrePropuesta | nombre   | edad | rut    | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
-    | "TC"           | "Mujer"   | "33" | "1-9"  | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoHombre
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC"            | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoMujer
+    Examples: 
+      | nombrePropuesta | nombre  | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC"            | "Mujer" | "33" | "1-9" | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC1
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC1"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC2
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC2"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC3
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC3"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC4
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC4"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC5
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC5"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC6
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC6"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC7
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC7"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC8
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC8"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC9
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC9"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC10
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC10"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC11
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC11"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC12
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC12"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC13
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC13"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC14
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC14"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC15
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC15"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC16
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC16"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC17
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC17"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC18
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC18"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC19
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC19"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC20
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC20"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC9
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC9"           | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC21
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC21"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC22
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC22"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC23
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC23"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC24
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC24"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC25
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC25"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC26
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC26"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC27
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC27"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC28
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC28"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC29
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC29"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC30
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC30"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC31
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC31"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC32
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC32"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC33
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC33"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC34
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC34"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC35
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC35"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+ 		@NuevoAseguradoTC36
+    Examples: 
+      | nombrePropuesta | nombre  | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC36"          | "Mujer" | "33" | "1-9" | "F"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC37
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC38"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC39
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC39"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC40
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC40"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC41
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC41"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC42
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC42"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC43
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC43"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC44
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC44"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC45
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC45"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC46
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC46"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC47
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC47"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC48
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC48"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC49
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC49"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC50
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC50"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC51
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC51"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC52
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC52"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC53
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC53"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC54
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC54"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC55
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC55"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC56
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC56"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC57
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC57"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC58
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC58"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC59
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC59"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC60
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC60"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC61
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC61"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC62
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC62"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC63
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC63"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC64
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC64"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC65
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC65"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC66
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC66"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC67
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC67"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC68
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC68"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC69
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC69"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC70
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC70"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC71
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC71"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC72
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC72"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC73
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC74"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC75
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC75"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC76
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC76"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC77
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC77"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC78
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC79"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC80
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC80"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC81
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC81"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC82
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC82"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC83
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC83"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC84
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC84"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC85
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC85"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC86
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC86"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC87
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC87"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC88
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC88"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC89
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC89"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC90
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC90"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC91
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC91"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC92
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC92"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC93
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC93"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC94
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC94"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC95
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC95"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC96
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC96"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
+
+    @NuevoAseguradoTC97
+    Examples: 
+      | nombrePropuesta | nombre   | edad | rut   | genero | estadoCivil | cobertura | renta  | prima | duracion | aceptoTermino |
+      | "TC97"          | "nombre" | "33" | "1-9" | "M"    | "soltero"   | "vida"    | "2500" | "2"   | "15"     | "si"          |
 
   @P1
   Scenario Outline: Ingreso respuesta de pregusta uno
@@ -46,12 +521,12 @@ Feature: Flujo end2end compass DPS
 
     @P1TC3
     Examples: Ingreso actividad Guardia de seguridad - con arma
-      | actividad                        |
+      | actividad                         |
       | "Guardia de seguridad - con arma" |
 
     @P1TC4
     Examples: Ingreso actividad Guardaespaldas
-      | actividad        |
+      | actividad       |
       | "Guardaespalda" |
 
     @P1TC5
@@ -86,7 +561,7 @@ Feature: Flujo end2end compass DPS
 
     @P1TC11
     Examples: Ingreso actividad  Minero trabajo subterráneo
-      | actividad                     |
+      | actividad                    |
       | "Minero trabajo subterráneo" |
 
     @P1TC12
@@ -246,37 +721,37 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingreso respuesta pregunta cinco
     When ingreso deportes aventura pCinco<deporteAventura><actividad><tipoAficionado><alaska><antartica><artico><groenlandia><ninguna><alturaMaxima><intentoSolitario><libre><ninguno><actividadProxima><especifique>
     And Doy click en boton siguiente
-	
-		@P5TC92
+
+    @P5TC92
     Examples: Ingreso No a deportes aventura
       | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique          |
       | "si"            | "andinismo" | "amateur"      | "si"   | ""        | ""     | ""          | ""      | "100"        | "si"             | ""    | ""      | "si"             | "actividades varias" |
-      
+
     @P5TC93
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | "si"      | ""     | ""          | ""      | "100"        | ""               | "si"  | ""      | "no"             | ""          |
-    
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | "si"      | ""     | ""          | ""      | "100"        | ""               | "si"  | ""      | "no"             | ""          |
+
     @P5TC94
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
-      
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+
     @P5TC95
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | ""     | "si"        | ""      | "100"        | "si"             | "si"  | ""      | "no"             | ""          |
-      
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | ""        | ""     | "si"        | ""      | "100"        | "si"             | "si"  | ""      | "no"             | ""          |
+
     @P5TC96
     Examples: Ingreso No a deportes aventura
-      | deporteAventura | actividad   |  tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
-      | "si"            | "andinismo" |  "amateur"      | ""     | ""        | ""     | ""          | "si"    | "100"        | ""               | ""    | "si"    | "no"             | ""          |
-      
+      | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
+      | "si"            | "andinismo" | "amateur"      | ""     | ""        | ""     | ""          | "si"    | "100"        | ""               | ""    | "si"    | "no"             | ""          |
+
     @P5TC97
     Examples: Ingreso No a deportes aventura
       | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
       | "si"            | "andinismo" | "amateur"      | "si"   | ""        | "si"   | ""          | ""      | "100"        | ""               | ""    | "si"    | "no"             | ""          |
-      
+
     @P5NO
     Examples: Ingreso No a deportes aventura
       | deporteAventura | actividad   | tipoAficionado | alaska | antartica | artico | groenlandia | ninguna | alturaMaxima | intentoSolitario | libre | ninguno | actividadProxima | especifique |
@@ -674,7 +1149,6 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingresar prueba de VIH en los últimos doce meses
     When Ingreso prueba de VIH en los ultimos doce meses pCatorce<pruebaVIH><resultadoVIH>
 
-
     @P14TC37
     Examples: Ingreso no a prueba de VIH
       | pruebaVIH | resultadoVIH |
@@ -685,11 +1159,11 @@ Feature: Flujo end2end compass DPS
       | pruebaVIH | resultadoVIH |
       | "no"      | "no"         |
 
-	@P34
-	Scenario Outline: Ingreso a padecido enfermedad congenita pveinticuatro
-		When Ingreso a padecido enfermedad congenita pveinticuatro<enfermedadCongenita><trastorno>
-	
-	@P34NO
+  @P34
+  Scenario Outline: Ingreso a padecido enfermedad congenita pveinticuatro
+    When Ingreso a padecido enfermedad congenita pveinticuatro<enfermedadCongenita><trastorno>
+
+    @P34NO
     Examples: Ingreso no a enfemedad congenita
       | enfermedadCongenita | trastorno            |
       | "no"                | "sindrome de marfan" |
@@ -708,7 +1182,6 @@ Feature: Flujo end2end compass DPS
       | pensionInvalidez | motivoPension |
       | "no"             | ""            |
 
-      
   @P16
   Scenario Outline: Ingresar accidentes
     When Ingreso si ha sido victima de algun accidente pDiesiseis<accidente><complicacionesAcc><especifiqueComplicacionesAcc><fechaDesdeAcc><fechaHastaAcc><trastornoVariasVeces><secuelasAcc><especifiqueSecuelasAcc>
@@ -766,31 +1239,31 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Ingreso si ha permanecido ingresado en un centro hospitalario
     When Ingreso ha ingresado a un centro hospitalario pDiesiocho<ingresoHospitalario><trastorno><cuando><sintomasAun><especifiqueSintoma><tratamientoMedico><fechaInicioTratamiento><fechaTermino><sinFechaTermino><operado><frecuenciaOperado><especifiqueOperado><fechaOperacionUno><fechaOperacionDos><fechaOperacionTres><cirugiaPlaneada><fechaCirugiaPlaneada><tipoCirugiaPlaneada><incapacidad><fechaDiscapacidad><promedioIncapacitado><cambioProfesion><ocupacion><ocupacionRecomendada>
 
-	  @P18TC44
+    @P18TC44
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "no"        | ""                 | ""                | ""                     | ""           | ""              | "no"    | ""                | ""                 | ""                | ""                | ""                 | "no"            | ""                   | ""                  | ""          | ""                | ""                   | ""              | ""        | ""                   |
-	
- 		@P18TC45
+
+    @P18TC45
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "no"              | ""                     | ""           | ""              | "no"    | ""                | ""                 | ""                | ""                | ""                 | "no"            | ""                   | ""                  | "no"        | ""                | ""                   | ""              | ""        | ""                   |
 
-		@P18TC46
+    @P18TC46
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "si"              | "15-01-2019"           | ""           | ""              | "no"    | ""                | ""                 | ""                | ""                | ""                 | "si"            | "01-03-2019"         | "varias"            | "no"        | ""                | ""                   | ""              | ""        | ""                   |
-	
-		@P18TC47
+
+    @P18TC47
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "si"              | "15-01-2019"           | "01-02-2019" | ""              | "si"    | "repetidasveces"  | "espe. cirugia"    | "01-01-2019"      | ""                | ""                 | "no"            | ""                   | ""                  | "si"        | "01-03-2018"      | "10"                 | "no"            | ""        | ""                   |
-	
-		@P18TC48
+
+    @P18TC48
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno                | cuando       | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion   | ocupacionRecomendada |
       | "si"                | "quemadura de la muñeca" | "01-01-2018" | "si"        | "sintomas"         | "si"              | "15-01-2019"           | "01-02-2019" | ""              | "si"    | "repetidasveces"  | "espe. cirugia"    | "01-01-2019"      | ""                | ""                 | "no"            | ""                   | ""                  | "si"        | "01-03-2018"      | "10"                 | "si"            | "ocupacion" | "ocu. recomendada"   |
-	
+
     @P18NO
     Examples: ingreso no ha centro hospitalario
       | ingresoHospitalario | trastorno | cuando | sintomasAun | especifiqueSintoma | tratamientoMedico | fechaInicioTratamiento | fechaTermino | sinFechaTermino | operado | frecuenciaOperado | especifiqueOperado | fechaOperacionUno | fechaOperacionDos | fechaOperacionTres | cirugiaPlaneada | fechaCirugiaPlaneada | tipoCirugiaPlaneada | incapacidad | fechaDiscapacidad | promedioIncapacitado | cambioProfesion | ocupacion | ocupacionRecomendada |
@@ -860,7 +1333,7 @@ Feature: Flujo end2end compass DPS
       | tratamientoMedico | tratorno | fechaPrimeraVez | sintomasAun | queSintomasActuales | fechaLibreSintomas | promedioTieneSintomas | frecuencia | sintomasUltimaVez | SintomasAnio | promedioSintomas | revisionesMedico | cirugia | cuandoSometioCirugia | especifiqueCirugia | cirugiaPrevista | cuandoSometeraCirugia | tipoCirugia | medicacion | medicacionTomando | otro | otroTratamiento | fechaTratamiento | sinTratamiento | continuidadLaboral | fechaBaja |
       | "no"              | ""       | ""              | ""          | ""                  | ""                 | ""                    | ""         | ""                | ""           | ""               | ""               | ""      | ""                   | ""                 | ""              | ""                    | ""          | ""         | ""                | ""   | ""              | ""               | ""             | ""                 | ""        |
 
-      @P21
+  @P21
   Scenario Outline: Ha sido tratado por algun psicologo
     When Ingreso ha sido tratado por algun psicologo pVeintiuno<tratadoPsicologo><trastorno>
 
@@ -949,17 +1422,17 @@ Feature: Flujo end2end compass DPS
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno   |
       | "si"                | "hepatitis" |
-      
+
     @P25TC68
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno   |
       | "si"                | "hepatitis" |
-      
+
     @P25TC69
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno   |
       | "si"                | "hepatitis" |
-      
+
     @P25NO
     Examples: Ingreso NO a enfermedad del aparato digestivo
       | enfermedadDigestiva | trastorno |
@@ -1112,43 +1585,42 @@ Feature: Flujo end2end compass DPS
   Scenario Outline: Padece o ha padecido alguna enfermedad de la piel
     When Ingreso ha padecido enfermedad de la piel pTreintaitres<enfermedadPiel><trastorno><esMaligno><seguimiento><FechaDiagnostico><cirugia><quimioterapia><radioterapia><otros><detalleOtro><Recurrencia><extirpado><seguimientoTratamiento><cuandoDiagnostico><algunOtroTratamiento><queOtroTratamiento><estaCurado>
 
-	  @P33TC86
+    @P33TC86
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "no"        | "01-01-2019"     | "si"    | ""            | ""           | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC87
+
+    @P33TC87
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | "si"          | ""           | ""    | ""          | "si"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-		
-		@P33TC88
+
+    @P33TC88
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | ""            | "si"         | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC89
+
+    @P33TC89
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | ""      | ""            | ""           | "si"  | "otro deta" | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC90
+
+    @P33TC90
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "no"      | "si"        | "01-01-2019"     | "si"    | "si"          | ""           | ""    | ""          | "no"        | "no"      | ""                     | ""                | ""                   | ""                 | ""         |
-	
-		@P33TC91
+
+    @P33TC91
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "nose"    | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | "no"                   | "01-01-2019"      | "no"                 | ""                 | "si"       |
-	
-		@P33TC92
+
+    @P33TC92
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno       | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "si"           | "lunar carnoso" | "si"      | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | ""                     | ""                | ""                   | ""                 | ""         |
-	
+
     @P33NO
     Examples: Ingreso No ha padecido enfermedad de la piel
       | enfermedadPiel | trastorno | esMaligno | seguimiento | FechaDiagnostico | cirugia | quimioterapia | radioterapia | otros | detalleOtro | Recurrencia | extirpado | seguimientoTratamiento | cuandoDiagnostico | algunOtroTratamiento | queOtroTratamiento | estaCurado |
       | "no"           | ""        | ""        | ""          | ""               | ""      | ""            | ""           | ""    | ""          | ""          | ""        | ""                     | ""                | ""                   | ""                 | ""         |
-      

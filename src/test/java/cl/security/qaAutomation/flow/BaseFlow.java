@@ -6,7 +6,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -18,7 +17,6 @@ import cl.security.qaAutomation.model.EndPointModel;
 import cl.security.qaAutomation.model.NuevaPropuestaModel;
 
 @RunWith(Suite.class)
-@SuiteClasses({})
 public class BaseFlow {
 	public static WebDriver driver;
 	public static NuevaPropuestaModel pageModel;
@@ -31,12 +29,11 @@ public class BaseFlow {
 	public static void InitializeWebDriver() throws Exception {
 		setDriverDesa();
 	    pageModel = PageFactory.initElements(driver, NuevaPropuestaModel.class);
-	    endpointModel = new EndPointModel();
 	}
 	    
 	@AfterClass
 	public static void setUpFinal() throws Exception {
-//		driver.quit();
+		driver.quit();
 	}
 
 	public static void setDriverDesa() throws Exception {
