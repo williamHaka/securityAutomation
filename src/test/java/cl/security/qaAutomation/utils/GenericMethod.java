@@ -1,17 +1,24 @@
 package cl.security.qaAutomation.utils;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.cucumber.listener.Reporter;
+import com.google.common.io.Files;
+
 import cl.security.qaAutomation.flow.BaseFlow;
+import cucumber.api.Scenario;
 
 public class GenericMethod {
 
@@ -159,4 +166,24 @@ public class GenericMethod {
     	} 
     	return isPresent;
  	}
+	
+	 public static void screenShotForScenario(Scenario scenario) throws Exception {
+		if(scenario.getStatus().equals("failed")){
+			File sourcePath = ((TakesScreenshot) BaseFlow.driver).getScreenshotAs(OutputType.FILE);
+			String folderPath = System.getProperty("user.dir")+"/ReporteHTML/Screenshot/";
+			File folder = new File(folderPath);
+			DeleteFileIfExist(folder);
+			folder.mkdir();
+			File destinationPath = new File(folderPath + BaseFlow.endpointModel.getIdPropuesta()+scenario.getName() + ".png");
+			Files.copy(sourcePath, destinationPath);
+			Reporter.addScreenCaptureFromPath(destinationPath.toString(),scenario.getName());	
+		}
+	}
+	 
+	 private static void DeleteFileIfExist(File file) {
+		    if (!file.exists()) {
+		    	file.delete();
+		    } 
+		}
+	 
 }

@@ -169,7 +169,7 @@ public class FormularioServices {
 			String mes = fecha[1];
 			String anio = fecha[2];
 //			selleciono formato de calendarfr
-			GenericMethod.implicityWait(10, By.xpath("//label[contains(@for,'days')]"));
+			Thread.sleep(Constants.TIMEOUT_LOAD_SEARCH_TEXT);
 			WebElement formatoCalendar = BaseFlow.driver.findElements(By.xpath("//label[contains(@for,'days')]")).get(indexCalendar);
 //			GenericMethod.scrollElement(formatoCalendar);
 			Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
@@ -515,9 +515,10 @@ public class FormularioServices {
 			Thread.sleep(1000);
 			WebElement textARazon = BaseFlow.driver.findElements(By.xpath("//textarea[contains(@class,'ember-text-area ember-view')]")).get(3);
 			textARazon.sendKeys(cualFueRazon);
-			Thread.sleep(1000);
+			ClickBtnOK(indexLike);
 			WebElement textAConsecuencias = BaseFlow.driver.findElements(By.xpath("//textarea[contains(@class,'ember-text-area ember-view')]")).get(4);
 			textAConsecuencias.sendKeys(consecuenciasSufridas);
+			ClickBtnOK(indexLike);
 			break;
 		default:
 			break;

@@ -46,7 +46,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioRescatista.get(index).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -85,7 +85,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioMoto.get(0).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -107,7 +107,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioDeportes.get(2).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -131,7 +131,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioSeguros.get(0).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -157,7 +157,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioViaje.get(0).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -203,7 +203,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radiobebidas.get(0).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -230,7 +230,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioFumador.get(2).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -256,7 +256,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioDrogas.get(4).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -282,7 +282,7 @@ public class DPSCompassDefinition {
 			case Constants.NO:
 				Thread.sleep(1000);
 				radioEmbarazada.get(6).click();
-				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 				break;
 			case Constants.SI:
 				radioEmbarazada.get(7).click();
@@ -311,7 +311,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioVIH.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
 			break;
 		case Constants.SI:
@@ -347,7 +347,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioPension.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -396,7 +396,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioAccidentes.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -423,7 +423,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioLicencia.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -756,7 +756,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioHospitalario.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -781,7 +781,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radioObservacion.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -807,7 +807,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radiotratamiento.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
   			break;
 		case Constants.SI:
 			Thread.sleep(1000);
@@ -831,7 +831,7 @@ public class DPSCompassDefinition {
 		switch (tratadoPsicologo.toLowerCase().trim()) {
 		case Constants.NO:
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
   			break;
 		case Constants.SI:
 			radio.get(indexRadio+1).click();
@@ -858,7 +858,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -883,7 +883,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -907,7 +907,7 @@ public class DPSCompassDefinition {
 		switch (enfermedadCirculatorio.toLowerCase().trim()) {
 			case Constants.NO:
 				radio.get(indexRadio).click();
-				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+				Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 				indexRadio+=2;
 	  			break;
 			case Constants.SI:
@@ -937,7 +937,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -979,7 +979,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1004,7 +1004,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1030,7 +1030,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1061,7 +1061,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1086,7 +1086,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1117,7 +1117,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1148,7 +1148,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:
@@ -1173,7 +1173,7 @@ public class DPSCompassDefinition {
 		case Constants.NO:
 			Thread.sleep(1000);
 			radio.get(indexRadio).click();
-			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+			Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE_NO);
 			indexRadio+=2;
   			break;
 		case Constants.SI:

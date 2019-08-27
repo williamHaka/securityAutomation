@@ -17,12 +17,22 @@ import cl.security.qaAutomation.model.EndPointModel;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
 public class PropuestaCompassDefinition {
 	public static String genero ="";
 	private static final Logger log = LoggerFactory.getLogger(PropuestaCompassDefinition.class); 
+	
+	@After
+	public static void Screenshot(Scenario scenario) throws Exception {
+		if(scenario.getStatus().equals("")) {
+			
+		}
+		GenericMethod.screenShotForScenario(scenario);
+	}
 	
 	@Given("^Ingreso a la url\"([^\"]*)\"$")
 	public void ingreso_a_la_url(String url) throws Throwable {
