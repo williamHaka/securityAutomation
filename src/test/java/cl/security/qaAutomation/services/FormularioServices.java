@@ -14,22 +14,35 @@ import cl.security.qaAutomation.utils.GenericMethod;
 public class FormularioServices {
 
 	public static void loginCompass(String user, String pass) throws InterruptedException {
-		BaseFlow.pageModel.getUsername().sendKeys(user);
-		BaseFlow.pageModel.getPassword().sendKeys(pass);
-		//selecciono idioma
-		login();
+		if(GenericMethod.existElement(By.id("password"))){
+			BaseFlow.pageModel.getUsername().sendKeys(user);
+			Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+			BaseFlow.pageModel.getPassword().sendKeys(pass);
+			//selecciono idioma
+			login();
+		}
+		
 	}
 	
 	public static void loginCompass() throws InterruptedException {
 		BaseFlow.pageModel.getUsername().sendKeys("admin");
+		Thread.sleep(2000);
 		BaseFlow.pageModel.getPassword().sendKeys("admin");
 		login();
 		}
 	
 	public static void login() throws InterruptedException {
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 		BaseFlow.driver.findElement(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).click();
-		Thread.sleep(1000);
-		BaseFlow.driver.findElements(By.className("ember-power-select-option")).get(2).click();
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+		List<WebElement> listIdioma = BaseFlow.driver.findElements(By.className("ember-power-select-option"));
+		for (WebElement webElement : listIdioma) {
+			if (webElement.getText().toString().toLowerCase().contains("spa")) {
+				webElement.click();
+				break;
+			}
+		}
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 		BaseFlow.pageModel.getBtnEntrar().click();
 	}
 	
@@ -65,7 +78,7 @@ public class FormularioServices {
 	
 	public static Integer ingresarRiesgosDps(Integer index, String riesgo, String nombreEmpleador, String areaTrabajo, String horasSemanales, String desdeCuando, String sustanciasEncapsuladas, String sustanciasNoEncapsuladas,String conCualesTrabaja, String aparatoRayosX, String RayosXDisruptivos, String ningunoRayo, String microondas, String radiacionAlfa, String radiacionBeta, String radiacionDeNeutrones, String radiacionDeRayosX, String radiacionDeGamma, String radiacionLaser, String radiacionMaster, String rayosUltravioletasArtificiales, String otros, String otraRadiacion, String ningunoPresenteTareasDiarias, String medidasSeguridadDisponibles, String controlImpactoRadiacion, String sobrepasadoLimiteRadiacion, String conQueFrecuencia, String ultimaVez, String queValores, String tratamientoMedicoRadiacion, String cuando , String cualFueRazon, String consecuenciasSufridas, String hhAnuales) throws Exception {
 		Thread.sleep(1000);
-		WebElement txtRiesgo = BaseFlow.driver.findElement(By.xpath("//*[contains(@class,'ember-power-select-trigger')]"));
+		WebElement txtRiesgo = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(1);
 		GenericMethod.ingresarTextoSugerido(txtRiesgo, riesgo);
 		Thread.sleep(1000);
 		switch (riesgo.trim().toLowerCase()) {
@@ -91,9 +104,9 @@ public class FormularioServices {
 		ClickBtnOK(indexLike);
 		seleccionarAreaTrabajo(areaTrabajo);
 		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
-		WebElement horasTrabajo = BaseFlow.driver.findElement(By.xpath("//input[contains(@type,'number')]"));
+		WebElement horasTrabajo = BaseFlow.driver.findElements(By.xpath("//input[contains(@type,'text')]")).get(1);
 		horasTrabajo.sendKeys(horasSemanales);
-		ClickBtnOK(indexLike);
+		ClickBtnOK(indexLike+1);
 		Thread.sleep(1000);
 		seleccionarFechaCalendar(desdeCuando,0);
 		index+=3;
@@ -131,12 +144,12 @@ public class FormularioServices {
 	
 	private static void seleccionarAreaTrabajo(String areaTrabajo) throws Exception {
 		Thread.sleep(1000);
-		WebElement ListAreaTrabajo = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger') and @tabindex='0']")).get(1);
+		WebElement ListAreaTrabajo = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger') and @tabindex='0']")).get(2);
 		ListAreaTrabajo.click();
 		Thread.sleep(1000);
 		if(!GenericMethod.existElement(By.xpath("//li[contains(@class,'ember-power-select-option')]"))) {
 			Thread.sleep(1000);
-			WebElement ListAreaTrabajo2 = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger') and @tabindex='0']")).get(1);
+			WebElement ListAreaTrabajo2 = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger') and @tabindex='0']")).get(2);
 			ListAreaTrabajo2.click();
 		}
 		Thread.sleep(1000);
@@ -528,7 +541,7 @@ public class FormularioServices {
 	
 	public static void ingresarLaboresRescatista(String labor) throws Exception {
 		Thread.sleep(1000);
-		WebElement txtLabores = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
+		WebElement txtLabores = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(2);
 		txtLabores.click();
 		Thread.sleep(1000);
 		List<WebElement> listLabortes = BaseFlow.driver.findElements(By.xpath("//li[(@class='ember-power-select-option')]"));
@@ -560,7 +573,7 @@ public class FormularioServices {
 	
 	public static void ingresoMotocicletaComoMedioTransporte(String cilindrada) throws Exception{
 		Thread.sleep(1000);
-		WebElement txtCilindrada = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		WebElement txtCilindrada = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
 		txtCilindrada.click();
 		Thread.sleep(1000);
 		List<WebElement> listCilindrada = BaseFlow.driver.findElements(By.xpath("//li[(@class= 'ember-power-select-option')]"));
@@ -582,6 +595,7 @@ public class FormularioServices {
 		}
 	}
 	public static void ingresoVigenciaSeguroVida(String seguroVidaVigente, String tipoSeguro, String compania, String sumaAsegurada, String fechaCobertura, String resultadoAceptacion,Integer countSeguro)throws Exception {
+		indexLike=0;
 		ingresoTipoSeguro(tipoSeguro);
 		ingresoCompania(compania,countSeguro);
 		WebElement txtSuma;
@@ -589,12 +603,12 @@ public class FormularioServices {
 			Thread.sleep(1000);
 			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(0);
 			txtSuma.sendKeys(sumaAsegurada);
-			Thread.sleep(1000);
+			ClickBtnOK(indexLike);
 		}else {
 			Thread.sleep(1000);
 			txtSuma = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'input-default')]")).get(1);
 			txtSuma.sendKeys(sumaAsegurada);
-			Thread.sleep(1000);
+			ClickBtnOK(indexLike);
 		}
 		Thread.sleep(1000);
 		seleccionarFechaCalendar(fechaCobertura, countSeguro);
@@ -2201,7 +2215,7 @@ public class FormularioServices {
 	
 	public static void ingresarDeportesAventura(String actividad, String tipoAficionado, String alaska, String antartica, String artico, String groenlandia, String ninguna, String alturaMaxima, String intentoSolitario, String libre, String ninguno, String actividadProxima, String especifique)throws Exception{
 		Thread.sleep(1000);
-		WebElement txtTrastorno = BaseFlow.driver.findElement(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]"));
+		WebElement txtTrastorno = BaseFlow.driver.findElements(By.xpath("//div[contains(@class,'ember-basic-dropdown-trigger')]")).get(1);
 		GenericMethod.ingresarTextoSugerido(txtTrastorno, actividad);
 		Thread.sleep(3000);
 		ingresarActividadDeporteAventura(tipoAficionado);
@@ -2543,4 +2557,24 @@ public class FormularioServices {
 		indexLike+=1;
 		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 	}
+	
+	public static void ingresarEstatura(String estatura) throws Exception {
+		indexLike=0;
+		Thread.sleep(2000);	
+		List<WebElement> txtEstatura = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
+		GenericMethod.scrollElement(txtEstatura.get(0));
+		txtEstatura.get(0).sendKeys(estatura);
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+		ClickBtnOK(indexLike);
+	}
+	
+	public static void ingresarPeso(String peso) throws Exception{
+		Thread.sleep(2000);	
+		List<WebElement> txtPeso = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
+		GenericMethod.scrollElement(txtPeso.get(1));
+		txtPeso.get(1).sendKeys(peso);
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
+		ClickBtnOK(indexLike);
+	}
+	
 }

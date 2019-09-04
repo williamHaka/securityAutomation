@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,7 @@ import com.cucumber.listener.Reporter;
 
 import cl.security.qaAutomation.flow.BaseFlow;
 import cl.security.qaAutomation.model.EndPointModel;
+import cl.security.qaAutomation.model.NuevaPropuestaModel;
 import cl.security.qaAutomation.services.FormularioServices;
 import cl.security.qaAutomation.utils.Constants;
 import cl.security.qaAutomation.utils.GenericMethod;
@@ -37,7 +39,10 @@ public class PropuestaCompassDefinition {
 	@Given("^Ingreso a la url\"([^\"]*)\"$")
 	public void ingreso_a_la_url(String url) throws Throwable {
 		log.info("Ingreso a la url "+url);
+		BaseFlow.setDriverDesa();
+	    BaseFlow.pageModel = PageFactory.initElements(BaseFlow.driver, NuevaPropuestaModel.class);
 		BaseFlow.driver.manage().deleteAllCookies();
+		Thread.sleep(2000);
 		BaseFlow.driver.get(url);
 	}
 
@@ -53,7 +58,7 @@ public class PropuestaCompassDefinition {
 
 	@When("^Doy click en nueva propuesta$")
 	public void doy_click_en_nuevRa_propuesta() throws Throwable {
-		GenericMethod.implicityWait(Constants.TIMEOUT_WAIT_NEXT_STEP, By.xpath("//a[contains(@href,'#/propuestas/nueva')]"));
+		Thread.sleep(Constants.TIMEOUT_WAIT_NEXT_STEP);
 	    BaseFlow.pageModel.getBtnNuevaPropuesta().click();
 	}
 	@When("^Ingreso nombre de la nueva propuesta\"([^\"]*)\"$")

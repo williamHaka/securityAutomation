@@ -24,7 +24,7 @@ public class DPSCompassDefinition {
 	public void ingreso_la_actividad_pUno(String actividad) throws Throwable {
 		log.info("Ingreso pregunta 1");
 		Thread.sleep(1000);
-		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(0);
+		WebElement txtActividad = BaseFlow.driver.findElements(By.xpath("//*[contains(@class,'ember-power-select-trigger')]")).get(1);
 		GenericMethod.ingresarTextoSugerido(txtActividad, actividad);
 		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
 	}
@@ -176,20 +176,13 @@ public class DPSCompassDefinition {
 	public void ingreso_estatura_en_centimetros_pOcho(String estatura) throws Throwable {
 		log.info("Ingreso pregunta 8");
 		countViaje=0;
-		Thread.sleep(2000);	
-		List<WebElement> txtEstatura = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
-		GenericMethod.scrollElement(txtEstatura.get(0));
-		txtEstatura.get(0).sendKeys(estatura);
+		FormularioServices.ingresarEstatura(estatura);
 	}
 	
 	@When("^Ingreso peso en kilogramos pNueve\"([^\"]*)\"$")
 	public void ingreso_peso_en_kilogramos_pNueve(String peso) throws Throwable {
 		log.info("Ingreso pregunta 9");
-		Thread.sleep(2000);	
-		List<WebElement> txtPeso = BaseFlow.driver.findElements(By.xpath("//input[contains(@class,'ember-text-field')]"));
-		GenericMethod.scrollElement(txtPeso.get(1));
-		txtPeso.get(1).sendKeys(peso);
-		Thread.sleep(Constants.TIMEOUT_LOAD_RESPONSE);
+		FormularioServices.ingresarPeso(peso);
 	}
 	
 	private static Integer countBebidas = 0;
@@ -1192,6 +1185,8 @@ public class DPSCompassDefinition {
 		btnGuardar.click();
 		
 		EndPointServices.getApplicationId(BaseFlow.endpointModel);
+		Thread.sleep(2000);
+		BaseFlow.driver.quit();
 		
 	}
 }
